@@ -11,7 +11,7 @@
     "dev": "run-p dev:client dev:server",
     "dev:client": "webpack --watch",
     "dev:server": "nodemon server",
-    "start": "run-s build server",
+    "start": "node server",
     "build": "webpack",
     "knex": "knex --knexfile server/db/knexfile.js",
     "db:migrate": "npm run knex migrate:latest",
