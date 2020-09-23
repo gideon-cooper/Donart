@@ -1,8 +1,8 @@
 
 exports.up = (knex) => {
     return knex.schema.createTable('users', (table) => {
-        table.increments('id');
-        table.int('artwork_id')
+        table.increments('id')
+        table.int('artwork_id') // for users own artwork
         table.string('username')
         table.binary('hash')
         table.string('email')
