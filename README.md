@@ -1,6 +1,4 @@
-# USER STORIES
-
-User Stories: 
+# USER STORIES 
 
 1. As a user (artist) I want to upload a piece of art
 2. As a user I want to view all the artworks
