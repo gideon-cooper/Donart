@@ -13,6 +13,9 @@
     "dev:server": "nodemon server",
     "start": "run-s build server",
     "build": "webpack",
+    "knex": "knex --knexfile server/db/knexfile.js",
+    "db:migrate": "npm run knex migrate:latest",
+    "db:seed": "npm run knex seed:run",
     "server": "node server",
     "test": "jest --watchAll"
   },
@@ -33,7 +36,11 @@
   },
   "dependencies": {
     "express": "^4.17.1",
+    "knex": "^0.21.5",
     "npm-run-all": "^4.1.5",
+    "react-router-dom": "^5.2.0",
+    "react-test-renderer": "^16.13.1",
+    "sqlite3": "^5.0.0",
     "superagent": "^5.2.2"
   },
   "devDependencies": {
