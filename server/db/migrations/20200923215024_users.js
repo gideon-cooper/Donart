@@ -1,14 +1,12 @@
 exports.up = (knex) => {
   return knex.schema.createTable('users', (table) => {
-    table.increments('id')
+    table.increments('id').primary()
     table.string('username')
+    table.string('name')
     table.binary('hash')
     table.string('email')
-    table.string('name')  // Women's Refuge
     table.string('profile_picture')
-    table.string('about_info')
-    table.boolean('is_artist')
-    table.boolean('is_charity') // yes
+    table.string('about', 1024)
   })
 }
 
