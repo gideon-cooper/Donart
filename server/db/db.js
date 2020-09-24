@@ -1,14 +1,18 @@
-const env = process.env.NODE_ENV || "development"
-const config = require("./knexfile")[env]
-const connection = require("knex")(config)
+const env = process.env.NODE_ENV || 'development'
+const config = require('./knexfile')[env]
+const connection = require('knex')(config)
+
+const knex = require('knex')
+const db = knex(config)
 
 module.exports = {
   getArtworks,
+  getArtworkById,
   addNewArtwork,
   artIsSold
 }
 
-function getArtworks (db = connection) {
+function getArtworks(db = connection) {
   return db('artworks')
     .join('users as artist', 'artist.id', 'artworks.artist_id')
     .join('users as cause', 'cause.id', 'artworks.cause_id')
@@ -30,25 +34,45 @@ function getArtworks (db = connection) {
     })
 }
 
-function addNewArtwork (formData, db = connection) {
-    return db('artworks')
+function getArtworkById(id) {
+  return db('artworks')
+    // .join('users as artist', 'artist.id', 'artworks.artist_id')
+    .select()
+    .where('id', id)
+    .first()
+  // .then(artwork => {
+  //   // return artwork
+  //   console.log('artwork', artwork)
+  // })
+  // .then(() => {
+  //   db.destroy()
+  // })
+}
+
+function addNewArtwork(formData, db = connection) {
+  return db('artworks')
     .join('users as artist', 'artist.id', 'artworks.artist_id')
     .join('users as cause', 'cause.id', 'artworks.cause_id')
     .insert({
-        image: formData.image,
-        name: formData.name,
-        description: formData.description,
-        price: formData.price,
-        artist_id: formData.artistId,
-        // artistName: formData.artistName,
-        // causeName: formData.causeName,
-        cause_id: formData.causeId
+      image: formData.image,
+      name: formData.name,
+      description: formData.description,
+      price: formData.price,
+      artist_id: formData.artistId,
+      // artistName: formData.artistName,
+      // causeName: formData.causeName,
+      cause_id: formData.causeId
     })
 }
 
-function artIsSold (id, db = connection) {
-    console.log(db('artworks'))
-    return db('artworks')
-        .update({ is_available: false})
-        .where('id', id)
+function artIsSold(id, db = connection) {
+  console.log(db('artworks'))
+  return db('artworks')
+    .update({ is_available: false })
+    .where('id', id)
 }
+
+// getArtworks()
+getArtworkById(900)
+// addNewArtwork()
+// artIsSold()
