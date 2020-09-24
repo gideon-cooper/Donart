@@ -40,15 +40,12 @@ function addNewArtwork (formData, db = connection) {
         description: formData.description,
         price: formData.price,
         artist_id: formData.artistId,
-        // artistName: formData.artistName,
-        // causeName: formData.causeName,
         cause_id: formData.causeId
     })
 }
 
 function artIsSold (id, db = connection) {
-    console.log(db('artworks'))
     return db('artworks')
-        .update({ is_available: false})
         .where('id', id)
+        .update({ is_available: false })
 }

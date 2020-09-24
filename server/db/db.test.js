@@ -15,7 +15,7 @@ beforeEach(() => {
 test('getArtworks returns the correct number of artworks', () => {
   return db.getArtworks(testDb)
     .then(artworks => {
-      console.log(artworks)
+      // console.log(artworks)
       expect(artworks).toHaveLength(3)
       return null
     })
@@ -31,16 +31,16 @@ test('getArtworks returns the correct number of artworks', () => {
 //     cause_id: 3
 //   }
 //   return db.addNewArtwork(newArt, testDb)
-//     .then(artwork => {
-//       expect(artwork).toBeTruthy()
+//     .then(artwork => {  // is an id at this stage
+//       expect(artwork.name).toBe('A test artwork')
 //     })
 // })
 
-// test('artIsSold updates a boolean', () => {
-//   const id = 2
-//   return db.artIsSold(id, testDb)
-//     .then(update => {
-//       console.log(update)
-//       expect(update).toHaveLength(1)
-//     })
-// })
+test('artIsSold returns a boolean', () => {
+  const id = 2
+  return db.artIsSold(id, testDb)
+    .then(update => {
+      console.log(update)
+      expect(update).toBeFalsy()
+    })
+})

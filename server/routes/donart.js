@@ -42,5 +42,17 @@ router.post('/new-artwork', (req, res) => {
   })
 })
 
+// PATCH /api/v1/donart/:id/buy-now
+router.patch('/:id/buy-now', (req, res) => {
+  const id = req.params.id
+  db.artIsSold(id)
+    .then(result => {
+      console.log(result)
+      res.status(200).send(`Artwork ${id} has sold`)})
+    .catch(err => {
+      res.status(500).send(err.message)
+    })
+})
+
 
 module.exports = router
