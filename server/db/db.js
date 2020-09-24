@@ -69,6 +69,6 @@ function artIsSold(id, db = connection) {
 }
 
 // getArtworks()
-getArtworkById(901)
+// getArtworkById(901)
 // addNewArtwork()
 // artIsSold()
