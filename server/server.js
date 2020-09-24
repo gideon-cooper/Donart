@@ -9,5 +9,5 @@ server.use(express.json())
 server.use(express.static(path.join(__dirname, './public')))
 
 // server.use('/api/v1', authRoutes)
-// server.use('/api/v1/donart', donartRoutes)
+server.use('/api/v1/donart', donartRoutes)
 module.exports = server
