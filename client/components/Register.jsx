@@ -33,7 +33,7 @@ export default function Register(props) {
       .then((token) => {
         console.log(token)
         if (isAuthenticated()) {
-          //   updateUserContext(setUser)
+          updateUserContext(setUser)
           return props.history.push('/')
         }
         return null
