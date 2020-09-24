@@ -20,3 +20,27 @@ test('getArtworks returns the correct number of artworks', () => {
       return null
     })
 })
+
+// test('addNewArtwork returns a new artwork', () => {
+//   const newArt = {
+//     image: '12345.com',
+//     name: 'A test artwork',
+//     description: 'Test description',
+//     price: 1000,
+//     artist_id: 1,
+//     cause_id: 3
+//   }
+//   return db.addNewArtwork(newArt, testDb)
+//     .then(artwork => {
+//       expect(artwork).toBeTruthy()
+//     })
+// })
+
+// test('artIsSold updates a boolean', () => {
+//   const id = 2
+//   return db.artIsSold(id, testDb)
+//     .then(update => {
+//       console.log(update)
+//       expect(update).toHaveLength(1)
+//     })
+// })
