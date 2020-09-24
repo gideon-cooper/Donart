@@ -4,6 +4,7 @@ const db = require('../db/db')
 
 const router = express.Router()
 
+// GET /api/v1/donart
 router.get('/', (req, res) => {
   db.getArtworks()
     .then(artworks => {
