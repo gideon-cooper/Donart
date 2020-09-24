@@ -1,18 +1,28 @@
-const env = process.env.NODE_ENV || 'development'
-const config = require('./knexfile')[env]
-const connection = require('knex')(config)
+const env = process.env.NODE_ENV || "development"
+const config = require("./knexfile")[env]
+const connection = require("knex")(config)
 
 module.exports = {
-  getArtworks
+  getArtworks,
 }
 
-function getArtworks (db = connection) {
-  return db('artworks')
-    .join('users as artist', 'artist.id', 'artworks.artist_id')
-    .join('users as cause', 'cause.id', 'artworks.cause_id')
-    .select('artworks.id as id', 'artworks.name as artworkName', 'price', 'image', 'artist.id as artistId', 'artist.name as artistName', 'cause.id as causeId', 'cause.name as causeName')
-    .then(result => {
-      return result.map(artwork => {
+function getArtworks(db = connection) {
+  return db("artworks")
+    .join("users as artist", "artist.id", "artworks.artist_id")
+    .join("users as cause", "cause.id", "artworks.cause_id")
+    .select(
+      "artworks.id as id",
+      "artworks.name as artworkName",
+      "price",
+      "image",
+      "artist.id as artistId",
+      "artist.name as artistName",
+      "cause.id as causeId",
+      "cause.name as causeName"
+    )
+    .then((result) => {
+      console.log(result)
+      return result.map((artwork) => {
         return {
           id: artwork.id,
           image: artwork.image,
@@ -20,7 +30,7 @@ function getArtworks (db = connection) {
           artistId: artwork.artistId,
           artistName: artwork.artistName,
           causeId: artwork.causeId,
-          causeName: artwork.causeName
+          causeName: artwork.causeName,
         }
       })
     })
