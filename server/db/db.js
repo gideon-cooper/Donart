@@ -14,3 +14,4 @@ function getArtworks (db = connection) {
 }
 
 console.log(getArtworks())
+
