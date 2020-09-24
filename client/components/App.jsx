@@ -5,10 +5,9 @@ import Signin from './SignIn'
 import Register from './Register'
 import Nav from './Nav'
 
-import '../main.scss'
 const App = () => {
   return (
-    <div className="App">
+    <div className="App has-background-light">
       <Nav />
       <Route exact path="/" component={Home} />
       <Route path="/signin" component={Signin} />

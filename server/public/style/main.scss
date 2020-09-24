@@ -1,3 +1,13 @@
+@charset "utf-8";
+
+@import '../../../node_modules/bulma/bulma.sass';
+
+@import 'modules/colors';
+
+@import '../style/partials/layout';
+
+@import '../style/partials/typography';
+
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +15,6 @@
 }
 .App {
   height: 100vh;
-  max-width: 1440px;
   margin: auto;
 }
 .Nav {
