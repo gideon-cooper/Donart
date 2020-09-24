@@ -3,7 +3,14 @@ const config = require('./knexfile')[env]
 const connection = require('knex')(config)
 
 module.exports = {
-
+  getArtworks
 }
 
-function 
+function getArtworks (db = connection) {
+  return db('artworks')
+    .join('users', 'users.id', 'artworks.artist_id')
+    // .join('users', 'users.id', 'artworks.cause_id')
+    .select()
+}
+
+console.log(getArtworks())
