@@ -30,12 +30,13 @@ router.post('/new-artwork', (req, res) => {
   const newArtwork = req.body
   console.log(newArtwork)
   db.addNewArtwork(newArtwork)
-    .then((result) => res.status(200).json(result))
-    //   .then(newId => {      // is an array of 1 number
-    //     db.getPostCommentsById(newId[0])
-    //     .then(result => res.json(camelcase(result[0])))
-    // })
-    .catch((err) => {
+    .then(result =>
+      res.status(200).json(result))
+  //   .then(newId => {      // is an array of 1 number
+  //     db.getPostCommentsById(newId[0])
+  //     .then(result => res.json(camelcase(result[0])))
+  // })
+    .catch(err => {
       res.status(500).send(err.message)
     })
 })
