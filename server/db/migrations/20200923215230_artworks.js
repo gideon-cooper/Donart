@@ -6,6 +6,7 @@ exports.up = (knex) => {
     table.string('name')
     table.string('description')
     table.string('image')
+    table.integer('price')
     table.boolean('is_available')
   })
 }
