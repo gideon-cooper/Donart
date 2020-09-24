@@ -22,7 +22,7 @@ export default function Nav() {
           <Link style={{ textDecoration: 'none' }} to="/signin">
             <h2>Sign in</h2>
           </Link>
-          <Link style={{ textDecoration: 'none' }} to="/signin">
+          <Link style={{ textDecoration: 'none' }} to="/register">
             <h2>Register</h2>
           </Link>
         </div>
