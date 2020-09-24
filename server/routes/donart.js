@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   const id = Number(req.params.id)
-  db.getUserArtwork (id)
+  db.getUserArtwork(id)
     .then(singleArt => {
       return res.json(singleArt)
     })
