@@ -36,17 +36,13 @@ function getArtworks(db = connection) {
 
 function getArtworkById(id) {
   return db('artworks')
-    // .join('users as artist', 'artist.id', 'artworks.artist_id')
     .select()
     .where('id', id)
     .first()
-  // .then(artwork => {
-  //   // return artwork
-  //   console.log('artwork', artwork)
-  // })
-  // .then(() => {
-  //   db.destroy()
-  // })
+    .then(artwork => {
+      // return artwork
+      console.log('artwork', artwork)
+    })
 }
 
 function addNewArtwork(formData, db = connection) {
@@ -73,6 +69,6 @@ function artIsSold(id, db = connection) {
 }
 
 // getArtworks()
-getArtworkById(900)
+getArtworkById(901)
 // addNewArtwork()
 // artIsSold()
