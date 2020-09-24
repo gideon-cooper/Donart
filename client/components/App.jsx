@@ -1,7 +1,11 @@
-import React from "react"
-import "../main.scss"
+import React from 'react'
+
 const App = () => {
-  return <h1>React development has begun!</h1>
+  return (
+    <div className="has-background-light">
+      <h1 className="is-size-1">React development has begun!</h1>
+    </div>
+  )
 }
 
 export default App
