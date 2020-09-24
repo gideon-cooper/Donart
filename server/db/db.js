@@ -8,8 +8,8 @@ module.exports = {
 
 function getArtworks (db = connection) {
   return db('artworks')
-    .join('users', 'users.id', 'artworks.artist_id')
-    // .join('users', 'users.id', 'artworks.cause_id')
+    .join('users as seller', 'seller.id', 'artworks.artist_id')
+    .join('users as cause', 'cause.id', 'artworks.cause_id')
     .select()
 }
 
