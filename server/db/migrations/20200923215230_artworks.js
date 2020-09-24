@@ -4,7 +4,7 @@ exports.up = (knex) => {
     table.integer('cause_id').references('users.id')// for artwork's charity (user id)
     table.integer('artist_id').references('users.id')
     table.string('name')
-    table.string('description')
+    table.string('description', 1024)
     table.string('image')
     table.integer('price')
     table.boolean('is_available')
