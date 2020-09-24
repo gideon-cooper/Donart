@@ -4,11 +4,11 @@ exports.up = (knex) => {
     table.string('username')
     table.binary('hash')
     table.string('email')
-    table.string('name')
+    table.string('name')  // Women's Refuge
     table.string('profile_picture')
     table.string('about_info')
     table.boolean('is_artist')
-    table.boolean('is_charity')
+    table.boolean('is_charity') // yes
   })
 }
 
