@@ -1,8 +1,8 @@
 const path = require('path')
 const express = require('express')
 require('dotenv').config({ path: path.join(__dirname, '.env') })
-const donartRoutes = require('./routes/donart')
-const authRoutes = require('./routes/auth')
+// const donartRoutes = require('./routes/donart')
+// const authRoutes = require('./routes/auth')
 const server = express()
 
 server.use(express.json())

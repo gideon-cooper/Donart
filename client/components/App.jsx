@@ -4,6 +4,7 @@ import Home from './Home'
 import Signin from './SignIn'
 import Register from './Register'
 import Nav from './Nav'
+import Artworks from './Artworks'
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <Route exact path="/" component={Home} />
       <Route path="/signin" component={Signin} />
       <Route path="/register" component={Register} />
+      <Route path="/artworks" component={Artworks} />
     </div>
   )
 }
