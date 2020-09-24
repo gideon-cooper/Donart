@@ -3,7 +3,7 @@ import { register, isAuthenticated } from 'authenticare/client'
 
 import { UserContext, updateUserContext } from './UserContext'
 
-export default function Register() {
+export default function Register(props) {
   const [, setUser] = useContext(UserContext)
 
   const [form, setForm] = useState({
@@ -45,21 +45,24 @@ export default function Register() {
   return (
     <div>
       <input
-        value={username}
+        name="username"
+        value={form.username}
         placeholder="username"
         onChange={handleChange}
         type="text"
         placeholder="Username"
       />
       <input
-        value={email}
+        name="email"
+        value={form.email}
         placeholder="Email"
         onChange={handleChange}
         type="email"
         placeholder="Email"
       />
       <input
-        value={password}
+        name="password"
+        value={form.password}
         placeholder="password"
         onChange={handleChange}
         type="password"

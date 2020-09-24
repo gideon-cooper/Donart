@@ -3,7 +3,7 @@ import { isAuthenticated, signIn } from 'authenticare/client'
 
 import { UserContext, updateUserContext } from './UserContext'
 
-export default function SignIn() {
+export default function SignIn(props) {
   const [, setUser] = useContext(UserContext)
   const [form, setForm] = useState({
     username: '',
