@@ -3,20 +3,15 @@ const config = require('./knexfile')[env]
 const connection = require('knex')(config)
 
 module.exports = {
-  getArtworks,
-  getUserArtwork
+  getArtworks
 }
 
 function getArtworks (db = connection) {
-  return db('gardens'.select()
-    .catch(err => {
-      console.error(err)
-      throw err
-    }))
+  return db('artworks')
+    .join('users', 'users.id', 'artworks.artist_id')
+    // .join('users', 'users.id', 'artworks.cause_id')
+    .select()
 }
 
-function getUserArtwork (id, db = cconnection) {
-    return db ('artworks')
-        .where('artworks.id', id)
-        .
-}
+console.log(getArtworks())
+
