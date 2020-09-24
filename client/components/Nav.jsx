@@ -25,7 +25,10 @@ export default function Nav(props) {
           <Link style={{ textDecoration: "none" }} to='/Artists'>
             <h2>Artists</h2>
           </Link>
-          <Link style={{ textDecoration: "none" }} to='/Charities'>
+          <Link style={{ textDecoration: 'none' }} to="/">
+            <h2>Artworks</h2>
+          </Link>
+          <Link style={{ textDecoration: 'none' }} to="/">
             <h2>Charities</h2>
           </Link>
         </div>
