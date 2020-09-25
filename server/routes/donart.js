@@ -1,10 +1,10 @@
-const express = require("express")
+const express = require('express')
 
-const db = require("../db/db")
+const db = require('../db/db')
 
 const router = express.Router()
 
-router.get("/", (req, res) => {
+router.get('/', (req, res) => {
   db.getArtworks()
     .then((artworks) => {
       return res.json({ artworks })
@@ -47,11 +47,11 @@ router.patch('/:id/buy-now', (req, res) => {
   db.artIsSold(id)
     .then(result => {
       console.log(result)
-      res.status(200).send(`Artwork ${id} has sold`)})
+      res.status(200).send(`Artwork ${id} has sold`)
+    })
     .catch(err => {
       res.status(500).send(err.message)
     })
 })
-
 
 module.exports = router
