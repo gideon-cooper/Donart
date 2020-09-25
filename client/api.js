@@ -20,7 +20,7 @@ export function editProfile(id, prof) {
 }
 
 export function getOneArt (artId) {
-  return request.get(rootUrl + '/art/' + artId).then((res) => {
+  return request.get(rootUrl + '/artworks/' + artId).then((res) => {
     return res.body
   })
 }

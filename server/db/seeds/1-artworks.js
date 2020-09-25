@@ -12,10 +12,10 @@ exports.seed = function (knex) {
         { id: 905, cause_id: 3, artist_id: 5, name: 'Happy Hayley', price: 15, description: 'This is an artwork inspired by stuff', image: '/images/Hayley_3.jpg', is_available: true },
         { id: 906, cause_id: 3, artist_id: 5, name: 'Hangry Cat', price: 15, description: 'This is an artwork inspired by pumpkin', image: '/images/Hayley_4.jpg', is_available: true },
         { id: 907, cause_id: 3, artist_id: 5, name: 'Fire in the Heart', price: 15, description: 'This is an artwork inspired by shit going down', image: '/images/Hayley_5.jpg', is_available: true },
-        { id: 908, cause_id: 4, artist_id: 6, name: 'Doobie', price: 15, description: 'This is an artwork inspired by weed', image: '/images/Ben_1.jpg', is_available: true },
-        { id: 909, cause_id: 4, artist_id: 6, name: 'Russian Gangster Pumpkin', price: 15, description: 'This is an artwork inspired by the gangster-ness of pumpkin', image: '/images/Ben_2.jpg', is_available: true },
-        { id: 910, cause_id: 4, artist_id: 6, name: 'Sad Pizza', price: 15, description: 'This is an artwork inspired by pizza toppings', image: '/images/Ben_5.jpg', is_available: true },
-        { id: 911, cause_id: 4, artist_id: 6, name: 'The Fall of the robots', price: 15, description: 'This is an artwork inspired by the present', image: '/images/Ben_4.jpg', is_available: true }
+        { id: 908, cause_id: 4, artist_id: 6, name: 'Doobie', price: 15, description: 'This is an artwork inspired by weed', image: '/images/Ben_1.JPG', is_available: true },
+        { id: 909, cause_id: 4, artist_id: 6, name: 'Russian Gangster Pumpkin', price: 15, description: 'This is an artwork inspired by the gangster-ness of pumpkin', image: '/images/Ben_2.JPG', is_available: true },
+        { id: 910, cause_id: 4, artist_id: 6, name: 'Sad Pizza', price: 15, description: 'This is an artwork inspired by pizza toppings', image: '/images/Ben_5.JPG', is_available: true },
+        { id: 911, cause_id: 4, artist_id: 6, name: 'The Fall of the robots', price: 15, description: 'This is an artwork inspired by the present', image: '/images/Ben_4.JPG', is_available: true }
       ])
     })
 }

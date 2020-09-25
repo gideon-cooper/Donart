@@ -35,8 +35,8 @@ const App = () => {
       <Route path="/artists" component={Artists} />
       <Route path="/profile" component={Profile} />
       <Route path="/editProfile/:id" component={editProfile} />
-      <Route path="/Charities" component={Charities} />
-      <Route path="/Artworks" component={Artworks} />
+      <Route path="/charities" component={Charities} />
+      <Route path="/artworks" component={Artworks} />
       <Route path="/add-artwork" component={AddArtwork} />
       <Footer />
     </div>
