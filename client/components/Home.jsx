@@ -10,13 +10,22 @@ export default function Home(props) {
   useEffect(() => {
     getArt()
       .then((res) => {
-        console.log(res)
+        console.log('res:', res)
         setArtworks(res)
       })
       .catch((error) => {
         console.log('error: ', error.message)
       })
   }, [])
+
+  function getRandomArtwork (artworks){
+    const random = Math.floor(Math.random() * artworks.length)
+    console.log('artworks array: ', artworks)
+    console.log('random:', random)
+    return artworks[random]
+  }
+
+
 
   return (
     <div className="home">
@@ -36,9 +45,12 @@ export default function Home(props) {
           <hr />
         </div>
         <div className="artworkCarousel">
-          {artworks.artworks.map((artwork) => {
+          {artworks.artworks.slice(0,5).map((artwork) => {
             return <CarouselArt art={artwork} key={artwork.id} />
           })}
+        </div>
+        <div className="artworkCarousel">
+          {getRandomArtwork(artworks)}
         </div>
       </div>
     </div>
