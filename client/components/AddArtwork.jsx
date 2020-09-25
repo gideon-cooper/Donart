@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import { getUsers } from '../api'
+import { getUsers, saveArtwork } from '../api'
 
 export default function AddArtwork () {
   const [name, setName] = useState('')
@@ -13,7 +13,22 @@ export default function AddArtwork () {
   function handleSubmit (e) {
     e.preventDefault()
     console.log(name, price, description, image, cause)
+    const newArtwork = {
+      image: image,
+      name: name,
+      description: description,
+      price: price,
+      causeId: cause
+    }
+    saveArtwork(newArtwork)
   }
+
+  //   image: formData.image,
+  //   name: formData.name,
+  //   description: formData.description,
+  //   price: formData.price,
+  //   artist_id: formData.artistId,
+  //   cause_id: formData.causeId
 
   useEffect(() => {
     getUsers()
@@ -54,13 +69,13 @@ export default function AddArtwork () {
           value={image} onChange={event => setImage(event.target.value)}/>
 
         <h5>Select your Cause</h5>
-        <select name="causes">
+        <select name="cause" onChange={event => setCause(event.target.value)}>
           <option value="">--Select your cause from the list--</option>
           {causes.map(cause => {
             return <option key={cause.id}
-              name="cause"
+              name="singleCause"
               value={cause.id}
-              onChange={event => setCause(event.target.value)}>{cause.name}</option>
+            >{cause.name}</option>
           })}
         </select>
 
