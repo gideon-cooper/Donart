@@ -12,7 +12,7 @@ exports.seed = function (knex) {
         generateHash("evelyn1"),
       ])
     )
-    .then(function ([gideonHash, lewisHash, marikaHash, evelynHash]) {
+    .then(function ([gideonHash, lewisHash, marikaHash, evelynHash, hayleyHash, benHash]) {
       // Inserts seed entries
       return knex("users").insert([
         {
@@ -55,6 +55,24 @@ exports.seed = function (knex) {
             "https://www.guinnessworldrecords.com/Images/Greta-Thunberg-youngest-time-person-of-the-yearthumbnail_tcm25-603423.jpg",
           about: "Evelyn is cool",
         },
+        {
+          id: 5,
+          username: "hayley",
+          hash: hayleyHash,
+          email: "hayley@gmail.com",
+          name: "hayley",
+          profile_picture: "https://images.squarespace-cdn.com/content/v1/56d3f4e222482e09ee8bc3a8/1560489433065-KY0Y5Q1PINIP6BP1A7BP/ke17ZwdGBToddI8pDm48kI7bufHhFsXXBLSb0DZCp-x7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1Ud6JRN1rcm9MmcQn8MfkOV9i7nHJvDTdyIVZ4-Yi4E11T0KIdeKoPzIh6OG9S_5jQQ/62443170_441790666604349_1565517864314601472_n.jpg?format=750w",
+          about: "Hayley Robertson is a multi-disciplinary creative specialising in the art department at home in Auckland, New Zealand and abroad. She has been contracting full time since 2015 and has worked on a wide range of productions from TV commercials, live theatre to award winning indie short films. Dealing with all areas of the art department, Hayley is passionate about creating a rich visual context for story telling through collaborating to realise a dream. Hayley has a bachelor of Fine Arts from Auckland University and a diploma in Sculpting and Productions Design from CutAbove Academy. She also has experience in other creative fields winning awards in photography, acting and SFX makeup.",
+        },
+        {
+          id: 6,
+          username: "ben",
+          hash: benHash,
+          email: "ben@gmail.com",
+          name: "ben",
+          profile_picture: "https://www.badaboom.co.nz/images/profile-photos/ben.jpg/@@images/ef47f76b-4091-471a-a51a-e8044620ecb1.jpeg",
+          about: "Ben Sarten Imagery is a video and photography production company operating out of THE BONE ZONE/Te iwi Koiwi Creative Space, in St Johns, Auckland. Prioritising the documentation and visibility of environmental and social/human rights activism and the New Zealand arts scene, with collaboration and community as its kaupapa.",
+        }
       ])
     })
 }
