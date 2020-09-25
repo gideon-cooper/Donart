@@ -39,7 +39,6 @@ function getArtworkById (id, db = connection) {
     .where('artworks.id', id)
     .first()
     .then(artwork => {
-      console.log('artwork', artwork)
       return {
         id: artwork.id,
         name: artwork.artworkName,
@@ -66,6 +65,10 @@ function addNewArtwork (formData, db = connection) {
       artist_id: formData.artistId,
       cause_id: formData.causeId
     })
+    .then(id => {
+      return getArtworkById(id[0])
+    })
+    .catch(err => console.log(err.message))
 }
 
 function artIsSold (id, db = connection) {
