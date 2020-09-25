@@ -10,6 +10,7 @@ import Artists from './Artists'
 import Charities from './Charities'
 import Profile from './Profile'
 import editProfile from './EditProfile'
+import Checkout from './Checkout'
 
 import { UserContext, updateUserContext } from './UserContext'
 
@@ -26,6 +27,7 @@ const App = () => {
       <Nav />
       <Route exact path="/" component={Home} />
       <Route path="/signin" component={Signin} />
+      <Route path="./Checkout" component={Checkout} />
       <Route path="/register" component={Register} />
       <Route path="/artists" component={Artists} />
       <Route path="/profile" component={Profile} />
