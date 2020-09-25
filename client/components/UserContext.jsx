@@ -6,6 +6,10 @@ export const UserContext = createContext()
 export const UserProvider = ({ reducer, initialState, children }) => {
   const [user, setUser] = useState({
     username: '',
+    id: null,
+    about: '',
+    profile_picture: '',
+    name: '',
   })
 
   return (
@@ -15,6 +19,12 @@ export const UserProvider = ({ reducer, initialState, children }) => {
   )
 }
 export const updateUserContext = (setUser) => {
-  const { username } = getDecodedToken()
-  return isAuthenticated() ? setUser({ username }) : null
+  const { username, id, about, profile_picture, name } = getDecodedToken()
+  return isAuthenticated()
+    ? setUser({ username, id, about, profile_picture, name })
+    : null
+}
+export const updateUserProfile = (setUser, user, form) => {
+  const { name, profile_picture, about } = form
+  return setUser({ ...user, about, profile_picture, name })
 }

@@ -1,25 +1,35 @@
+const { Profiler } = require('react')
+
 const env = process.env.NODE_ENV || 'development'
 const config = require('./knexfile')[env]
 const connection = require('knex')(config)
-
-const knex = require('knex')
-const db = knex(config)
 
 module.exports = {
   getArtworks,
   getArtworkById,
   addNewArtwork,
   artIsSold,
-  getUserById
+  editProfile,
+  getAllUsers
 }
 
-function getArtworks (db = connection) {
+function getArtworks(db = connection) {
   return db('artworks')
     .join('users as artist', 'artist.id', 'artworks.artist_id')
     .join('users as cause', 'cause.id', 'artworks.cause_id')
-    .select('artworks.id as id', 'artworks.name as artworkName', 'price', 'image', 'artist.id as artistId', 'artist.name as artistName', 'cause.id as causeId', 'cause.name as causeName', 'is_available')
-    .then(result => {
-      return result.map(artwork => {
+    .select(
+      'artworks.id as id',
+      'artworks.name as artworkName',
+      'price',
+      'image',
+      'artist.id as artistId',
+      'artist.name as artistName',
+      'cause.id as causeId',
+      'cause.name as causeName',
+      'is_available'
+    )
+    .then((result) => {
+      return result.map((artwork) => {
         return {
           id: artwork.id,
           name: artwork.artworkName,
@@ -29,20 +39,31 @@ function getArtworks (db = connection) {
           artistName: artwork.artistName,
           causeId: artwork.causeId,
           causeName: artwork.causeName,
-          isAvailable: artwork.is_available
+          isAvailable: artwork.is_available,
         }
       })
     })
 }
 
-function getArtworkById (id) {
+function getArtworkById (id, db = connection) {
   return db('artworks')
-    .select()
-    .where('id', id)
+    .join('users as artist', 'artist.id', 'artworks.artist_id')
+    .join('users as cause', 'cause.id', 'artworks.cause_id')
+    .select('artworks.id as id', 'artworks.name as artworkName', 'price', 'image', 'artist.id as artistId', 'artist.name as artistName', 'cause.id as causeId', 'cause.name as causeName', 'is_available')
+    .where('artworks.id', id)
     .first()
     .then(artwork => {
-      // return artwork
-      console.log('artwork', artwork)
+      return {
+        id: artwork.id,
+        name: artwork.artworkName,
+        image: artwork.image,
+        price: artwork.price,
+        artistId: artwork.artistId,
+        artistName: artwork.artistName,
+        causeId: artwork.causeId,
+        causeName: artwork.causeName,
+        isAvailable: artwork.is_available
+      }
     })
 }
 
@@ -56,26 +77,31 @@ function addNewArtwork (formData, db = connection) {
       description: formData.description,
       price: formData.price,
       artist_id: formData.artistId,
-      // artistName: formData.artistName,
-      // causeName: formData.causeName,
       cause_id: formData.causeId
     })
+    .then(id => {
+      return getArtworkById(id[0])
+    })
+    .catch(err => console.log(err.message))
 }
 
 function artIsSold (id, db = connection) {
-  console.log(db('artworks'))
   return db('artworks')
-    .update({ is_available: false })
     .where('id', id)
+    .update({ is_available: false })
 }
 
-function getUserById (id) {
+function getAllUsers (db = connection) {
   return db('users')
     .select()
-    .where('id', id)
-    .first()
-    .then(user => {
-      // return artwork
-      console.log('user', user)
-    })
+}
+
+function editProfile(id, user, db = connection) {
+  console.log('A', id)
+  console.log('B', user)
+  return db('users').where('users.id', Number(id)).first().update({
+    profile_picture: user.image,
+    about: user.about,
+    name: user.name,
+  })
 }

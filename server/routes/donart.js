@@ -4,6 +4,7 @@ const db = require('../db/db')
 
 const router = express.Router()
 
+// GET /api/v1/donart
 router.get('/', (req, res) => {
   db.getArtworks()
     .then((artworks) => {
@@ -14,8 +15,8 @@ router.get('/', (req, res) => {
     })
 })
 
-// GET artwork by id
-router.get('/:artwork_id', (req, res) => {
+// GET /api/v1/donart/artwork/:id
+router.get('/artwork/:id', (req, res) => {
   const id = Number(req.params.id)
   db.getArtworkById(id)
     .then((singleArt) => {
@@ -29,25 +30,44 @@ router.get('/:artwork_id', (req, res) => {
 // POST /api/v1/donart/new-artwork
 router.post('/new-artwork', (req, res) => {
   const newArtwork = req.body
-  console.log(newArtwork)
   db.addNewArtwork(newArtwork)
-    .then(result =>
-      res.status(200).json(result))
-    //   .then(newId => {      // is an array of 1 number
-    //     db.getPostCommentsById(newId[0])
-    //     .then(result => res.json(camelcase(result[0])))
-    // })
+    .then(result => {
+      console.log(result)
+      res.json(result)
+    })
+    .catch(err => res.status(500).send(err.message))
+})
+
+// PATCH /api/v1/donart/:id/buy-now
+router.patch('/:id/buy-now', (req, res) => {
+  const id = req.params.id
+  db.artIsSold(id)
+    .then(result => {
+      console.log(result)
+      res.status(200).send(`Artwork ${id} has sold`)
+    })
     .catch(err => {
       res.status(500).send(err.message)
     })
 })
 
-// GET user by id
-router.get('/:user_id', (req, res) => {
+router.post('/editProfile/:id', (req, res) => {
+  console.log('C', req.body)
+  console.log('D', req.params.id)
   const id = Number(req.params.id)
-  db.getUserById(id)
-    .then((singleUser) => {
-      return res.json(singleUser)
+  const user = req.body
+  db.editProfile(id, user)
+    .then((result) => res.json(result))
+
+    .catch((err) => {
+      res.status(500).send(err.message)
+    })
+})
+// GET /api/v1/donart/users
+router.get('/users', (req, res) => {
+  db.getAllUsers()
+    .then((users) => {
+      return res.json({ users })
     })
     .catch((err) => {
       res.status(500).json({ error: err.message })
@@ -55,3 +75,4 @@ router.get('/:user_id', (req, res) => {
 })
 
 module.exports = router
+//
