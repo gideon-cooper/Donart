@@ -5,12 +5,16 @@ import { UserContext, updateUserContext } from './UserContext'
 
 import Home from './Home'
 import Signin from './SignIn'
+import Checkout from './Checkout'
 import Register from './Register'
+import Artists from './Artists'
+import Profile from './Profile'
+import editProfile from './EditProfile'
+import Charities from './Charities'
+import Artworks from './Artworks'
+import AddArtwork from './AddArtwork'
 import Nav from './Nav'
 import Footer from './Footer'
-import Artists from './Artists'
-import Charities from './Charities'
-import AddArtwork from './AddArtwork'
 
 
 const App = () => {
