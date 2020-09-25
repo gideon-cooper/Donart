@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="artworkDisplay"
+>
+  <div
+    className="displayTitle"
+  >
+    <hr />
+    <h2>
+      Browse Artworks
+    </h2>
+    <hr />
+  </div>
+  <div
+    className="card-flex-wrapper column is-three-quarters"
+  />
+</div>
+`;
