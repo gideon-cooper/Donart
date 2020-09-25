@@ -8,6 +8,7 @@ import Nav from "./Nav"
 import Footer from "./Footer"
 import Artists from "./Artists"
 import Charities from "./Charities"
+import AddArtwork from "./AddArtwork"
 
 import { UserContext, updateUserContext } from "./UserContext"
 
@@ -27,6 +28,7 @@ const App = () => {
       <Route path='/register' component={Register} />
       <Route path='/artists' component={Artists} />
       <Route path='/Charities' component={Charities} />
+      <Route path='/add-artwork' component={AddArtwork} />
       <Footer />
     </div>
   )
