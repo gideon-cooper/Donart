@@ -5,7 +5,7 @@ exports.up = (knex) => {
     table.string('name')
     table.binary('hash')
     table.string('email')
-    table.string('profile_picture')
+    table.string('profile_picture', 1024)
     table.string('about', 1024)
   })
 }

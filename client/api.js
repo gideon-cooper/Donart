@@ -28,7 +28,7 @@ export function getOneArt (artId) {
 export function getUsers () {
   return request.get(`${rootUrl}/users`)
     .then(res => {
-      console.log('USERS', res.body.users)
+      console.log('USERS', res.body.users, 'res.body', res.body)
       return res.body.users
     })
 }
