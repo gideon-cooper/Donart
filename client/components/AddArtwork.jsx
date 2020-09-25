@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react'
 
+import { getUsers } from '../api'
+
 export default function AddArtwork () {
   const [name, setName] = useState('')
   const [price, setPrice] = useState(0)
   const [description, setDescription] = useState('')
   const [image, setImage] = useState('')
+  const [causes, setCauses] = useState([])
   const [cause, setCause] = useState(0)
 
   function handleSubmit (e) {
@@ -12,14 +15,14 @@ export default function AddArtwork () {
     console.log(name, price, description, image, cause)
   }
 
-    // useEffect(() => {
-    //   getUserGarden(1) // hard coded user's garden id
-    //     .then(result => {
-    //       setGardenName(result.name)
-    //       return gardenName
-    //     })
-    //     .catch(err => console.log(err))
-    // }, [])
+  useEffect(() => {
+    getUsers()
+      .then(result => {
+        setCauses(result)
+        return causes
+      })
+      .catch(err => console.log('error:', err.message))
+  }, [])
 
   return (
     <div className="form">
@@ -51,12 +54,14 @@ export default function AddArtwork () {
           value={image} onChange={event => setImage(event.target.value)}/>
 
         <h5>Select your Cause</h5>
-        <select name="cause" id=""
-          value={cause} onChange={event => setCause(event.target.value)}>
+        <select name="causes">
           <option value="">--Select your cause from the list--</option>
-          <option value="one">Cause one</option>
-          <option value="two">Cause two</option>
-          <option value="three">Cause three</option>
+          {causes.map(cause => {
+            return <option key={cause.id}
+              name="cause"
+              value={cause.id}
+              onChange={event => setCause(event.target.value)}>{cause.name}</option>
+          })}
         </select>
 
         <button className="button my-4 is-primary">Create Listing</button>
