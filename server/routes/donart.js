@@ -51,4 +51,15 @@ router.patch('/:id/buy-now', (req, res) => {
     })
 })
 
+// GET /api/v1/donart/users
+router.get('/users', (req, res) => {
+  db.getAllUsers()
+    .then((users) => {
+      return res.json({ users })
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message })
+    })
+})
+
 module.exports = router

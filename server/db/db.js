@@ -6,7 +6,8 @@ module.exports = {
   getArtworks,
   getArtworkById,
   addNewArtwork,
-  artIsSold
+  artIsSold,
+  getAllUsers
 }
 
 function getArtworks (db = connection) {
@@ -75,4 +76,9 @@ function artIsSold (id, db = connection) {
   return db('artworks')
     .where('id', id)
     .update({ is_available: false })
+}
+
+function getAllUsers (db = connection) {
+  return db('users')
+    .select()
 }
