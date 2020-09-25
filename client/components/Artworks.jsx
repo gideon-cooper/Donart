@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { getArt } from '../api'
 
-import Artwork from './Artwork'
+import Artwork from './ArtworkItem'
 
 export default function Artworks () {
   const [artworks, setArtworks] = useState({
@@ -33,14 +33,33 @@ export default function Artworks () {
     // 4 artworks per row
     // dynamically spilling over into x amount of rows
     <>
-      <h1>Browse Artworks</h1>
-        <div className="column">
-          <div className="columns">
-            {artworks.artworks.map((artwork) =>
-              <Artwork key={artwork.id} artwork={artwork}/>
-            )}
-          </div>
+      <div className='artworkDisplay'>
+        <div className='displayTitle'>
+          <hr />
+          <h2>Browse Artworks</h2>
+          <hr />
         </div>
+        <div className="card-flex-wrapper column is-three-quarters">
+
+          {artworks.artworks.map((artwork) =>
+            <Artwork key={artwork.id} artwork={artwork}/>
+          )}
+          {artworks.artworks.map((artwork) =>
+            <Artwork key={artwork.id} artwork={artwork}/>
+          )}
+          {artworks.artworks.map((artwork) =>
+            <Artwork key={artwork.id} artwork={artwork}/>
+          )}
+          {artworks.artworks.map((artwork) =>
+            <Artwork key={artwork.id} artwork={artwork}/>
+          )}
+          {artworks.artworks.map((artwork) =>
+            <Artwork key={artwork.id} artwork={artwork}/>
+          )}
+
+        </div>
+      </div>
+
     </>
   )
 }
