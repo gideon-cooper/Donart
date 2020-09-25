@@ -1,10 +1,10 @@
-const express = require("express")
+const express = require('express')
 
-const db = require("../db/db")
+const db = require('../db/db')
 
 const router = express.Router()
 
-router.get("/", (req, res) => {
+router.get('/', (req, res) => {
   db.getArtworks()
     .then((artworks) => {
       return res.json({ artworks })
@@ -30,15 +30,27 @@ router.post('/new-artwork', (req, res) => {
   const newArtwork = req.body
   console.log(newArtwork)
   db.addNewArtwork(newArtwork)
-    .then(result =>
-      res.status(200).json(result))
-  //   .then(newId => {      // is an array of 1 number
-  //     db.getPostCommentsById(newId[0])
-  //     .then(result => res.json(camelcase(result[0])))
-  // })
-    .catch(err => {
+    .then((result) => res.status(200).json(result))
+    //   .then(newId => {      // is an array of 1 number
+    //     db.getPostCommentsById(newId[0])
+    //     .then(result => res.json(camelcase(result[0])))
+    // })
+    .catch((err) => {
       res.status(500).send(err.message)
     })
 })
 
+router.post('/editProfile/:id', (req, res) => {
+  console.log('C', req.body)
+  console.log('D', req.params.id)
+  const id = Number(req.params.id)
+  const user = req.body
+  db.editProfile(id, user)
+    .then((result) => res.json(result))
+
+    .catch((err) => {
+      res.status(500).send(err.message)
+    })
+})
 module.exports = router
+//
