@@ -10,6 +10,7 @@ import Artists from "./Artists"
 import Charities from "./Charities"
 
 import { UserContext, updateUserContext } from "./UserContext"
+import Artworks from "./Artworks"
 
 const App = () => {
   const [, setUser] = useContext(UserContext)
@@ -27,6 +28,7 @@ const App = () => {
       <Route path='/register' component={Register} />
       <Route path='/artists' component={Artists} />
       <Route path='/Charities' component={Charities} />
+      <Route path='/Artworks' component={Artworks} />
       <Footer />
     </div>
   )
