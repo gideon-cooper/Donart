@@ -1,0 +1,12 @@
+.card-flex-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.card-flex-item {
+    align-items: center;
+    flex: 1 0 25%;
+    justify-content: center
+}

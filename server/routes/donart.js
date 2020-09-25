@@ -52,6 +52,18 @@ router.patch('/:id/buy-now', (req, res) => {
     })
 })
 
+router.post('/editProfile/:id', (req, res) => {
+  console.log('C', req.body)
+  console.log('D', req.params.id)
+  const id = Number(req.params.id)
+  const user = req.body
+  db.editProfile(id, user)
+    .then((result) => res.json(result))
+
+    .catch((err) => {
+      res.status(500).send(err.message)
+    })
+})
 // GET /api/v1/donart/users
 router.get('/users', (req, res) => {
   db.getAllUsers()
@@ -64,3 +76,4 @@ router.get('/users', (req, res) => {
 })
 
 module.exports = router
+//

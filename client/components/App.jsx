@@ -1,6 +1,8 @@
 import React, { useEffect, useContext } from 'react'
 import { isAuthenticated } from 'authenticare/client'
 import { Route, Link } from 'react-router-dom'
+import { UserContext, updateUserContext } from './UserContext'
+
 import Home from './Home'
 import Signin from './SignIn'
 import Register from './Register'
@@ -10,7 +12,6 @@ import Artists from './Artists'
 import Charities from './Charities'
 import AddArtwork from './AddArtwork'
 
-import { UserContext, updateUserContext } from './UserContext'
 
 const App = () => {
   const [, setUser] = useContext(UserContext)
@@ -21,14 +22,18 @@ const App = () => {
     }
   }, [])
   return (
-    <div className='App has-background-light'>
+    <div className="App has-background-light">
       <Nav />
-      <Route exact path='/' component={Home} />
-      <Route path='/signin' component={Signin} />
-      <Route path='/register' component={Register} />
-      <Route path='/artists' component={Artists} />
-      <Route path='/Charities' component={Charities} />
-      <Route path='/add-artwork' component={AddArtwork} />
+      <Route exact path="/" component={Home} />
+      <Route path="/signin" component={Signin} />
+      <Route path="./Checkout" component={Checkout} />
+      <Route path="/register" component={Register} />
+      <Route path="/artists" component={Artists} />
+      <Route path="/profile" component={Profile} />
+      <Route path="/editProfile/:id" component={editProfile} />
+      <Route path="/Charities" component={Charities} />
+      <Route path="/Artworks" component={Artworks} />
+      <Route path="/add-artwork" component={AddArtwork} />
       <Footer />
     </div>
   )
