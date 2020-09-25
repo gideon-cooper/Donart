@@ -26,7 +26,7 @@ export function saveArtwork (artwork) {
   return request.post(`${rootUrl}/new-artwork`)
     .send(artwork)
     .then(response => {
-      console.log('API result: ', response.req)
-      // return result.req.data
+      console.log('API result: ', response.body)
+      return response.body
     })
 }

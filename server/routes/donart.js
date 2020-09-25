@@ -30,6 +30,7 @@ router.get('/artwork/:id', (req, res) => {
 // POST /api/v1/donart/new-artwork
 router.post('/new-artwork', (req, res) => {
   const newArtwork = req.body
+  console.log(newArtwork)
   db.addNewArtwork(newArtwork)
     .then(result => {
       console.log('/new-artwork route result: ', result)

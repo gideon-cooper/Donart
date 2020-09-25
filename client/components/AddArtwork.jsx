@@ -18,17 +18,11 @@ export default function AddArtwork () {
       name: name,
       description: description,
       price: price,
-      causeId: cause
+      causeId: cause,
+      artistId: 1
     }
     saveArtwork(newArtwork)
   }
-
-  //   image: formData.image,
-  //   name: formData.name,
-  //   description: formData.description,
-  //   price: formData.price,
-  //   artist_id: formData.artistId,
-  //   cause_id: formData.causeId
 
   useEffect(() => {
     getUsers()
