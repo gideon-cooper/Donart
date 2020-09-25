@@ -11,6 +11,10 @@ import Footer from './Footer'
 import Artists from './Artists'
 import Charities from './Charities'
 import AddArtwork from './AddArtwork'
+import Checkout from './Checkout'
+import Profile from './Profile'
+import EditProfile from './EditProfile'
+import Artworks from './Artworks'
 
 
 const App = () => {
@@ -30,7 +34,7 @@ const App = () => {
       <Route path="/register" component={Register} />
       <Route path="/artists" component={Artists} />
       <Route path="/profile" component={Profile} />
-      <Route path="/editProfile/:id" component={editProfile} />
+      <Route path="/editProfile/:id" component={EditProfile} />
       <Route path="/Charities" component={Charities} />
       <Route path="/Artworks" component={Artworks} />
       <Route path="/add-artwork" component={AddArtwork} />
