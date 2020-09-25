@@ -9,10 +9,11 @@ module.exports = {
   getArtworks,
   getArtworkById,
   addNewArtwork,
-  artIsSold
+  artIsSold,
+  getUserById
 }
 
-function getArtworks(db = connection) {
+function getArtworks (db = connection) {
   return db('artworks')
     .join('users as artist', 'artist.id', 'artworks.artist_id')
     .join('users as cause', 'cause.id', 'artworks.cause_id')
@@ -34,7 +35,7 @@ function getArtworks(db = connection) {
     })
 }
 
-function getArtworkById(id) {
+function getArtworkById (id) {
   return db('artworks')
     .select()
     .where('id', id)
@@ -45,7 +46,7 @@ function getArtworkById(id) {
     })
 }
 
-function addNewArtwork(formData, db = connection) {
+function addNewArtwork (formData, db = connection) {
   return db('artworks')
     .join('users as artist', 'artist.id', 'artworks.artist_id')
     .join('users as cause', 'cause.id', 'artworks.cause_id')
@@ -61,14 +62,20 @@ function addNewArtwork(formData, db = connection) {
     })
 }
 
-function artIsSold(id, db = connection) {
+function artIsSold (id, db = connection) {
   console.log(db('artworks'))
   return db('artworks')
     .update({ is_available: false })
     .where('id', id)
 }
 
-// getArtworks()
-// getArtworkById(901)
-// addNewArtwork()
-// artIsSold()
+function getUserById (id) {
+  return db('users')
+    .select()
+    .where('id', id)
+    .first()
+    .then(user => {
+      // return artwork
+      console.log('user', user)
+    })
+}
