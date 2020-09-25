@@ -25,8 +25,6 @@ export default function Home(props) {
     return artworks[random]
   }
 
-
-
   return (
     <div className="home">
       <div className="aboutUsHome">
