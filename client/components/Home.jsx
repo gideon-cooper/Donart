@@ -32,6 +32,7 @@ export default function Home(props) {
         <div className="displayTitle">
           <hr />
           <h2>Artworks</h2>
+
           <hr />
         </div>
         <div className="artworkCarousel">

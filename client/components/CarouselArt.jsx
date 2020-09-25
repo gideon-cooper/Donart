@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 
+import { CartContext, updateCart } from './CartContext'
+
 export default function CarouselArt(props) {
+  const [, setCart] = useContext(CartContext)
+  const [cart, setNewCart] = useState({
+    cartItem: {},
+  })
+
   console.log(props)
+  const handleClick = () => {
+    setNewCart()
+    updateCart(setCart, cart.cartItem)
+  }
   return (
     <div className="carouselArt">
       <Link to="./Artwork/2">
@@ -14,6 +25,7 @@ export default function CarouselArt(props) {
           style={{ width: '200px', height: '200px' }}
           alt=""
         />
+        <button onClick={handleClick}>Add to cart</button>
       </Link>
     </div>
   )

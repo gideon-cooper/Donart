@@ -4,9 +4,9 @@ import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 import { logOff, isAuthenticated } from 'authenticare/client'
 import { UserContext, updateUserContext } from './UserContext'
 import Cart from './Cart'
-import { userExists } from '../../server/db/users'
 
 export default function Nav(props) {
+  const [, setUser] = useContext(UserContext)
   const [form, setForm] = useState({
     log: false,
     cart: false,
