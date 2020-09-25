@@ -13,6 +13,6 @@ export const CartProvider = ({ reducer, initialState, children }) => {
     </CartContext.Provider>
   )
 }
-export const updateCart = (setCart, cartItem) => {
+export const updateCart = (setCart, cart, cartItem) => {
   return setCart({ ...cart, cartItem })
 }

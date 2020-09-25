@@ -11,7 +11,8 @@ export default function CarouselArt(props) {
 
   console.log(props)
   const handleClick = () => {
-    setNewCart()
+    const { artworkName, artistName, causeName, image } = props.art
+    setNewCart({ artworkName, artistName, causeName, image })
     updateCart(setCart, cart.cartItem)
   }
   return (
@@ -25,8 +26,8 @@ export default function CarouselArt(props) {
           style={{ width: '200px', height: '200px' }}
           alt=""
         />
-        <button onClick={handleClick}>Add to cart</button>
       </Link>
+      <button onClick={handleClick}>Add to cart</button>
     </div>
   )
 }
