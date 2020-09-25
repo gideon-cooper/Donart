@@ -4,6 +4,7 @@ const db = require('../db/db')
 
 const router = express.Router()
 
+// GET /api/v1/donart
 router.get('/', (req, res) => {
   db.getArtworks()
     .then((artworks) => {
@@ -14,16 +15,17 @@ router.get('/', (req, res) => {
     })
 })
 
-// router.get('/:id', (req, res) => {
-//   const id = Number(req.params.id)
-//   db.getUserArtwork(id)
-//     .then((singleArt) => {
-//       return res.json(singleArt)
-//     })
-//     .catch((err) => {
-//       res.status(500).json({ error: err.message })
-//     })
-// })
+// GET /api/v1/donart/artwork/:id
+router.get('/artwork/:id', (req, res) => {
+  const id = Number(req.params.id)
+  db.getArtworkById(id)
+    .then((singleArt) => {
+      return res.json(singleArt)
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message })
+    })
+})
 
 // POST /api/v1/donart/new-artwork
 router.post('/new-artwork', (req, res) => {
