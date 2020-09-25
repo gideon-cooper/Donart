@@ -1,0 +1,229 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="artworkDisplay"
+>
+  <div
+    className="displayTitle"
+  >
+    <hr />
+    <h2>
+      Browse Artists
+    </h2>
+    <hr />
+  </div>
+  <div
+    className="card-flex-wrapper column is-three-quarters"
+  >
+    <div
+      className="card-flex-item card"
+      style={
+        Object {
+          "margin": "20px",
+        }
+      }
+    >
+      <h4
+        className="has-text-centered mt-3"
+      >
+        gideon
+      </h4>
+      <div
+        className="mt-4 mb-6 mx-6"
+        style={
+          Object {
+            "backgroundImage": "url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTrQBEpTkKYe64nSkUerucerrIhJsTbnAZ3Cg&usqp=CAU)",
+            "backgroundPosition": "top center",
+            "backgroundSize": "cover",
+            "height": "20em",
+          }
+        }
+      />
+      <p />
+    </div>
+    <div
+      className="card-flex-item card"
+      style={
+        Object {
+          "margin": "20px",
+        }
+      }
+    >
+      <h4
+        className="has-text-centered mt-3"
+      >
+        lewis
+      </h4>
+      <div
+        className="mt-4 mb-6 mx-6"
+        style={
+          Object {
+            "backgroundImage": "url(https://content.api.news/v3/images/bin/a6923adbc7bece73803221613f410782)",
+            "backgroundPosition": "top center",
+            "backgroundSize": "cover",
+            "height": "20em",
+          }
+        }
+      />
+      <p />
+    </div>
+    <div
+      className="card-flex-item card"
+      style={
+        Object {
+          "margin": "20px",
+        }
+      }
+    >
+      <h4
+        className="has-text-centered mt-3"
+      >
+        marika
+      </h4>
+      <div
+        className="mt-4 mb-6 mx-6"
+        style={
+          Object {
+            "backgroundImage": "url(https://images.fastcompany.net/image/upload/w_1280,f_auto,q_auto,fl_lossy/wp-cms/uploads/2019/12/p-1-greta-thunberg-was-just-named-time-magazines-2019-person-of-the-year.jpg)",
+            "backgroundPosition": "top center",
+            "backgroundSize": "cover",
+            "height": "20em",
+          }
+        }
+      />
+      <p />
+    </div>
+    <div
+      className="card-flex-item card"
+      style={
+        Object {
+          "margin": "20px",
+        }
+      }
+    >
+      <h4
+        className="has-text-centered mt-3"
+      >
+        evelyn
+      </h4>
+      <div
+        className="mt-4 mb-6 mx-6"
+        style={
+          Object {
+            "backgroundImage": "url(https://www.guinnessworldrecords.com/Images/Greta-Thunberg-youngest-time-person-of-the-yearthumbnail_tcm25-603423.jpg)",
+            "backgroundPosition": "top center",
+            "backgroundSize": "cover",
+            "height": "20em",
+          }
+        }
+      />
+      <p />
+    </div>
+    <div
+      className="card-flex-item card"
+      style={
+        Object {
+          "margin": "20px",
+        }
+      }
+    >
+      <h4
+        className="has-text-centered mt-3"
+      >
+        gideon
+      </h4>
+      <div
+        className="mt-4 mb-6 mx-6"
+        style={
+          Object {
+            "backgroundImage": "url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTrQBEpTkKYe64nSkUerucerrIhJsTbnAZ3Cg&usqp=CAU)",
+            "backgroundPosition": "top center",
+            "backgroundSize": "cover",
+            "height": "20em",
+          }
+        }
+      />
+      <p />
+    </div>
+    <div
+      className="card-flex-item card"
+      style={
+        Object {
+          "margin": "20px",
+        }
+      }
+    >
+      <h4
+        className="has-text-centered mt-3"
+      >
+        lewis
+      </h4>
+      <div
+        className="mt-4 mb-6 mx-6"
+        style={
+          Object {
+            "backgroundImage": "url(https://content.api.news/v3/images/bin/a6923adbc7bece73803221613f410782)",
+            "backgroundPosition": "top center",
+            "backgroundSize": "cover",
+            "height": "20em",
+          }
+        }
+      />
+      <p />
+    </div>
+    <div
+      className="card-flex-item card"
+      style={
+        Object {
+          "margin": "20px",
+        }
+      }
+    >
+      <h4
+        className="has-text-centered mt-3"
+      >
+        marika
+      </h4>
+      <div
+        className="mt-4 mb-6 mx-6"
+        style={
+          Object {
+            "backgroundImage": "url(https://images.fastcompany.net/image/upload/w_1280,f_auto,q_auto,fl_lossy/wp-cms/uploads/2019/12/p-1-greta-thunberg-was-just-named-time-magazines-2019-person-of-the-year.jpg)",
+            "backgroundPosition": "top center",
+            "backgroundSize": "cover",
+            "height": "20em",
+          }
+        }
+      />
+      <p />
+    </div>
+    <div
+      className="card-flex-item card"
+      style={
+        Object {
+          "margin": "20px",
+        }
+      }
+    >
+      <h4
+        className="has-text-centered mt-3"
+      >
+        evelyn
+      </h4>
+      <div
+        className="mt-4 mb-6 mx-6"
+        style={
+          Object {
+            "backgroundImage": "url(https://www.guinnessworldrecords.com/Images/Greta-Thunberg-youngest-time-person-of-the-yearthumbnail_tcm25-603423.jpg)",
+            "backgroundPosition": "top center",
+            "backgroundSize": "cover",
+            "height": "20em",
+          }
+        }
+      />
+      <p />
+    </div>
+  </div>
+</div>
+`;

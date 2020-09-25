@@ -1,4 +1,5 @@
 import React from 'react'
+import ArtistItem from './ArtistItem'
 
 export default function Artists () {
   const artists = [
@@ -43,24 +44,25 @@ export default function Artists () {
       about: 'Evelyn is cool'
     }
   ]
+
   return (
-       <>
+<>
       <div className='artworkDisplay'>
         <div className='displayTitle'>
           <hr />
           <h2>Browse Artists</h2>
           <hr />
         </div>
-        <div className="column">
-          <div className="columns">
-            {artists.map((artist) =>
-              <p key={artist.id}>
-                {artist.name}
-              </p>
-            )}
-          </div>
+        <div className="card-flex-wrapper column is-three-quarters">
+          {artists.map((artist) =>
+            <ArtistItem key={artist.id} artist={artist}/>
+          )}
+          {artists.map((artist) =>
+            <ArtistItem key={artist.id} artist={artist}/>
+          )}
         </div>
       </div>
+
     </>
   )
 }
