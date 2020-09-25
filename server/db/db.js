@@ -64,7 +64,9 @@ function artIsSold(id, db = connection) {
   return db('artworks').update({ is_available: false }).where('id', id)
 }
 function editProfile(id, user, db = connection) {
-  return db('users').where('users.id', id).first().update({
+  console.log('A', id)
+  console.log('B', user)
+  return db('users').where('users.id', Number(id)).first().update({
     profile_picture: user.image,
     about: user.about,
     name: user.name,

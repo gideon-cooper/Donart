@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-@import "../../../node_modules/bulma/bulma.sass";
+@import '../../../node_modules/bulma/bulma.sass';
 
 @import '../../../node_modules/react-grid-layout/css/styles.css';
 
@@ -8,9 +8,9 @@
 
 @import 'modules/colors';
 
-@import "../style/partials/layout";
+@import '../style/partials/layout';
 
-@import "../style/partials/typography";
+@import '../style/partials/typography';
 
 * {
   margin: 0;
@@ -111,5 +111,22 @@ a {
   justify-content: space-around;
   h1 {
     color: white;
+  }
+}
+.profile {
+  width: 100%;
+  height: 100%;
+  .topProfile {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    .leftProfile {
+      height: 100%;
+      width: 40%;
+    }
+    .rightProfile {
+      height: 100%;
+      width: 60%;
+    }
   }
 }
