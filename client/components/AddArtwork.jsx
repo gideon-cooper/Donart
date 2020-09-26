@@ -17,7 +17,6 @@ export default function AddArtwork () {
   function handleSubmit (e) {
     e.preventDefault()
     console.log(name, price, description, image, cause)
-    updateUserContext(setUser, user)
     console.log(user)
     const newArtwork = {
       image: image,
@@ -63,10 +62,13 @@ export default function AddArtwork () {
           value={description} onChange={event => setDescription(event.target.value)}/>
 
         <h5>Upload Image</h5>
-        <input className="" type="text"
-          placeholder="Browse"
-          name="image"
-          value={image} onChange={event => setImage(event.target.value)}/>
+        <form action="">
+          <input className="" type="file"
+            placeholder="Browse"
+            name="image"
+            value={image} onChange={handleFileInputChange}/>
+          <button className="" type="button">Upload</button>
+        </form>
 
         <h5>Select your Cause</h5>
         <select name="cause" onChange={event => setCause(event.target.value)}>
