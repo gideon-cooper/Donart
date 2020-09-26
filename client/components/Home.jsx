@@ -56,7 +56,7 @@ export default function Home(props) {
           <hr />
         </div>
         <div className="artworkCarousel">
-          {artworks.artworks.slice(0,5).map((artwork) => {
+          {artworks.artworks.slice(3,8).map((artwork) => {
             return <CarouselArt art={artwork} key={artwork.id} />
           })}
         </div>
