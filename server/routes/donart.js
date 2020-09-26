@@ -27,6 +27,18 @@ router.get('/artwork/:id', (req, res) => {
     })
 })
 
+// GET /api/v1/donart/user/:id
+router.get('/user/:id', (req, res) => {
+  const id = Number(req.params.id)
+  db.getArtistsbyID(id)
+  .then((artist) => {
+    return res.json(artist)
+  })
+  .catch((err) => {
+    res.status(500).json({ error: err.message })
+  })
+})
+
 // POST /api/v1/donart/new-artwork
 router.post('/new-artwork', (req, res) => {
   const newArtwork = req.body
