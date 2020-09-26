@@ -19,20 +19,28 @@ export default function Artworks(props) {
   return (
     <>
       <div className='artName'>
-        <h2>Art Details</h2>
-        <h2>{artworks.name}</h2>
+        <h2><strong>Art Details</strong></h2>
+        <br></br>
+        <h2><strong>{artworks.name}</strong></h2>
         <h2>By {artworks.artistName}</h2>
       </div>
 
       <div className='artDisplay'>
+        <br></br>
         <img
           src={artworks.image}
           style={{ width: '200px', height: '200px' }}
           alt=""
         />
-        <p>Description</p>
+        <br></br>
+
+        <p><strong>Description:</strong></p>
         <p>{artworks.description}</p>
-        <p>Price: ${artworks.price} NZD</p>
+        <br></br>
+        <p><strong>Your Money Will Be Going To...</strong></p>
+        <p>{artworks.causeName}</p>
+        <br></br>
+        <p><strong>Price:</strong> ${artworks.price} NZD</p>
         <button>Add to cart</button>
       </div>
     </>
