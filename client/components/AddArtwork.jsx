@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 
-import { getUsers } from '../api'
+import { getUsers, saveArtwork } from '../api'
+
+import { UserContext, updateUserContext } from './UserContext'
 
 export default function AddArtwork () {
+  const [user, setUser] = useContext(UserContext)
+
   const [name, setName] = useState('')
   const [price, setPrice] = useState(0)
   const [description, setDescription] = useState('')
@@ -13,6 +17,17 @@ export default function AddArtwork () {
   function handleSubmit (e) {
     e.preventDefault()
     console.log(name, price, description, image, cause)
+    updateUserContext(setUser, user)
+    console.log(user)
+    const newArtwork = {
+      image: image,
+      name: name,
+      description: description,
+      price: price,
+      causeId: cause,
+      artistId: user.id
+    }
+    saveArtwork(newArtwork)
   }
 
   useEffect(() => {
@@ -54,13 +69,13 @@ export default function AddArtwork () {
           value={image} onChange={event => setImage(event.target.value)}/>
 
         <h5>Select your Cause</h5>
-        <select name="causes">
+        <select name="cause" onChange={event => setCause(event.target.value)}>
           <option value="">--Select your cause from the list--</option>
           {causes.map(cause => {
             return <option key={cause.id}
-              name="cause"
+              name="singleCause"
               value={cause.id}
-              onChange={event => setCause(event.target.value)}>{cause.name}</option>
+            >{cause.name}</option>
           })}
         </select>
 

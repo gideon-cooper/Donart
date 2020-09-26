@@ -1,21 +1,21 @@
 import React, { useEffect, useContext } from 'react'
-
 import { isAuthenticated } from 'authenticare/client'
 import { Route, Link } from 'react-router-dom'
 import { UserContext, updateUserContext } from './UserContext'
 
 import Home from './Home'
 import Signin from './SignIn'
+import Checkout from './Checkout'
 import Register from './Register'
-import Nav from './Nav'
-import Footer from './Footer'
 import Artists from './Artists'
-import Charities from './Charities'
 import Profile from './Profile'
 import editProfile from './EditProfile'
-import Checkout from './Checkout'
+import Charities from './Charities'
 import Artworks from './Artworks'
 import AddArtwork from './AddArtwork'
+import Nav from './Nav'
+import Footer from './Footer'
+
 
 const App = () => {
   const [, setUser] = useContext(UserContext)

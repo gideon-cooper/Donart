@@ -32,3 +32,12 @@ export function getUsers () {
       return res.body.users
     })
 }
+
+export function saveArtwork (artwork) {
+  return request.post(`${rootUrl}/new-artwork`)
+    .send(artwork)
+    .then(response => {
+      console.log('API result: ', response.body)
+      return response.body
+    })
+}

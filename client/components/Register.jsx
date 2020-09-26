@@ -1,22 +1,22 @@
-import React, { useState, useContext } from "react"
-import { register, isAuthenticated } from "authenticare/client"
+import React, { useState, useContext } from 'react'
+import { register, isAuthenticated } from 'authenticare/client'
 
-import { UserContext, updateUserContext } from "./UserContext"
+import { UserContext, updateUserContext } from './UserContext'
 
-export default function Register(props) {
+export default function Register (props) {
   const [, setUser] = useContext(UserContext)
 
   const [form, setForm] = useState({
-    username: "",
-    email: "",
-    password: "",
+    username: '',
+    email: '',
+    password: ''
   })
-  const baseUrl = "/api/v1"
+  const baseUrl = '/api/v1'
   const handleChange = (e) => {
     const { name, value } = e.target
     setForm({
       ...form,
-      [name]: value,
+      [name]: value
     })
   }
 
@@ -26,7 +26,7 @@ export default function Register(props) {
       {
         username,
         password,
-        email,
+        email
       },
       { baseUrl }
     )
@@ -34,12 +34,12 @@ export default function Register(props) {
         console.log(token)
         if (isAuthenticated()) {
           updateUserContext(setUser)
-          return props.history.push("/")
+          return props.history.push('/')
         }
         return null
       })
       .catch((error) => {
-        console.log("error: ", error.message)
+        console.log('error: ', error.message)
       })
   }
   return (

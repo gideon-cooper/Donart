@@ -39,7 +39,7 @@ function getArtworks(db = connection) {
           artistName: artwork.artistName,
           causeId: artwork.causeId,
           causeName: artwork.causeName,
-          isAvailable: artwork.is_available,
+          isAvailable: artwork.is_available
         }
       })
     })
@@ -77,7 +77,8 @@ function addNewArtwork (formData, db = connection) {
       description: formData.description,
       price: formData.price,
       artist_id: formData.artistId,
-      cause_id: formData.causeId
+      cause_id: formData.causeId,
+      is_available: true
     })
     .then(id => {
       return getArtworkById(id[0])
