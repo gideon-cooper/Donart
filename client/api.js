@@ -41,3 +41,10 @@ export function saveArtwork (artwork) {
       return response.body
     })
 }
+
+export function getArtist (artistID) {
+  return request.get(rootUrl + '/user/' + artistID)
+  .then((res) => {
+    return res.body
+  })
+}
