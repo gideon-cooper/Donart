@@ -13,7 +13,7 @@ module.exports = {
   getAllUsers
 }
 
-function getArtworks(db = connection) {
+function getArtworks (db = connection) {
   return db('artworks')
     .join('users as artist', 'artist.id', 'artworks.artist_id')
     .join('users as cause', 'cause.id', 'artworks.cause_id')
@@ -53,6 +53,7 @@ function getArtworkById (id, db = connection) {
     .where('artworks.id', id)
     .first()
     .then(artwork => {
+      console.log(artwork)
       return {
         id: artwork.id,
         name: artwork.artworkName,
@@ -97,12 +98,12 @@ function getAllUsers (db = connection) {
     .select()
 }
 
-function editProfile(id, user, db = connection) {
+function editProfile (id, user, db = connection) {
   console.log('A', id)
   console.log('B', user)
   return db('users').where('users.id', Number(id)).first().update({
     profile_picture: user.image,
     about: user.about,
-    name: user.name,
+    name: user.name
   })
 }
