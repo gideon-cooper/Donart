@@ -15,7 +15,7 @@ import Profile from './Profile'
 import editProfile from './EditProfile'
 import Checkout from './Checkout'
 import Artworks from './Artworks'
-import AddArtwork from "./AddArtwork"
+import AddArtwork from './AddArtwork'
 
 const App = () => {
   const [, setUser] = useContext(UserContext)
@@ -36,6 +36,7 @@ const App = () => {
       <Route path="/profile" component={Profile} />
       <Route path="/editProfile/:id" component={editProfile} />
       <Route path="/Charities" component={Charities} />
+      <Route path="/Checkout" component={Checkout} />
       <Route path="/Artworks" component={Artworks} />
       <Route path="/add-artwork" component={AddArtwork} />
       <Footer />
