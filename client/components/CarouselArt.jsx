@@ -13,7 +13,7 @@ export default function CarouselArt(props) {
       updateCart(setCart, cart, newCart)
     }
   }, [newCart])
-  console.log(props)
+
   const handleClick = () => {
     const { artistName, causeName, image } = props.art
     setNewCart({ artistName, causeName, image })

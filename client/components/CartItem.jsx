@@ -13,6 +13,7 @@ export default function CartItem(props) {
           style={{ width: '30%', height: '100%' }}
           alt=""
         />
+        <button>Remove</button>
       </div>
     </div>
   )

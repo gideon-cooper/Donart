@@ -7,16 +7,36 @@ export default function Home(props) {
   const [artworks, setArtworks] = useState({
     artworks: [],
   })
+  const [ shuffledArtworks, setShuffledArtworks ] = useState([])
   useEffect(() => {
     getArt()
       .then((res) => {
-        console.log(res)
+        console.log('res:', res)
         setArtworks(res)
       })
       .catch((error) => {
         console.log('error: ', error.message)
       })
   }, [])
+
+  function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+  
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+  
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+  
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+  
+    return array;
+  }
 
   return (
     <div className="home">
@@ -36,7 +56,7 @@ export default function Home(props) {
           <hr />
         </div>
         <div className="artworkCarousel">
-          {artworks.artworks.map((artwork) => {
+          {artworks.artworks.slice(3,8).map((artwork) => {
             return <CarouselArt art={artwork} key={artwork.id} />
           })}
         </div>
