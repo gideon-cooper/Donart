@@ -15,6 +15,7 @@ import Checkout from './Checkout'
 import Profile from './Profile'
 import EditProfile from './EditProfile'
 import Artworks from './Artworks'
+import ArtistBio from './ArtistBio'
 
 
 const App = () => {
@@ -38,6 +39,7 @@ const App = () => {
       <Route path="/Charities" component={Charities} />
       <Route path="/Artworks" component={Artworks} />
       <Route path="/add-artwork" component={AddArtwork} />
+      <Route path="/ArtistBio" component={ArtistBio} />
       <Footer />
     </div>
   )
