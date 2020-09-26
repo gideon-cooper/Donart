@@ -8,7 +8,7 @@ export default function EditProfile(props) {
   const [form, setForm] = useState({
     name: '',
     about: '',
-    image: '',
+    profile_picture: '',
   })
   const handleChange = (e) => {
     const { name, value } = e.target
