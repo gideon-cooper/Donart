@@ -8,6 +8,7 @@ export default function CarouselArt(props) {
   const [user, setUser] = useContext(UserContext)
   const [newCart, setNewCart] = useState({})
   const history = useHistory()
+  const artworkId = String(props.art.id)
   useEffect(() => {
     if (Object.keys(newCart).length > 0) {
       console.log('LOL', newCart)
