@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 import { getArt } from '../api'
 import CarouselArt from './CarouselArt'
 
-export default function Home(props) {
+export default function Home (props) {
   const [artworks, setArtworks] = useState({
-    artworks: [],
+    artworks: []
   })
   const [ shuffledArtworks, setShuffledArtworks ] = useState([])
   useEffect(() => {
