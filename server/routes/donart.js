@@ -34,7 +34,7 @@ router.post('/new-artwork', (req, res) => {
   console.log(newArtwork)
   db.addNewArtwork(newArtwork)
     .then(result => {
-      console.log('/new-artwork route result: ', result)
+      // console.log('/new-artwork route result: ', result)
       res.json(result)
     })
     .catch(err => res.status(500).send(err.message))

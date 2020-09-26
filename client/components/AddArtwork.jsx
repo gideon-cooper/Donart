@@ -20,7 +20,6 @@ export default function AddArtwork () {
 
   const uploadImage = async e => {
     const files = e.target.files
-    // console.log(e.target.files)
     const data = new FormData()
     data.append('file', files[0])
     data.append('upload_preset', 'donart')
@@ -33,15 +32,10 @@ export default function AddArtwork () {
       }
     )
     const file = await res.json()
-    console.log('file res.json: ', file.secure_url)
 
     setImage(file.secure_url)
     setLoading(false)
   }
-
-  //   const [selectedFile, setSelectedFile] = useState('')
-  //   const [fileInput, setFileInput] = useState('')
-  //   const [previewSource, setPreviewSource] = useState('')
 
   function handleSubmit (e) {
     e.preventDefault()
@@ -58,39 +52,6 @@ export default function AddArtwork () {
     }
     saveArtwork(newArtwork)
   }
-
-  //   function handleUploadClick (e) {
-  //     console.log('submitting')
-  //     e.preventDefault()
-  //     if (!previewSource) return
-  //     uploadImage(previewSource)
-  //   }
-
-  //   async function uploadImage (base64EncodedImage) {
-  //     console.log('image test: ', base64EncodedImage)
-  //     try {
-  //       await fetch('/api/v1/donart/upload', {
-  //         method: 'POST',
-  //         body: JSON.stringify({ data: base64EncodedImage }),
-  //         headers: { 'Content-type': 'application/json' }
-  //       })
-  //     } catch (error) {
-  //       console.error(error)
-  //     }
-  //   }
-
-  //   function handleFileInputChange (e) {
-  //     const file = e.target.files[0]
-  //     previewFile(file)
-  //   }
-
-  //   function previewFile (file) {
-  //     const reader = new FileReader()
-  //     reader.readAsDataURL(file)
-  //     reader.onloadend = () => {
-  //       setPreviewSource(reader.result)
-  //     }
-  //   }
 
   useEffect(() => {
     getUsers()
@@ -127,18 +88,13 @@ export default function AddArtwork () {
         <h5>Upload Image</h5>
         <input className="" type="file"
           placeholder="Browse"
-          // name="image"
           name="file"
-          // value={fileInput} onChange={handleFileInputChange}/>
           onChange={uploadImage} />
         {loading ? (
           <h3>Loading...</h3>
         ) : (
           <img src={image} alt="" style={{ width: '300px' }}/>
         )}
-        {/* <button */}
-        {/* //   onClick={handleUploadClick} */}
-        {/* //   className="" type="submit">Upload</button> */}
 
         <h5>Select your Cause</h5>
         <select name="cause" onChange={event => setCause(event.target.value)}>
@@ -153,10 +109,6 @@ export default function AddArtwork () {
 
         <button className="button my-4 is-primary">Create Listing</button>
       </form>
-
-      {/* {previewSource && (
-        <img src={previewSource} style={{ height: '300px' }} alt=""/>
-      )} */}
 
     </div>
   )
