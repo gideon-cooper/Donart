@@ -15,7 +15,8 @@ import Profile from './Profile'
 import editProfile from './EditProfile'
 import Checkout from './Checkout'
 import Artworks from './Artworks'
-import AddArtwork from "./AddArtwork"
+import AddArtwork from './AddArtwork'
+import ArtworkDetails from './ArtworkDetails'
 
 const App = () => {
   const [, setUser] = useContext(UserContext)
@@ -35,9 +36,10 @@ const App = () => {
       <Route path="/artists" component={Artists} />
       <Route path="/profile" component={Profile} />
       <Route path="/editProfile/:id" component={editProfile} />
-      <Route path="/charities" component={Charities} />
-      <Route path="/artworks" component={Artworks} />
+      <Route path="/Charities" component={Charities} />
+      <Route path="/Artwork" component={Artworks} />
       <Route path="/add-artwork" component={AddArtwork} />
+      <Route path="/ArtworkDetails/:id" component={ArtworkDetails} />
       <Footer />
     </div>
   )

@@ -7,6 +7,7 @@ export function getArt () {
     return res.body
   })
 }
+
 export function editProfile(id, prof) {
   console.log(id)
   console.log(prof)
@@ -20,7 +21,8 @@ export function editProfile(id, prof) {
 }
 
 export function getOneArt (artId) {
-  return request.get(rootUrl + '/artworks/' + artId).then((res) => {
+  return request.get(rootUrl + '/Artwork/' + artId).then((res) => {
+    console.log()
     return res.body
   })
 }

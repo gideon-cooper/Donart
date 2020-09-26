@@ -39,17 +39,27 @@ function getArtworks(db = connection) {
           artistName: artwork.artistName,
           causeId: artwork.causeId,
           causeName: artwork.causeName,
-          isAvailable: artwork.is_available,
+          isAvailable: artwork.is_available
         }
       })
     })
 }
 
-function getArtworkById (id, db = connection) {
+function getArtworkById(id, db = connection) {
   return db('artworks')
     .join('users as artist', 'artist.id', 'artworks.artist_id')
     .join('users as cause', 'cause.id', 'artworks.cause_id')
-    .select('artworks.id as id', 'artworks.name as artworkName', 'price', 'image', 'artist.id as artistId', 'artist.name as artistName', 'cause.id as causeId', 'cause.name as causeName', 'is_available')
+    .select(
+      'artworks.id as id',
+      'artworks.name as artworkName',
+      'price',
+      'description',
+      'image',
+      'artist.id as artistId',
+      'artist.name as artistName',
+      'cause.id as causeId',
+      'cause.name as causeName',
+      'is_available')
     .where('artworks.id', id)
     .first()
     .then(artwork => {
@@ -58,6 +68,7 @@ function getArtworkById (id, db = connection) {
         name: artwork.artworkName,
         image: artwork.image,
         price: artwork.price,
+        description: artwork.description,
         artistId: artwork.artistId,
         artistName: artwork.artistName,
         causeId: artwork.causeId,
@@ -67,7 +78,7 @@ function getArtworkById (id, db = connection) {
     })
 }
 
-function addNewArtwork (formData, db = connection) {
+function addNewArtwork(formData, db = connection) {
   return db('artworks')
     .join('users as artist', 'artist.id', 'artworks.artist_id')
     .join('users as cause', 'cause.id', 'artworks.cause_id')
@@ -85,13 +96,13 @@ function addNewArtwork (formData, db = connection) {
     .catch(err => console.log(err.message))
 }
 
-function artIsSold (id, db = connection) {
+function artIsSold(id, db = connection) {
   return db('artworks')
     .where('id', id)
     .update({ is_available: false })
 }
 
-function getAllUsers (db = connection) {
+function getAllUsers(db = connection) {
   return db('users')
     .select()
 }
@@ -102,6 +113,6 @@ function editProfile(id, user, db = connection) {
   return db('users').where('users.id', Number(id)).first().update({
     profile_picture: user.image,
     about: user.about,
-    name: user.name,
+    name: user.name
   })
 }
