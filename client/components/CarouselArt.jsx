@@ -1,11 +1,13 @@
 import React, { useState, useContext, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-
+import { Link, useHistory } from 'react-router-dom'
+import { UserContext } from './UserContext'
 import { CartContext, updateCart } from './CartContext'
 
 export default function CarouselArt(props) {
   const [cart, setCart] = useContext(CartContext)
+  const [user, setUser] = useContext(UserContext)
   const [newCart, setNewCart] = useState({})
+  const history = useHistory()
   useEffect(() => {
     if (Object.keys(newCart).length > 0) {
       console.log('LOL', newCart)
@@ -15,8 +17,15 @@ export default function CarouselArt(props) {
   }, [newCart])
 
   const handleClick = () => {
-    const { artistName, causeName, image } = props.art
-    setNewCart({ artistName, causeName, image })
+    console.log(props.art)
+    console.log(props)
+    console.log(user.about)
+    const { artistName, causeName, image, id } = props.art
+    if (user.about === '') {
+      history.push('/signin')
+    } else {
+      setNewCart({ artistName, causeName, image, id })
+    }
   }
   return (
     <div className="carouselArt">

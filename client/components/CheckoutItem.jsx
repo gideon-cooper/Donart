@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { CartContext, updateCart, deleteCartItem } from './CartContext'
 
 export default function CheckoutItem(props) {
+  const [cart, setCart] = useContext(CartContext)
   return (
     <div className="checkoutItem">
       <div className="leftCheckout">
@@ -14,6 +16,9 @@ export default function CheckoutItem(props) {
       </div>
       <div className="rightCheckout">
         <p>PRICE</p>
+        <button onClick={() => deleteCartItem(setCart, cart, props.item.id)}>
+          Remove
+        </button>
       </div>
     </div>
   )

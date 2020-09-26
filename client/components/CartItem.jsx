@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { CartContext, updateCart, deleteCartItem } from './CartContext'
 
 export default function CartItem(props) {
+  const [cart, setCart] = useContext(CartContext)
+  console.log('CARTITEM', props.item.id)
   return (
     <div className="cartItem">
       <div className="leftCart">
@@ -13,7 +16,9 @@ export default function CartItem(props) {
           style={{ width: '30%', height: '100%' }}
           alt=""
         />
-        <button>Remove</button>
+        <button onClick={() => deleteCartItem(setCart, cart, props.item.id)}>
+          Remove
+        </button>
       </div>
     </div>
   )
