@@ -1,22 +1,35 @@
-import React, { useState, useContext } from 'react'
-import { Link } from 'react-router-dom'
-
+import React, { useState, useContext, useEffect } from 'react'
+import { Link, useHistory } from 'react-router-dom'
+import { UserContext } from './UserContext'
 import { CartContext, updateCart } from './CartContext'
 
 export default function CarouselArt(props) {
-  const [, setCart] = useContext(CartContext)
-  const [cart, setNewCart] = useState({
-    cartItem: {},
-  })
+  const [cart, setCart] = useContext(CartContext)
+  const [user, setUser] = useContext(UserContext)
+  const [newCart, setNewCart] = useState({})
+  const history = useHistory()
+  useEffect(() => {
+    if (Object.keys(newCart).length > 0) {
+      console.log('LOL', newCart)
+      console.log('HEYY')
+      updateCart(setCart, cart, newCart)
+    }
+  }, [newCart])
 
-  console.log(props)
   const handleClick = () => {
-    setNewCart()
-    updateCart(setCart, cart.cartItem)
+    console.log(props.art)
+    console.log(props)
+    console.log(user.about)
+    const { artistName, causeName, image, id } = props.art
+    if (user.about === '') {
+      history.push('/signin')
+    } else {
+      setNewCart({ artistName, causeName, image, id })
+    }
   }
   return (
     <div className="carouselArt">
-      <Link to="./Artwork/2">
+      <Link to={`/ArtworkDetails/${artworkId}`}>
         <p>Art name: {props.art.artworkName}</p>
         <p>Artist: {props.art.artistName}</p>
         <p>Cause: {props.art.causeName}</p>
@@ -25,8 +38,8 @@ export default function CarouselArt(props) {
           style={{ width: '200px', height: '200px' }}
           alt=""
         />
-        <button onClick={handleClick}>Add to cart</button>
       </Link>
+      <button onClick={handleClick}>Add to cart</button>
     </div>
   )
 }

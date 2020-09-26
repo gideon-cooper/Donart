@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 
 import { getUsers, saveArtwork } from '../api'
 
+import { UserContext, updateUserContext } from './UserContext'
+
 export default function AddArtwork () {
+  const [user, setUser] = useContext(UserContext)
+
   const [name, setName] = useState('')
   const [price, setPrice] = useState(0)
   const [description, setDescription] = useState('')
@@ -13,13 +17,15 @@ export default function AddArtwork () {
   function handleSubmit (e) {
     e.preventDefault()
     console.log(name, price, description, image, cause)
+    updateUserContext(setUser, user)
+    console.log(user)
     const newArtwork = {
       image: image,
       name: name,
       description: description,
       price: price,
       causeId: cause,
-      artistId: 1
+      artistId: user.id
     }
     saveArtwork(newArtwork)
   }
