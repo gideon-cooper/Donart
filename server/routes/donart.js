@@ -54,8 +54,8 @@ router.patch('/:id/buy-now', (req, res) => {
 })
 
 router.post('/editProfile/:id', (req, res) => {
-  console.log('C', req.body)
-  console.log('D', req.params.id)
+  // console.log('C', req.body)
+  // console.log('D', req.params.id)
   const id = Number(req.params.id)
   const user = req.body
   db.editProfile(id, user)

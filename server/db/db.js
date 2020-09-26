@@ -99,8 +99,8 @@ function getAllUsers (db = connection) {
 }
 
 function editProfile (id, user, db = connection) {
-  console.log('A', id)
-  console.log('B', user)
+  // console.log('A', id)
+  // console.log('B', user)
   return db('users').where('users.id', Number(id)).first().update({
     profile_picture: user.image,
     about: user.about,

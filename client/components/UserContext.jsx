@@ -9,7 +9,7 @@ export const UserProvider = ({ reducer, initialState, children }) => {
     id: null,
     about: '',
     profile_picture: '',
-    name: '',
+    name: ''
   })
 
   return (
@@ -24,7 +24,7 @@ export const updateUserContext = (setUser) => {
     ? setUser({ username, id, about, profile_picture, name })
     : null
 }
-export const updateUserProfile = (setUser, user, form) => {
-  const { name, profile_picture, about } = form
-  return setUser({ ...user, about, profile_picture, name })
+export const updateUserProfile = (setUser, user, form, profile_picture) => {
+  const { name, about } = form
+  return setUser({ ...user, about, name, profile_picture })
 }
