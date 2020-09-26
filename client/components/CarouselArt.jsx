@@ -1,19 +1,22 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 import { CartContext, updateCart } from './CartContext'
 
 export default function CarouselArt(props) {
-  const [, setCart] = useContext(CartContext)
-  const [cart, setNewCart] = useState({
-    cartItem: {},
-  })
-
+  const [cart, setCart] = useContext(CartContext)
+  const [newCart, setNewCart] = useState({})
+  useEffect(() => {
+    if (Object.keys(newCart).length > 0) {
+      console.log('LOL', newCart)
+      console.log('HEYY')
+      updateCart(setCart, cart, newCart)
+    }
+  }, [newCart])
   console.log(props)
   const handleClick = () => {
-    const { artworkName, artistName, causeName, image } = props.art
-    setNewCart({ artworkName, artistName, causeName, image })
-    updateCart(setCart, cart.cartItem)
+    const { artistName, causeName, image } = props.art
+    setNewCart({ artistName, causeName, image })
   }
   return (
     <div className="carouselArt">
