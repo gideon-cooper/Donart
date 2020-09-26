@@ -7,8 +7,10 @@ export default function CarouselArt(props) {
   const [cart, setCart] = useContext(CartContext)
   const [user, setUser] = useContext(UserContext)
   const [newCart, setNewCart] = useState({})
+
   const history = useHistory()
   const artworkId = String(props.art.id)
+  const duplicate = (item) => item.artistName === props.art.artistName
   useEffect(() => {
     if (Object.keys(newCart).length > 0) {
       console.log('LOL', newCart)
@@ -40,7 +42,12 @@ export default function CarouselArt(props) {
           alt=""
         />
       </Link>
-      <button onClick={handleClick}>Add to cart</button>
+      {}
+      {cart.some(duplicate) ? (
+        <button>In trolley</button>
+      ) : (
+        <button onClick={handleClick}>Add to cart</button>
+      )}
     </div>
   )
 }
