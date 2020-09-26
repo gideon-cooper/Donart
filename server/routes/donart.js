@@ -1,5 +1,6 @@
 const express = require('express')
 
+const { cloudinary } = require('../cloudinaryConfig')
 const db = require('../db/db')
 
 const router = express.Router()
@@ -73,6 +74,16 @@ router.get('/users', (req, res) => {
     .catch((err) => {
       res.status(500).json({ error: err.message })
     })
+})
+
+// POST /api/v1/donart/upload
+router.post('/upload', (req, res) => {
+  try {
+    const fileStr = req.body.data
+    console.log(fileStr)
+  } catch (error) {
+    console.error(error)
+  }
 })
 
 module.exports = router
