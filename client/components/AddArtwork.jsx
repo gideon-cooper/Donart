@@ -20,7 +20,7 @@ export default function AddArtwork () {
 
   const uploadImage = async e => {
     const files = e.target.files
-    console.log(e.target.files)
+    // console.log(e.target.files)
     const data = new FormData()
     data.append('file', files[0])
     data.append('upload_preset', 'donart')
@@ -46,14 +46,15 @@ export default function AddArtwork () {
   function handleSubmit (e) {
     e.preventDefault()
     console.log(name, price, description, image, cause)
-    console.log(user)
+    console.log('user: ', user)
     const newArtwork = {
       image: image,
       name: name,
       description: description,
       price: price,
       causeId: cause,
-      artistId: user.id
+      artistId: user.id,
+      artistName: user.name
     }
     saveArtwork(newArtwork)
   }
@@ -135,9 +136,9 @@ export default function AddArtwork () {
         ) : (
           <img src={image} alt="" style={{ width: '300px' }}/>
         )}
-        <button
-        //   onClick={handleUploadClick}
-          className="" type="submit">Upload</button>
+        {/* <button */}
+        {/* //   onClick={handleUploadClick} */}
+        {/* //   className="" type="submit">Upload</button> */}
 
         <h5>Select your Cause</h5>
         <select name="cause" onChange={event => setCause(event.target.value)}>
