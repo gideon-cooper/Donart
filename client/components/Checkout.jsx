@@ -1,23 +1,17 @@
 import React, { useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { CartContext, updateCart } from './CartContext'
-import { CheckoutContext, updateCheckout } from './CheckoutContext'
-import CheckoutItem from './CheckoutItem'
+
+import EmptyCart from './EmptyCart'
+import NotEmptyCart from './NotEmptyCart'
 
 export default function Checkout() {
   const [cart, setCart] = useContext(CartContext)
-  const [checkout, setCheckout] = useContext(CheckoutContext)
-  useEffect(() => {
-    updateCheckout(setCheckout)
-  }, [])
+
+  console.log(cart)
   return (
     <div className="checkout">
-      {cart.map((item) => {
-        return <CheckoutItem item={item} key={item.image} />
-      })}
-      <Link style={{ textDecoration: 'none' }} to="/Confirmation">
-        <button>Buy now</button>
-      </Link>
+      {cart.length === 0 ? <EmptyCart /> : <NotEmptyCart />}
     </div>
   )
 }
