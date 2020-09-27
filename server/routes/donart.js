@@ -32,12 +32,12 @@ router.get('/artwork/:id', (req, res) => {
 router.get('/user/:id', (req, res) => {
   const id = Number(req.params.id)
   db.getArtistsbyID(id)
-  .then((artist) => {
-    return res.json(artist)
-  })
-  .catch((err) => {
-    res.status(500).json({ error: err.message })
-  })
+    .then((artist) => {
+      return res.json(artist)
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message })
+    })
 })
 
 // POST /api/v1/donart/new-artwork
