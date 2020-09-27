@@ -69,6 +69,13 @@ export default function Home(props) {
             return <CarouselArt art={artwork} key={artwork.id} />
           })}
         </div>
+        <div className="artworkDisplay">
+          <div className="displayTitle">
+            <hr />
+            <h2>Success stories</h2>
+            <hr />
+          </div>
+        </div>
       </div>
     </div>
   )
