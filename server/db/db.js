@@ -10,7 +10,7 @@ module.exports = {
   addNewArtwork,
   artIsSold,
   editProfile,
-  getAllUsers
+  getAllUsers,
 }
 
 function getArtworks(db = connection) {
@@ -24,12 +24,15 @@ function getArtworks(db = connection) {
       'image',
       'artist.id as artistId',
       'artist.name as artistName',
+      'artist.profile_picture as artistProfile',
+      'artist.about as artistAbout',
       'cause.id as causeId',
       'cause.name as causeName',
       'is_available'
     )
     .then((result) => {
       return result.map((artwork) => {
+        console.log(artwork)
         return {
           id: artwork.id,
           name: artwork.artworkName,
@@ -37,9 +40,11 @@ function getArtworks(db = connection) {
           price: artwork.price,
           artistId: artwork.artistId,
           artistName: artwork.artistName,
+          artistProfile: artwork.artistProfile,
+          artistAbout: artwork.artistAbout,
           causeId: artwork.causeId,
           causeName: artwork.causeName,
-          isAvailable: artwork.is_available
+          isAvailable: artwork.is_available,
         }
       })
     })
@@ -59,10 +64,11 @@ function getArtworkById(id, db = connection) {
       'artist.name as artistName',
       'cause.id as causeId',
       'cause.name as causeName',
-      'is_available')
+      'is_available'
+    )
     .where('artworks.id', id)
     .first()
-    .then(artwork => {
+    .then((artwork) => {
       return {
         id: artwork.id,
         name: artwork.artworkName,
@@ -73,7 +79,7 @@ function getArtworkById(id, db = connection) {
         artistName: artwork.artistName,
         causeId: artwork.causeId,
         causeName: artwork.causeName,
-        isAvailable: artwork.is_available
+        isAvailable: artwork.is_available,
       }
     })
 }
@@ -89,23 +95,20 @@ function addNewArtwork(formData, db = connection) {
       price: formData.price,
       artist_id: formData.artistId,
       cause_id: formData.causeId,
-      is_available: true
+      is_available: true,
     })
-    .then(id => {
+    .then((id) => {
       return getArtworkById(id[0])
     })
-    .catch(err => console.log(err.message))
+    .catch((err) => console.log(err.message))
 }
 
 function artIsSold(id, db = connection) {
-  return db('artworks')
-    .where('id', id)
-    .update({ is_available: false })
+  return db('artworks').where('id', id).update({ is_available: false })
 }
 
 function getAllUsers(db = connection) {
-  return db('users')
-    .select()
+  return db('users').select()
 }
 
 function editProfile(id, user, db = connection) {
@@ -114,6 +117,6 @@ function editProfile(id, user, db = connection) {
   return db('users').where('users.id', Number(id)).first().update({
     profile_picture: user.image,
     about: user.about,
-    name: user.name
+    name: user.name,
   })
 }

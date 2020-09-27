@@ -19,7 +19,8 @@ export default function Home(props) {
         console.log('error: ', error.message)
       })
   }, [])
-
+  console.log('HEA', artworks)
+  console.log
   function shuffle(array) {
     var currentIndex = array.length,
       temporaryValue,
