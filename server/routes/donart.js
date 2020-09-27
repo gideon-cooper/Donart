@@ -91,6 +91,19 @@ router.get('/users', (req, res) => {
     })
 })
 
+// GET /api/v1/donart/profile/:id
+router.get('/profile/:id', (req, res) => {
+  const id = Number(req.params.id)
+  db.viewOwnProfileById(id)
+    .then((user) => {
+      console.log("Route: user: ", user)
+      return res.json(user)
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message })
+    })
+})
+
 // POST /api/v1/donart/upload
 // router.post('/upload', (req, res) => {
 //   try {

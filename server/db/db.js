@@ -11,7 +11,8 @@ module.exports = {
   artIsSold,
   editProfile,
   getAllUsers,
-  getArtistsbyID
+  getArtistsbyID,
+  viewOwnProfileById
 }
 
 function getArtworks (db = connection) {
@@ -45,7 +46,7 @@ function getArtworks (db = connection) {
           artistAbout: artwork.artistAbout,
           causeId: artwork.causeId,
           causeName: artwork.causeName,
-          isAvailable: artwork.is_available,
+          isAvailable: artwork.is_available
         }
       })
     })
@@ -80,7 +81,7 @@ function getArtworkById (id, db = connection) {
         artistName: artwork.artistName,
         causeId: artwork.causeId,
         causeName: artwork.causeName,
-        isAvailable: artwork.is_available,
+        isAvailable: artwork.is_available
       }
     })
 }
@@ -96,7 +97,7 @@ function addNewArtwork (formData, db = connection) {
       price: formData.price,
       artist_id: formData.artistId,
       cause_id: formData.causeId,
-      is_available: true,
+      is_available: true
     })
     .then((id) => {
       return getArtworkById(id[0])
@@ -151,8 +152,9 @@ function editProfile (id, user, db = connection) {
 
 function viewOwnProfileById (id, db = connection) {
   return db('users')
-    .join('artworks', 'artworks.artist_id', 'users.id')
-    .select('users.id as id', 'users.name as artistName', 'about', 'profile_picture as profilePicture', 'artworks.id as artworkID', 'email', 'artworks.name as artworkName', 'artworks.image as artImage', 'artworks.price as price')
+    // .join('artworks', 'artworks.artist_id', 'users.id')
+    .select('users.id as id', 'users.name as artistName',
+      'about', 'profile_picture as profilePicture', 'email')
     .where('users.id', id)
     .then(result => {
       return {
@@ -160,15 +162,15 @@ function viewOwnProfileById (id, db = connection) {
         artistName: result[0].artistName,
         about: result[0].about,
         profilePicture: result[0].profilePicture,
-        email: result[0].email,
-        artworks: !result[0].artworkID ? [] : result.map(art => {
-          return {
-            id: art.artworkID,
-            name: art.artworkName,
-            image: art.artImage,
-            price: art.price
-          }
-        })
+        email: result[0].email
+        // artworks: !result[0].artworkID ? [] : result.map(art => {
+        //   return {
+        //     id: art.artworkID,
+        //     name: art.artworkName,
+        //     image: art.artImage,
+        //     price: art.price
       }
     })
 }
+// })
+// }
