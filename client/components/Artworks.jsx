@@ -3,9 +3,9 @@ import { getArt } from '../api'
 
 import Artwork from './ArtworkItem'
 
-export default function Artworks () {
+export default function Artworks() {
   const [artworks, setArtworks] = useState({
-    artworks: []
+    artworks: [],
   })
   useEffect(() => {
     getArt()
@@ -18,19 +18,18 @@ export default function Artworks () {
   }, [])
   return (
     <>
-      <div className='artworkDisplay'>
-        <div className='displayTitle'>
+      <div className="artworkDisplay">
+        <div className="displayTitle">
           <hr />
           <h2>Browse Artworks</h2>
           <hr />
         </div>
         <div className="card-flex-wrapper column is-three-quarters">
-          {artworks.artworks.map((artwork) =>
-            <Artwork key={artwork.id} artwork={artwork}/>
-          )}
+          {artworks.artworks.map((artwork) => (
+            <Artwork key={artwork.id} artwork={artwork} />
+          ))}
         </div>
       </div>
-
     </>
   )
 }
