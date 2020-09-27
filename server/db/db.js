@@ -14,6 +14,10 @@ module.exports = {
   getArtistsbyID
 }
 
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 function getArtworks (db = connection) {
   return db('artworks')
     .join('users as artist', 'artist.id', 'artworks.artist_id')
@@ -40,12 +44,12 @@ function getArtworks (db = connection) {
           image: artwork.image,
           price: artwork.price,
           artistId: artwork.artistId,
-          artistName: artwork.artistName,
+          artistName: capitalizeFirstLetter(artwork.artistName),
           artistProfile: artwork.artistProfile,
           artistAbout: artwork.artistAbout,
           causeId: artwork.causeId,
-          causeName: artwork.causeName,
-          isAvailable: artwork.is_available,
+          causeName: capitalizeFirstLetter(artwork.causeName),
+          isAvailable: artwork.is_available
         }
       })
     })
@@ -80,7 +84,7 @@ function getArtworkById (id, db = connection) {
         artistName: artwork.artistName,
         causeId: artwork.causeId,
         causeName: artwork.causeName,
-        isAvailable: artwork.is_available,
+        isAvailable: artwork.is_available
       }
     })
 }
@@ -96,7 +100,7 @@ function addNewArtwork (formData, db = connection) {
       price: formData.price,
       artist_id: formData.artistId,
       cause_id: formData.causeId,
-      is_available: true,
+      is_available: true
     })
     .then((id) => {
       return getArtworkById(id[0])
@@ -108,20 +112,22 @@ function artIsSold (id, db = connection) {
   return db('artworks')
     .where('id', id)
     .update({ is_available: false })
+}
 
 function getAllUsers (db = connection) {
   return db('users')
     .select()
+}
 
 function getArtistsbyID (id, db = connection) {
   return db('users')
     .join('artworks', 'artworks.artist_id', 'users.id')
-    .select('users.id as id', 'users.name as artistName', 'about', 'profile_picture as profilePicture', 'artworks.id as artworkID', 'email', 'artworks.name as artworkName', 'artworks.image as artImage', 'artworks.price as price')
+    .select('users.id as id', 'users.name as artistName', 'about', 'profile_picture as profilePicture', 'artworks.id as artworkID', 'email', 'artworks.name as artworkName', 'artworks.image as artImage', 'artworks.price as price', 'cause_id as causeName')
     .where('users.id', id)
     .then(result => {
       return {
         id: result[0].id,
-        artistName: result[0].artistName,
+        artistName: capitalizeFirstLetter(result[0].artistName),
         about: result[0].about,
         profilePicture: result[0].profilePicture,
         email: result[0].email,
@@ -130,7 +136,9 @@ function getArtistsbyID (id, db = connection) {
             id: art.artworkID,
             name: art.artworkName,
             image: art.artImage,
-            price: art.price
+            price: art.price,
+            causeName: art.causeName,
+            artistName: art.artistName
           }
         })
       }
@@ -143,7 +151,7 @@ function editProfile (id, user, db = connection) {
   return db('users').where('users.id', Number(id)).first().update({
     profile_picture: user.image,
     about: user.about,
-    name: user.name,
+    name: user.name
   })
 }
 
