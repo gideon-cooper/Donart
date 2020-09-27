@@ -39,8 +39,8 @@ export default function AddArtwork () {
 
   function handleSubmit (e) {
     e.preventDefault()
-    console.log(name, price, description, image, cause)
-    console.log('user: ', user)
+    // console.log(name, price, description, image, cause)
+    // console.log('user: ', user)
     const newArtwork = {
       image: image,
       name: name,

@@ -4,15 +4,14 @@ import regeneratorRuntime from 'regenerator-runtime'
 import { editProfile } from '../api'
 import { UserContext, updateUserProfile } from './UserContext'
 
-
-export default function EditProfile(props) {
+export default function EditProfile (props) {
   const [user, setUser] = useContext(UserContext)
-  console.log(props)
+  // console.log(props)
   const [form, setForm] = useState({
     name: '',
     about: ''
   })
-  const [profile_picture, setImage] = useState('')
+  const [image, setImage] = useState('')
 
   const [loading, setLoading] = useState(false)
 
@@ -23,14 +22,16 @@ export default function EditProfile(props) {
       [name]: value
     })
   }
+
   const handleClick = () => {
-    editProfile(props.match.params.id, form)
-    updateUserProfile(setUser, user, form, image)
+    const updatedInfo = { name: form.name, about: form.about, image }
+    // console.log("image in handleclick: ", image)
+    editProfile(props.match.params.id, updatedInfo)
+    updateUserProfile(setUser, user, updatedInfo)
     return props.history.push('/profile')
   }
-  // console.log("USER: ", user)
-  // console.log(props.match.params.id)
-  console.log("image: ", image)
+
+  console.log('image: ', image)
 
   const uploadImage = async e => {
     const files = e.target.files
@@ -82,7 +83,12 @@ export default function EditProfile(props) {
         onChange={uploadImage}
         type="file"
         placeholder="Choose profile picture"
-      /> 
+      />
+      {loading ? (
+        <h3>Loading...</h3>
+      ) : (
+        <img src={image} alt="" style={{ width: '300px' }}/>
+      )}
       <br/><br/>
       <button onClick={handleClick}>Update Profile</button>
     </div>

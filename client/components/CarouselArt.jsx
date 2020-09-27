@@ -9,7 +9,7 @@ export default function CarouselArt(props) {
     cartItem: {},
   })
 
-  console.log(props)
+  // console.log(props)
   const handleClick = () => {
     setNewCart()
     updateCart(setCart, cart.cartItem)

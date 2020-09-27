@@ -7,14 +7,15 @@ export function getArt () {
     return res.body
   })
 }
-export function editProfile (id, prof) {
+export function editProfile (id, updatedInfo) {
   // console.log(id)
   // console.log(prof)
+  // console.log(image)
   return request
     .post(rootUrl + '/editProfile/' + id)
-    .send(prof)
+    .send(updatedInfo)
     .then((res) => {
-      // console.log(res)
+      console.log("api res: ", res.body)
       return res.body
     })
 }

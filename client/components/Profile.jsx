@@ -11,7 +11,7 @@ export default function Profile () {
       <div className="topProfile">
         <div className="leftProfile">
           <h1>{user.name}</h1>
-          <img src={user.profile_picture} alt="" />
+          <img src={user.image} alt="" />
           <Link to={`/editProfile/${userId}`}>
             <button>Edit Profile</button>
           </Link>

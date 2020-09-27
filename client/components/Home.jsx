@@ -10,7 +10,7 @@ export default function Home(props) {
   useEffect(() => {
     getArt()
       .then((res) => {
-        console.log(res)
+        // console.log(res)
         setArtworks(res)
       })
       .catch((error) => {
