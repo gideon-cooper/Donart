@@ -13,6 +13,7 @@ export default function ArtworkItem ({ artwork }) {
    function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
+  
   return (
     <div className="card-flex-item card" style={{ margin: '20px' }}>
       <Link to={`/ArtworkDetails/${artworkID}`}>

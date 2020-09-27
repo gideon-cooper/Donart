@@ -6,7 +6,7 @@ import ArtworkItem from './ArtworkItem'
 
 function ArtistBio(props) {
     const [artist, setArtist] = useState({
-        artist: []
+        artist: {}
     })
     useEffect(() => {
         getArtist(props.match.params.id)
@@ -34,6 +34,10 @@ function ArtistBio(props) {
     //     backgroundPosition: 'top center',
     //     height: '20em'
     //   }
+
+    function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+      }
 
     return (
         <>
