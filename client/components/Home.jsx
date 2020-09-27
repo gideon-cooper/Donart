@@ -51,7 +51,7 @@ export default function Home (props) {
       <div className="artworkDisplay">
         <div className="displayTitle">
           <hr />
-          <h2>Artworks</h2>
+          <h2>Artworksasdasdas</h2>
 
           <hr />
         </div>
