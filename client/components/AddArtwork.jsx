@@ -18,6 +18,8 @@ export default function AddArtwork () {
 
   const [loading, setLoading] = useState(false)
 
+  // console.log("user from Artwork context:", user)
+
   const uploadImage = async e => {
     const files = e.target.files
     const data = new FormData()

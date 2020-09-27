@@ -31,7 +31,7 @@ export default function EditProfile (props) {
     return props.history.push('/profile')
   }
 
-  console.log('image: ', image)
+  // console.log('image: ', image)
 
   const uploadImage = async e => {
     const files = e.target.files

@@ -20,13 +20,14 @@ import ArtistBio from './ArtistBio'
 import ArtworkDetails from './ArtworkDetails'
 
 const App = () => {
-  const [, setUser] = useContext(UserContext)
+  const [user, setUser] = useContext(UserContext)
 
   useEffect(() => {
     if (isAuthenticated()) {
       updateUserContext(setUser)
     }
   }, [])
+
   return (
     <div className="App has-background-light">
       <Nav />

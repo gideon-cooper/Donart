@@ -92,14 +92,14 @@ router.get('/users', (req, res) => {
 })
 
 // POST /api/v1/donart/upload
-router.post('/upload', (req, res) => {
-  try {
-    const fileStr = req.body.data
-    console.log(fileStr)
-  } catch (error) {
-    console.error(error)
-  }
-})
+// router.post('/upload', (req, res) => {
+//   try {
+//     const fileStr = req.body.data
+//     console.log(fileStr)
+//   } catch (error) {
+//     console.error(error)
+//   }
+// })
 
 module.exports = router
 //
