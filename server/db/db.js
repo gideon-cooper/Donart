@@ -127,7 +127,7 @@ function getArtistsbyID (id, db = connection) {
       artworks: !result[0].artworkID ? [] : result.map(art => {
         return {
           id: art.artworkID,
-          name: art.artworkName,
+          name: art.artworkName.toUpperCase(),
           image: art.artImage,
           price: art.price
         }
