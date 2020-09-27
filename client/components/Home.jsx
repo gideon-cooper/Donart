@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { getArt } from '../api'
 import CarouselArt from './CarouselArt'
+import { Slide } from 'react-slideshow-image'
 
 export default function Home(props) {
   const [artworks, setArtworks] = useState({
@@ -43,10 +44,16 @@ export default function Home(props) {
     <div className="home">
       <div className="aboutUsHome">
         <div className="aboutUsImage">
-          <img
-            src="https://cdn.britannica.com/78/43678-050-F4DC8D93/Starry-Night-canvas-Vincent-van-Gogh-New-1889.jpg"
-            alt=""
-          />
+          <Slide>
+            <img
+              src="https://cdn.britannica.com/78/43678-050-F4DC8D93/Starry-Night-canvas-Vincent-van-Gogh-New-1889.jpg"
+              alt=""
+            />
+            <img
+              src="https://www.artfindnz.co.nz/wp-content/uploads/2017/03/SEABED-FINAL-SIG.jpg"
+              alt=""
+            />
+          </Slide>
         </div>
       </div>
       <div className="artworkDisplay">
