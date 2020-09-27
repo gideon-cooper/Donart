@@ -17,13 +17,6 @@ export default function Profile () {
   useEffect(() => {
     console.log('User ID (in component): ', userId)
     if (userId !== null) {
-      //   const getId = async () => {
-      //     const profileData = await useContext(UserContext)
-      //     setProfileData(profileData)
-      //     const newId = String(profileData.id)
-      //     setProfileId(newId)
-      //   }
-      //   getId()
       getArtist(userId)
         .then(result => {
           console.log('user profile result: ', result)
