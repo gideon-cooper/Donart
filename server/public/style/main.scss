@@ -1,18 +1,18 @@
 @charset "utf-8";
 
-@import '../../../node_modules/bulma/bulma.sass';
+@import "../../../node_modules/bulma/bulma.sass";
 
-@import '../../../node_modules/react-grid-layout/css/styles.css';
+@import "../../../node_modules/react-grid-layout/css/styles.css";
 
-@import '../../../node_modules/react-resizable/css/styles.css';
+@import "../../../node_modules/react-resizable/css/styles.css";
 
-@import 'modules/colors';
+@import "modules/colors";
 
-@import '../style/partials/layout';
+@import "../style/partials/layout";
 
-@import '../style/partials/typography';
+@import "../style/partials/typography";
 
-@import 'react-slideshow-image/dist/styles.css';
+@import "react-slideshow-image/dist/styles.css";
 * {
   margin: 0;
   padding: 0;
@@ -84,6 +84,20 @@ a {
       overflow: hidden;
       position: relative;
       z-index: 1;
+      .firstImage,
+      .secondImage {
+        width: 100%;
+        height: 100%;
+      }
+      .firstImage {
+        position: relative;
+        h1 {
+          position: absolute;
+          color: white;
+          top: 50%;
+          left: 50%;
+        }
+      }
       img {
         width: 100%;
         position: relative;
@@ -145,11 +159,49 @@ a {
         width: 30%;
       }
     }
-    .artworkCarousel {
+    .successBody {
       width: 100%;
-      height: 60%;
+      height: 80%;
+
       display: flex;
-      justify-content: center;
+      p {
+        font-size: 1.5rem;
+      }
+      .successText {
+        width: 90%;
+        height: 60%;
+        margin: auto;
+      }
+      .successProfile {
+        width: 90%;
+        margin: auto;
+        height: 30%;
+
+        display: flex;
+        .successProfileName {
+          width: 70%;
+          height: 100%;
+        }
+        .successProfileImage {
+          width: 30%;
+          height: 100%;
+          background-color: golden;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+      .leftSuccess {
+        width: 40%;
+        height: 90%;
+        margin: auto;
+      }
+      .rightSuccess {
+        width: 40%;
+        height: 90%;
+        margin: auto;
+      }
     }
   }
 }
@@ -166,21 +218,35 @@ a {
 .profile {
   width: 100%;
   height: 100%;
+
+  h1 {
+    font-size: 2rem;
+  }
   .topProfile {
     width: 100%;
     height: 70%;
     display: flex;
     .leftProfile {
       height: 100%;
+      margin: auto;
       width: 30%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      align-items: center;
+      text-align: center;
+      .profileTitle {
+        width: 100%;
+        height: 10%;
+      }
+      button {
+        margin-top: 2rem;
+      }
+      .profileButtons {
+        // display: flex;
+        // flex-direction: column;
+      }
     }
     .rightProfile {
       height: 100%;
-      width: 60%;
+      width: 50%;
+      margin: auto;
     }
   }
 }
@@ -223,11 +289,15 @@ a {
     border: solid 1px black;
     width: 20%;
     height: 50%;
-    padding-top: 3%;
+    padding-top: 4%;
     input {
       margin-top: 1rem;
       padding: 0.5rem 1rem;
       width: 80%;
+      border: none;
+      border-bottom: 1px solid black;
+      background-color: whitesmoke;
+      outline: none;
     }
     button {
       margin-top: 1rem;
@@ -246,6 +316,7 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   .registerForm {
     display: flex;
     flex-direction: column;
@@ -253,11 +324,15 @@ a {
     border: solid 1px black;
     width: 20%;
     height: 50%;
-    padding-top: 3%;
+    padding-top: 2%;
     input {
       margin-top: 1rem;
       padding: 0.5rem 1rem;
       width: 80%;
+      border: none;
+      border-bottom: 1px solid black;
+      background-color: whitesmoke;
+      outline: none;
     }
     button {
       margin-top: 1rem;
