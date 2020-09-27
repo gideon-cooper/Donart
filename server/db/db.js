@@ -37,7 +37,6 @@ function getArtworks (db = connection) {
     )
     .then((result) => {
       return result.map((artwork) => {
-        console.log(artwork)
         return {
           id: artwork.id,
           name: artwork.artworkName,
