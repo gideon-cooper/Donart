@@ -35,9 +35,9 @@ function ArtistBio(props) {
     //     height: '20em'
     //   }
 
-    function capitalizeFirstLetter(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1);
-      }
+    // function capitalizeFirstLetter(string) {
+    //     return string.charAt(0).toUpperCase() + string.slice(1);
+    //   }
 
     return (
         <>
@@ -58,18 +58,9 @@ function ArtistBio(props) {
             <h1 className="has-text-centered">Listings</h1>
         </div>
         <div className="card-flex-wrapper column is-three-quarters">
-            <div className="column card" style={{ margin: '20px' }}>
-                <img src={artist.profilePicture}/>
-            </div>
-            <div className="column card m-6" style={{ margin: '20px' }}>
-                <img src={artist.profilePicture}/>
-            </div>
-            <div className="column card m-6" style={{ margin: '20px' }}>
-                <img src={artist.profilePicture}/>
-            </div>
-            {/* {artist.artworks.map((art) =>
+            {artist.artworks ? artist.artworks.map((art) =>
             <ArtworkItem key={art.id} artwork={art}/>
-            )} */}
+            ) : null}
         </div>
         </>
     )

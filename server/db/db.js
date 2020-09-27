@@ -15,6 +15,10 @@ module.exports = {
   viewOwnProfileById
 }
 
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 function getArtworks (db = connection) {
   return db('artworks')
     .join('users as artist', 'artist.id', 'artworks.artist_id')
@@ -41,11 +45,11 @@ function getArtworks (db = connection) {
           image: artwork.image,
           price: artwork.price,
           artistId: artwork.artistId,
-          artistName: artwork.artistName,
+          artistName: capitalizeFirstLetter(artwork.artistName),
           artistProfile: artwork.artistProfile,
           artistAbout: artwork.artistAbout,
           causeId: artwork.causeId,
-          causeName: artwork.causeName,
+          causeName: capitalizeFirstLetter(artwork.causeName),
           isAvailable: artwork.is_available
         }
       })
@@ -119,12 +123,12 @@ function getAllUsers (db = connection) {
 function getArtistsbyID (id, db = connection) {
   return db('users')
     .join('artworks', 'artworks.artist_id', 'users.id')
-    .select('users.id as id', 'users.name as artistName', 'about', 'profile_picture as profilePicture', 'artworks.id as artworkID', 'email', 'artworks.name as artworkName', 'artworks.image as artImage', 'artworks.price as price')
+    .select('users.id as id', 'users.name as artistName', 'about', 'profile_picture as profilePicture', 'artworks.id as artworkID', 'email', 'artworks.name as artworkName', 'artworks.image as artImage', 'artworks.price as price', 'cause_id as causeName')
     .where('users.id', id)
     .then(result => {
       return {
         id: result[0].id,
-        artistName: result[0].artistName,
+        artistName: capitalizeFirstLetter(result[0].artistName),
         about: result[0].about,
         profilePicture: result[0].profilePicture,
         email: result[0].email,
@@ -133,7 +137,9 @@ function getArtistsbyID (id, db = connection) {
             id: art.artworkID,
             name: art.artworkName,
             image: art.artImage,
-            price: art.price
+            price: art.price,
+            causeName: art.causeName,
+            artistName: art.artistName
           }
         })
       }

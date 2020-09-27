@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { getArt } from '../api'
 
-import Artwork from './ArtworkItem'
+import ArtworkItem from './ArtworkItem'
 
 export default function Artworks() {
   const [artworks, setArtworks] = useState({
@@ -27,7 +27,7 @@ export default function Artworks() {
         </div>
         <div className="card-flex-wrapper column is-three-quarters">
           {artworks.artworks.map((artwork) => (
-            <Artwork key={artwork.id} artwork={artwork} />
+            <ArtworkItem key={artwork.id} artwork={artwork} />
           ))}
         </div>
       </div>
