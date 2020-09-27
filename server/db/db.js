@@ -45,7 +45,7 @@ function getArtworks (db = connection) {
           artistAbout: artwork.artistAbout,
           causeId: artwork.causeId,
           causeName: artwork.causeName,
-          isAvailable: artwork.is_available,
+          isAvailable: artwork.is_available
         }
       })
     })
@@ -80,7 +80,7 @@ function getArtworkById (id, db = connection) {
         artistName: artwork.artistName,
         causeId: artwork.causeId,
         causeName: artwork.causeName,
-        isAvailable: artwork.is_available,
+        isAvailable: artwork.is_available
       }
     })
 }
@@ -96,7 +96,7 @@ function addNewArtwork (formData, db = connection) {
       price: formData.price,
       artist_id: formData.artistId,
       cause_id: formData.causeId,
-      is_available: true,
+      is_available: true
     })
     .then((id) => {
       return getArtworkById(id[0])
@@ -108,10 +108,12 @@ function artIsSold (id, db = connection) {
   return db('artworks')
     .where('id', id)
     .update({ is_available: false })
+}
 
 function getAllUsers (db = connection) {
   return db('users')
     .select()
+}
 
 function getArtistsbyID (id, db = connection) {
   return db('users')
@@ -143,7 +145,7 @@ function editProfile (id, user, db = connection) {
   return db('users').where('users.id', Number(id)).first().update({
     profile_picture: user.image,
     about: user.about,
-    name: user.name,
+    name: user.name
   })
 }
 
