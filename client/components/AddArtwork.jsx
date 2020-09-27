@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { Redirect } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
+
 import regeneratorRuntime from 'regenerator-runtime'
 
 import { getUsers, saveArtwork } from '../api'
@@ -108,8 +109,9 @@ export default function AddArtwork () {
             >{cause.name}</option>
           })}
         </select>
-
-        <button className="button my-4 is-primary">Create Listing</button>
+        <Link to={`/ArtistBio/${user.id}`} href="">
+          <button className="button my-4 is-primary">Create Listing</button>
+        </Link>
       </form>
 
     </div>
