@@ -3,20 +3,39 @@ import { Link } from 'react-router-dom'
 import { getArt } from '../api'
 import CarouselArt from './CarouselArt'
 
-export default function Home(props) {
+export default function Home (props) {
   const [artworks, setArtworks] = useState({
-    artworks: [],
+    artworks: []
   })
+  const [shuffledArtworks, setShuffledArtworks] = useState([])
   useEffect(() => {
     getArt()
       .then((res) => {
-        // console.log(res)
+        console.log('res:', res)
         setArtworks(res)
       })
       .catch((error) => {
         console.log('error: ', error.message)
       })
   }, [])
+
+  function shuffle (array) {
+    var currentIndex = array.length; var temporaryValue; var randomIndex
+
+    // While there remain elements to shuffle...
+    while (currentIndex !== 0) {
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex)
+      currentIndex -= 1
+
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex]
+      array[currentIndex] = array[randomIndex]
+      array[randomIndex] = temporaryValue
+    }
+
+    return array
+  }
 
   return (
     <div className="home">
@@ -36,7 +55,7 @@ export default function Home(props) {
           <hr />
         </div>
         <div className="artworkCarousel">
-          {artworks.artworks.map((artwork) => {
+          {artworks.artworks.slice(3, 8).map((artwork) => {
             return <CarouselArt art={artwork} key={artwork.id} />
           })}
         </div>

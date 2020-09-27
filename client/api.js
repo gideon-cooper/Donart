@@ -17,7 +17,8 @@ export function editProfile (id, updatedInfo) {
 }
 
 export function getOneArt (artId) {
-  return request.get(rootUrl + '/art/' + artId).then((res) => {
+  return request.get(rootUrl + '/Artwork/' + artId).then((res) => {
+    console.log()
     return res.body
   })
 }
@@ -37,4 +38,11 @@ export function saveArtwork (artwork) {
       // console.log('API result: ', response.body)
       return response.body
     })
+}
+
+export function getArtist (artistID) {
+  return request.get(rootUrl + '/user/' + artistID)
+  .then((res) => {
+    return res.body
+  })
 }
