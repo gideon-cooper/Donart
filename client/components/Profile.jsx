@@ -11,11 +11,11 @@ export default function Profile () {
   const [profileData, setProfileData] = useState({})
   // const [profileId, setProfileId] = useState(0)
 
-  console.log('User from context:', user)
-  console.log('User ID from context:', userId)
+  // console.log('User from context:', user)
+  // console.log('User ID from context:', userId)
 
   useEffect(() => {
-    console.log('User ID (in component): ', userId)
+    // console.log('User ID (in component): ', userId)
     if (userId !== null) {
       getArtist(userId)
         .then(result => {
