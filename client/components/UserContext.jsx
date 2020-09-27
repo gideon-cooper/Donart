@@ -26,6 +26,6 @@ export const updateUserContext = (setUser) => {
 }
 export const updateUserProfile = (setUser, user, form) => {
   const { name, about, image } = form
-  console.log("user in context file: ", user)
+  // console.log("user in context file: ", user)
   return setUser({ ...user, about, name, image })
 }

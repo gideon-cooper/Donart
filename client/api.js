@@ -8,14 +8,10 @@ export function getArt () {
   })
 }
 export function editProfile (id, updatedInfo) {
-  // console.log(id)
-  // console.log(prof)
-  // console.log(image)
   return request
     .post(rootUrl + '/editProfile/' + id)
     .send(updatedInfo)
     .then((res) => {
-      console.log("api res: ", res.body)
       return res.body
     })
 }
