@@ -47,6 +47,7 @@ export function saveArtwork (artwork) {
 export function getArtist (artistID) {
   return request.get(rootUrl + '/user/' + artistID)
   .then((res) => {
+    console.log('API result get artist: ', res.body)
     return res.body
   })
 }

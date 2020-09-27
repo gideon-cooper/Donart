@@ -14,9 +14,6 @@ export default function ArtworkItem ({ artwork }) {
       <Link to={`/ArtworkDetails/${artworkID}`}>
       <h4 className="has-text-centered mt-3">{artwork.name}</h4>
       <div className="mt-4 mb-6 mx-6" style={styles}></div>
-      <p>
-        {artwork.cause_id}
-      </p>
       </Link>
     </div>
     
