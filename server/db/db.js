@@ -44,11 +44,11 @@ function getArtworks (db = connection) {
           image: artwork.image,
           price: artwork.price,
           artistId: artwork.artistId,
-          artistName: artwork.artistName,
+          artistName: capitalizeFirstLetter(artwork.artistName),
           artistProfile: artwork.artistProfile,
           artistAbout: artwork.artistAbout,
           causeId: artwork.causeId,
-          causeName: artwork.causeName,
+          causeName: capitalizeFirstLetter(artwork.causeName),
           isAvailable: artwork.is_available
         }
       })
@@ -138,6 +138,7 @@ function getArtistsbyID (id, db = connection) {
             image: art.artImage,
             price: art.price,
             causeName: art.causeName,
+            artistName: art.artistName
           }
         })
       }
