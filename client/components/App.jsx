@@ -2,6 +2,7 @@ import React, { useEffect, useContext } from 'react'
 import { isAuthenticated } from 'authenticare/client'
 import { Route, Link } from 'react-router-dom'
 import { UserContext, updateUserContext } from './UserContext'
+import { getUser } from '../api'
 
 import Home from './Home'
 import Signin from './SignIn'
@@ -24,7 +25,10 @@ const App = () => {
 
   useEffect(() => {
     if (isAuthenticated()) {
-      updateUserContext(setUser)
+      console.log('USER IN APP: ', user)
+    // getUser(user.id)
+    updateUserContext(setUser)
+    console.log('USER IN APP after update: ', user)
     }
   }, [])
 

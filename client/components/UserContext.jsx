@@ -4,13 +4,19 @@ import { getDecodedToken, isAuthenticated } from 'authenticare/client'
 export const UserContext = createContext()
 
 export const UserProvider = ({ reducer, initialState, children }) => {
-  const [user, setUser] = useState({
+  let defaultUser = {
     username: '',
     id: null,
     about: '',
     image: '',
     name: ''
-  })
+  }
+  if (isAuthenticated()) {
+    const { username, id, about, profile_picture, name } = getDecodedToken()
+    defaultUser = { username, id, about, image: profile_picture, name }
+  }
+
+  const [user, setUser] = useState(defaultUser)
 
   return (
     <UserContext.Provider value={[user, setUser]}>
@@ -19,9 +25,9 @@ export const UserProvider = ({ reducer, initialState, children }) => {
   )
 }
 export const updateUserContext = (setUser) => {
-  const { username, id, about, image, name } = getDecodedToken()
+  const { username, id, about, profile_picture, name } = getDecodedToken()
   return isAuthenticated()
-    ? setUser({ username, id, about, image, name })
+    ? setUser({ username, id, about, image: profile_picture, name })
     : null
 }
 export const updateUserProfile = (setUser, user, form) => {

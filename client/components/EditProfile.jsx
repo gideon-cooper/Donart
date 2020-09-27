@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useContext } from 'react'
-import regeneratorRuntime from 'regenerator-runtime'
 
 import { editProfile } from '../api'
 import { UserContext, updateUserProfile } from './UserContext'
@@ -8,8 +7,8 @@ export default function EditProfile (props) {
   const [user, setUser] = useContext(UserContext)
   // console.log(props)
   const [form, setForm] = useState({
-    name: '',
-    about: ''
+    name: user.name,
+    about: user.about
   })
   const [image, setImage] = useState('')
 
