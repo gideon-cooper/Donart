@@ -122,7 +122,7 @@ a {
 .footer {
   background-color: black;
   width: 100%;
-  height: 50%;
+  height: 30%;
   display: flex;
   justify-content: space-around;
   h1 {
@@ -134,11 +134,15 @@ a {
   height: 100%;
   .topProfile {
     width: 100%;
-    height: 60%;
+    height: 70%;
     display: flex;
     .leftProfile {
       height: 100%;
-      width: 40%;
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
     }
     .rightProfile {
       height: 100%;

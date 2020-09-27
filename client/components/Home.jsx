@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom'
 import { getArt } from '../api'
 import CarouselArt from './CarouselArt'
 
-export default function Home (props) {
+export default function Home(props) {
   const [artworks, setArtworks] = useState({
-    artworks: []
+    artworks: [],
   })
-  const [ shuffledArtworks, setShuffledArtworks ] = useState([])
+  const [shuffledArtworks, setShuffledArtworks] = useState([])
   useEffect(() => {
     getArt()
       .then((res) => {
@@ -20,22 +20,23 @@ export default function Home (props) {
   }, [])
 
   function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
-  
+    var currentIndex = array.length,
+      temporaryValue,
+      randomIndex
+
     // While there remain elements to shuffle...
     while (0 !== currentIndex) {
-  
       // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-  
+      randomIndex = Math.floor(Math.random() * currentIndex)
+      currentIndex -= 1
+
       // And swap it with the current element.
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
+      temporaryValue = array[currentIndex]
+      array[currentIndex] = array[randomIndex]
+      array[randomIndex] = temporaryValue
     }
-  
-    return array;
+
+    return array
   }
 
   return (
@@ -51,12 +52,12 @@ export default function Home (props) {
       <div className="artworkDisplay">
         <div className="displayTitle">
           <hr />
-          <h2>Artworksasdasdas</h2>
+          <h2>Artworks</h2>
 
           <hr />
         </div>
         <div className="artworkCarousel">
-          {artworks.artworks.slice(3,8).map((artwork) => {
+          {artworks.artworks.slice(3, 8).map((artwork) => {
             return <CarouselArt art={artwork} key={artwork.id} />
           })}
         </div>
