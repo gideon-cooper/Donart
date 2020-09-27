@@ -1,4 +1,4 @@
-import React, { useState, createContext, useContext } from 'react'
+import React, { useState, createContext, useContext } from "react"
 
 export const CartContext = createContext()
 
@@ -15,6 +15,5 @@ export const updateCart = (setCart, cart, cartItem) => {
   return setCart([...cart, cartItem])
 }
 export const deleteCartItem = (setCart, cart, id) => {
-  console.log('RUNNINNG')
   return setCart(cart.filter((item) => item.id !== id))
 }
