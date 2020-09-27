@@ -1,5 +1,6 @@
 const express = require('express')
 
+const { cloudinary } = require('../cloudinaryConfig')
 const db = require('../db/db')
 
 const router = express.Router()
@@ -45,7 +46,7 @@ router.post('/new-artwork', (req, res) => {
   console.log(newArtwork)
   db.addNewArtwork(newArtwork)
     .then(result => {
-      console.log('/new-artwork route result: ', result)
+      // console.log('/new-artwork route result: ', result)
       res.json(result)
     })
     .catch(err => res.status(500).send(err.message))
@@ -65,12 +66,15 @@ router.patch('/:id/buy-now', (req, res) => {
 })
 
 router.post('/editProfile/:id', (req, res) => {
-  console.log('C', req.body)
-  console.log('D', req.params.id)
+  console.log('req.body in donart route: ', req.body)
+  // console.log('D', req.params.id)
   const id = Number(req.params.id)
   const user = req.body
   db.editProfile(id, user)
-    .then((result) => res.json(result))
+    .then((result) => {
+      // console.log('DB result: ', result)
+      res.json(result)
+    })
 
     .catch((err) => {
       res.status(500).send(err.message)
@@ -86,6 +90,16 @@ router.get('/users', (req, res) => {
       res.status(500).json({ error: err.message })
     })
 })
+
+// POST /api/v1/donart/upload
+// router.post('/upload', (req, res) => {
+//   try {
+//     const fileStr = req.body.data
+//     console.log(fileStr)
+//   } catch (error) {
+//     console.error(error)
+//   }
+// })
 
 module.exports = router
 //

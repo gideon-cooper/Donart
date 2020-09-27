@@ -8,8 +8,8 @@ export const UserProvider = ({ reducer, initialState, children }) => {
     username: '',
     id: null,
     about: '',
-    profile_picture: '',
-    name: '',
+    image: '',
+    name: ''
   })
 
   return (
@@ -19,12 +19,13 @@ export const UserProvider = ({ reducer, initialState, children }) => {
   )
 }
 export const updateUserContext = (setUser) => {
-  const { username, id, about, profile_picture, name } = getDecodedToken()
+  const { username, id, about, image, name } = getDecodedToken()
   return isAuthenticated()
-    ? setUser({ username, id, about, profile_picture, name })
+    ? setUser({ username, id, about, image, name })
     : null
 }
 export const updateUserProfile = (setUser, user, form) => {
-  const { name, profile_picture, about } = form
-  return setUser({ ...user, about, profile_picture, name })
+  const { name, about, image } = form
+  // console.log("user in context file: ", user)
+  return setUser({ ...user, about, name, image })
 }

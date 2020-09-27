@@ -5,9 +5,9 @@ import CarouselArt from './CarouselArt'
 import { Slide } from 'react-slideshow-image'
 import Footer from './Footer'
 
-export default function Home(props) {
+export default function Home (props) {
   const [artworks, setArtworks] = useState({
-    artworks: [],
+    artworks: []
   })
   const [shuffledArtworks, setShuffledArtworks] = useState([])
   useEffect(() => {
@@ -22,13 +22,13 @@ export default function Home(props) {
   }, [])
   console.log('HEA', artworks)
   console.log
-  function shuffle(array) {
-    var currentIndex = array.length,
-      temporaryValue,
-      randomIndex
+  function shuffle (array) {
+    var currentIndex = array.length
+    var temporaryValue
+    var randomIndex
 
     // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
+    while (currentIndex !== 0) {
       // Pick a remaining element...
       randomIndex = Math.floor(Math.random() * currentIndex)
       currentIndex -= 1

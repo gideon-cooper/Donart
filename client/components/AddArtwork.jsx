@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
+import { Redirect } from 'react-router-dom'
+import regeneratorRuntime from 'regenerator-runtime'
 
 import { getUsers, saveArtwork } from '../api'
 
@@ -14,18 +16,41 @@ export default function AddArtwork () {
   const [causes, setCauses] = useState([])
   const [cause, setCause] = useState(0)
 
+  const [loading, setLoading] = useState(false)
+
+  // console.log("user from Artwork context:", user)
+
+  const uploadImage = async e => {
+    const files = e.target.files
+    const data = new FormData()
+    data.append('file', files[0])
+    data.append('upload_preset', 'donart')
+    setLoading(true)
+    const res = await fetch(
+      'https://api.cloudinary.com/v1_1/marikajf/image/upload', // why /image/upload?
+      {
+        method: 'POST',
+        body: data
+      }
+    )
+    const file = await res.json()
+
+    setImage(file.secure_url)
+    setLoading(false)
+  }
+
   function handleSubmit (e) {
     e.preventDefault()
-    console.log(name, price, description, image, cause)
-    updateUserContext(setUser, user)
-    console.log(user)
+    // console.log(name, price, description, image, cause)
+    // console.log('user: ', user)
     const newArtwork = {
       image: image,
       name: name,
       description: description,
       price: price,
       causeId: cause,
-      artistId: user.id
+      artistId: user.id,
+      artistName: user.name
     }
     saveArtwork(newArtwork)
   }
@@ -63,10 +88,15 @@ export default function AddArtwork () {
           value={description} onChange={event => setDescription(event.target.value)}/>
 
         <h5>Upload Image</h5>
-        <input className="" type="text"
+        <input className="" type="file"
           placeholder="Browse"
-          name="image"
-          value={image} onChange={event => setImage(event.target.value)}/>
+          name="file"
+          onChange={uploadImage} />
+        {loading ? (
+          <h3>Loading...</h3>
+        ) : (
+          <img src={image} alt="" style={{ width: '300px' }}/>
+        )}
 
         <h5>Select your Cause</h5>
         <select name="cause" onChange={event => setCause(event.target.value)}>
