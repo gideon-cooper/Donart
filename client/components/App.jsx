@@ -41,7 +41,7 @@ const App = () => {
       <Route path="/Charities" component={Charities} />
       <Route path="/Artworks" component={Artworks} />
       <Route path="/add-artwork" component={AddArtwork} />
-      <Route path="/ArtistBio" component={ArtistBio} />
+      <Route path="/ArtistBio/:id" component={ArtistBio} />
       <Route path="/ArtworkDetails/:id" component={ArtworkDetails} />
       <Footer />
     </div>
