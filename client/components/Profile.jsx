@@ -32,6 +32,7 @@ export default function Profile () {
         <div className="leftProfile">
           <h1>{profileData.artistName}</h1>
           <img src={profileData.profilePicture} alt="" />
+          <p>{profileData.about}</p>
           <div className="profileButtons">
             <Link to={`/editProfile/${userId}`}>
               <button>Edit Profile</button>
@@ -42,7 +43,6 @@ export default function Profile () {
           </div>
         </div>
         <div className="rightProfile">
-          <p>{profileData.about}</p>
         </div>
       </div>
     </div>
