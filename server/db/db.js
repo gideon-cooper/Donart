@@ -108,10 +108,12 @@ function artIsSold (id, db = connection) {
   return db('artworks')
     .where('id', id)
     .update({ is_available: false })
+}
 
 function getAllUsers (db = connection) {
   return db('users')
     .select()
+}
 
 function getArtistsbyID (id, db = connection) {
   return db('users')
@@ -143,7 +145,7 @@ function editProfile (id, user, db = connection) {
   return db('users').where('users.id', Number(id)).first().update({
     profile_picture: user.image,
     about: user.about,
-    name: user.name,
+    name: user.name
   })
 }
 
