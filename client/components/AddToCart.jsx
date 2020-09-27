@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom'
 import { UserContext } from './UserContext'
 import { CartContext, updateCart } from './CartContext'
 
-export default function CarouselArt(props) {
+export default function AddToCart(props) {
   const [cart, setCart] = useContext(CartContext)
   const [user, setUser] = useContext(UserContext)
   const [newCart, setNewCart] = useState({})
@@ -31,18 +31,7 @@ export default function CarouselArt(props) {
     }
   }
   return (
-    <div className="carouselArt">
-      <Link to={`/ArtworkDetails/${artworkId}`}>
-        <p>Art name: {props.art.artworkName}</p>
-        <p>Artist: {props.art.artistName}</p>
-        <p>Cause: {props.art.causeName}</p>
-        <img
-          src={props.art.image}
-          style={{ width: '200px', height: '200px' }}
-          alt=""
-        />
-      </Link>
-      {}
+    <div className="addToCart">
       {cart.some(duplicate) ? (
         <button>In trolley</button>
       ) : (

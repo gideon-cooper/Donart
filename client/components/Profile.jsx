@@ -33,12 +33,14 @@ export default function Profile () {
         <div className="leftProfile">
           <h1>{profileData.artistName}</h1>
           <img src={profileData.profilePicture} alt="" />
-          <Link to={`/editProfile/${userId}`}>
-            <button>Edit Profile</button>
-          </Link>
-          <Link to={'/add-artwork'}>
-            <button>Add Artwork</button>
-          </Link>
+          <div className="profileButtons">
+            <Link to={`/editProfile/${userId}`}>
+              <button>Edit Profile</button>
+            </Link>
+            <Link to={'/add-artwork'}>
+              <button>Add Artwork</button>
+            </Link>
+          </div>
         </div>
         <div className="rightProfile">
           <p>{profileData.about}</p>

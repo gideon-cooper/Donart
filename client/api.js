@@ -4,6 +4,7 @@ const rootUrl = '/api/v1/donart'
 
 export function getArt () {
   return request.get(rootUrl).then((res) => {
+    console.log(res)
     return res.body
   })
 }
@@ -32,7 +33,8 @@ export function getUsers () {
 }
 
 export function saveArtwork (artwork) {
-  return request.post(`${rootUrl}/new-artwork`)
+  return request
+    .post(`${rootUrl}/new-artwork`)
     .send(artwork)
     .then(response => {
       // console.log('API result: ', response.body)
@@ -42,7 +44,8 @@ export function saveArtwork (artwork) {
 
 export function getArtist (artistID) {
   return request.get(rootUrl + '/user/' + artistID)
-  .then((res) => {
-    return res.body
-  })
+    .then((res) => {
+      // console.log('API result get artist: ', res.body)
+      return res.body
+    })
 }

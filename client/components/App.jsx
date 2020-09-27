@@ -44,7 +44,6 @@ const App = () => {
       <Route path="/add-artwork" component={AddArtwork} />
       <Route path="/ArtistBio/:id" component={ArtistBio} />
       <Route path="/ArtworkDetails/:id" component={ArtworkDetails} />
-      <Footer />
     </div>
   )
 }

@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { getArt } from '../api'
 import CarouselArt from './CarouselArt'
+import { Slide } from 'react-slideshow-image'
+import Footer from './Footer'
 
 export default function Home (props) {
   const [artworks, setArtworks] = useState({
@@ -18,9 +20,12 @@ export default function Home (props) {
         console.log('error: ', error.message)
       })
   }, [])
-
+  console.log('HEA', artworks)
+  console.log
   function shuffle (array) {
-    var currentIndex = array.length; var temporaryValue; var randomIndex
+    var currentIndex = array.length
+    var temporaryValue
+    var randomIndex
 
     // While there remain elements to shuffle...
     while (currentIndex !== 0) {
@@ -41,10 +46,20 @@ export default function Home (props) {
     <div className="home">
       <div className="aboutUsHome">
         <div className="aboutUsImage">
-          <img
-            src="https://cdn.britannica.com/78/43678-050-F4DC8D93/Starry-Night-canvas-Vincent-van-Gogh-New-1889.jpg"
-            alt=""
-          />
+          <Slide>
+            <div className="firstImage">
+              <img
+                src="https://cdn.britannica.com/78/43678-050-F4DC8D93/Starry-Night-canvas-Vincent-van-Gogh-New-1889.jpg"
+                alt=""
+              />
+            </div>
+            <div className="secondImage">
+              <img
+                src="https://www.artfindnz.co.nz/wp-content/uploads/2017/03/SEABED-FINAL-SIG.jpg"
+                alt=""
+              />
+            </div>
+          </Slide>
         </div>
       </div>
       <div className="artworkDisplay">
@@ -60,6 +75,14 @@ export default function Home (props) {
           })}
         </div>
       </div>
+      <div className="successDisplay">
+        <div className="successTitle">
+          <hr />
+          <h2>Success stories</h2>
+          <hr />
+        </div>
+      </div>
+      <Footer />
     </div>
   )
 }
