@@ -13,7 +13,7 @@ export default function CarouselArt(props) {
       {props.art.isAvailable ? (
         <div className="carouselArt">
           <Link to={`/ArtworkDetails/${artworkId}`}>
-            <p>Art name: {props.art.artworkName}</p>
+            <p>Art name: {props.art.name}</p>
             <p>Artist: {props.art.artistName}</p>
             <p>Cause: {props.art.causeName}</p>
             <img
