@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import ArtistItem from './ArtworkItem'
+// import ArtistItem from './ArtworkItem'
 
 import { getArtist } from '../api'
 import ArtworkItem from './ArtworkItem'
@@ -35,10 +35,6 @@ function ArtistBio(props) {
     //     height: '20em'
     //   }
 
-    // function capitalizeFirstLetter(string) {
-    //     return string.charAt(0).toUpperCase() + string.slice(1);
-    //   }
-
     return (
         <>
         <div className="columns">
@@ -59,7 +55,7 @@ function ArtistBio(props) {
         </div>
         <div className="card-flex-wrapper column is-three-quarters">
             {artist.artworks ? artist.artworks.map((art) =>
-            <ArtworkItem key={art.id} artwork={art}/>
+            <ArtworkItem key={art.id} artwork={art} bio={true}/>
             ) : null}
         </div>
         </>

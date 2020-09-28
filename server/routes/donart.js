@@ -32,12 +32,12 @@ router.get('/artwork/:id', (req, res) => {
 router.get('/user/:id', (req, res) => {
   const id = Number(req.params.id)
   db.getArtistsbyID(id)
-  .then((artist) => {
-    return res.json(artist)
-  })
-  .catch((err) => {
-    res.status(500).json({ error: err.message })
-  })
+    .then((artist) => {
+      return res.json(artist)
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message })
+    })
 })
 
 // POST /api/v1/donart/new-artwork
@@ -85,6 +85,19 @@ router.get('/users', (req, res) => {
   db.getAllUsers()
     .then((users) => {
       return res.json({ users })
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message })
+    })
+})
+
+// GET /api/v1/donart/profile/:id
+router.get('/profile/:id', (req, res) => {
+  const id = Number(req.params.id)
+  db.viewOwnProfileById(id)
+    .then((user) => {
+      console.log("Route: user: ", user)
+      return res.json(user)
     })
     .catch((err) => {
       res.status(500).json({ error: err.message })

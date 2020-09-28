@@ -47,7 +47,7 @@ exports.seed = function (knex) {
         {
           id: 904,
           cause_id: 3,
-          artist_id: 5,
+          artist_id: 2,
           name: 'Owl and me',
           price: 15,
           description: 'This is an artwork inspired by stuff',
