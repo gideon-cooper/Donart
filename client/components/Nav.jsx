@@ -32,7 +32,7 @@ export default function Nav(props) {
       <div className='logo'>
         <Link style={{ textDecoration: 'none' }} to='/'>
           <img
-            src={'images/logo/logo-black.png'}
+            src={'images/logo/logo-grey.png'}
             style={{ padding: '0 0 0 15px' }}
             alt='donart logo'
           />

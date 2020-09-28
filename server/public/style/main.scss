@@ -60,16 +60,22 @@ a {
   .rightItems {
     display: flex;
     justify-content: space-around;
-    h2 {
+    .navMenuItems {
       margin-right: 2rem;
+      color: #363636;
+      font-weight: bold;
     }
   }
   .middleItems {
     display: flex;
-    h2 {
-      margin-right: 2rem;
-    }
+      .navMenuItems {
+        margin-right: 2rem;
+        color: #363636;
+        font-weight: bold;
+      }
   }
+
+  
 
   .cart {
     position: absolute;
