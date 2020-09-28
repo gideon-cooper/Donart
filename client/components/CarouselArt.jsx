@@ -5,24 +5,34 @@ import { CartContext } from './CartContext'
 import AddToCart from './AddToCart'
 
 export default function CarouselArt(props) {
+  console.log(props)
+
   const [cart, setCart] = useContext(CartContext)
   const artworkId = String(props.art.id)
+
+  const styles = {
+    backgroundImage: `url(${props.art.image})`,
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'top center',
+    height: '10em',
+  }
 
   return (
     <>
       {props.art.isAvailable ? (
-        <div className="carouselArt">
+        <div className="card-flex-item-carousel card">
+
           <Link to={`/ArtworkDetails/${artworkId}`}>
-            <p className="ACProperty">Art name: {props.art.name}</p>
+            <div className="mt-5" style={styles}></div>
+          </Link>
+
+          <div className="has-text-centered mt-3">
+            <p>{props.art.name}</p>
             <p>Artist: {props.art.artistName}</p>
             <p>Cause: {props.art.causeName}</p>
-            <img
-              src={props.art.image}
-              style={{ width: '200px', height: '200px' }}
-              alt=""
-            />
-          </Link>
-          <AddToCart art={props.art} />
+            <AddToCart art={props.art} />
+          </div>
         </div>
       ) : null}
     </>

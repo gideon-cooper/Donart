@@ -1,3 +1,5 @@
+// ArtworkItem Card Styling
+
 .card-flex-wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -10,4 +12,14 @@
     flex: 1 0 25%;
     justify-content: center;
     border-radius: 15px;
+}
+
+// CarouselArt Card Styling
+
+.card-flex-item-carousel {
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+    border-radius: 15px;
+    margin: .5rem;
 }
