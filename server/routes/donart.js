@@ -1,6 +1,6 @@
 const express = require('express')
 
-const { cloudinary } = require('../cloudinaryConfig')
+// const { cloudinary } = require('../cloudinaryConfig')
 const db = require('../db/db')
 
 const router = express.Router()
@@ -96,7 +96,7 @@ router.get('/profile/:id', (req, res) => {
   const id = Number(req.params.id)
   db.viewOwnProfileById(id)
     .then((user) => {
-      console.log("Route: user: ", user)
+      // console.log("Route: user: ", user)
       return res.json(user)
     })
     .catch((err) => {
@@ -115,4 +115,3 @@ router.get('/profile/:id', (req, res) => {
 // })
 
 module.exports = router
-//
