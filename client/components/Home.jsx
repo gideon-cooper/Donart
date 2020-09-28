@@ -44,6 +44,9 @@ export default function Home(props) {
   }
 
   return (
+
+    // Section 1 - Image Slider
+
     <div className='home'>
       <div className='aboutUsHome'>
         <div className='aboutUsImage'>
@@ -69,11 +72,13 @@ export default function Home(props) {
           </Slide>
         </div>
       </div>
+
+      {/* Section 2 - Artworks Carousel */}
+
       <div className='artworkDisplay'>
         <div className='displayTitle'>
           <hr />
           <h2>Artworks</h2>
-
           <hr />
         </div>
         <div className='artworkCarousel'>
@@ -82,12 +87,17 @@ export default function Home(props) {
           })}
         </div>
       </div>
+
+      {/* Section 3 */}
+
       <div className='successDisplay'>
+
         <div className='successTitle'>
           <hr />
           <h2>Success stories</h2>
           <hr />
         </div>
+
         <div className='successBody'>
           <div className='leftSuccess'>
             <div className='successText'>
@@ -133,7 +143,11 @@ export default function Home(props) {
           </div>
         </div>
       </div>
+
+      {/* Section - Footer */}
+
       <Footer />
+
     </div>
   )
 }
