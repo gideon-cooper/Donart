@@ -3,11 +3,11 @@ import { Link, Redirect } from 'react-router-dom'
 
 import regeneratorRuntime from 'regenerator-runtime'
 
-import { getUsers, saveArtwork } from '../api'
+import { getCharities, getUsers, saveArtwork } from '../api'
 
 import { UserContext, updateUserContext } from './UserContext'
 
-export default function AddArtwork () {
+export default function AddArtwork (props) {
   const [user, setUser] = useContext(UserContext)
 
   const [name, setName] = useState('')
@@ -54,10 +54,11 @@ export default function AddArtwork () {
       artistName: user.name
     }
     saveArtwork(newArtwork)
+    return props.history.push('/profile')
   }
 
   useEffect(() => {
-    getUsers()
+    getCharities()
       .then(result => {
         setCauses(result)
         return causes
@@ -109,11 +110,11 @@ export default function AddArtwork () {
             >{cause.name}</option>
           })}
         </select>
-        <Link to={`/ArtistBio/${user.id}`} href="">
-          <button className="button my-4 is-primary">Create Listing</button>
-        </Link>
+          <button className="button my-4 is-primary" type="submit">Create Listing</button>
+          {/* Wrapping button in a link breaks the submit function */}
       </form>
 
     </div>
   )
 }
+

@@ -3,6 +3,10 @@ import React, { useEffect, useState, useContext } from 'react'
 import { editProfile } from '../api'
 import { UserContext, updateUserContext } from './UserContext'
 
+function capitalizeFirstLetter (string) {
+  return string.charAt(0).toUpperCase() + string.slice(1)
+}
+
 export default function EditProfile (props) {
   const [user, setUser] = useContext(UserContext)
   // console.log(props)
@@ -60,10 +64,10 @@ export default function EditProfile (props) {
       <h5>Name</h5>
       <input
         name="name"
-        value={form.name}
+        value={capitalizeFirstLetter(form.name)}
         onChange={handleChange}
         type="text"
-        placeholder="name"
+        placeholder="Name"
       />
 
       <h5>Your Bio</h5>
@@ -72,7 +76,7 @@ export default function EditProfile (props) {
         value={form.about}
         onChange={handleChange}
         type="text"
-        placeholder="about"
+        placeholder="About"
       />
 
       <h5>Profile Picture</h5>
