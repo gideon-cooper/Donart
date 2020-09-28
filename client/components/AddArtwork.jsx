@@ -111,8 +111,10 @@ export default function AddArtwork (props) {
           })}
         </select>
           <button className="button my-4 is-primary" type="submit">Create Listing</button>
+          {/* Wrapping button in a link breaks the submit function */}
       </form>
 
     </div>
   )
 }
+
