@@ -4,11 +4,12 @@ import { getArt } from '../api'
 import CarouselArt from './CarouselArt'
 import { Slide } from 'react-slideshow-image'
 import Footer from './Footer'
+import Nav from './Nav'
 
 export default function Home(props) {
   console.log('TEST')
   const [artworks, setArtworks] = useState({
-    artworks: []
+    artworks: [],
   })
   const [shuffledArtworks, setShuffledArtworks] = useState([])
   useEffect(() => {
@@ -44,53 +45,45 @@ export default function Home(props) {
   }
 
   return (
-    <div className='home'>
-      <div className='aboutUsHome'>
-        <div className='aboutUsImage'>
+    <div className="home">
+      {/* <Nav /> */}
+      <div className="aboutUsHome">
+        <div className="aboutUsImage">
           <Slide duration={5000}>
-            <div className='firstImage'>
-              <img
-                src={'images/slider_images/slider_1.jpg'}
-                alt='slider_1'
-              />
+            <div className="firstImage">
+              <img src={'images/slider_images/slider_1.jpg'} alt="slider_1" />
             </div>
-            <div className='secondImage'>
-              <img
-                src={'images/slider_images/slider_2.jpg'}
-                alt='slider_2'
-              />
+            <div className="secondImage">
+              <img src={'images/slider_images/slider_2.jpg'} alt="slider_2" />
             </div>
-            <div className='thirdImage'>
-              <img
-                src={'images/slider_images/slider_3.jpg'}
-                alt='slider_3'
-              />
+            <div className="thirdImage">
+              <img src={'images/slider_images/slider_3.jpg'} alt="slider_3" />
             </div>
           </Slide>
         </div>
       </div>
-      <div className='artworkDisplay'>
-        <div className='displayTitle'>
+      <div className="artworkDisplay">
+        <div className="displayTitle">
           <hr />
           <h2>Artworks</h2>
 
           <hr />
         </div>
-        <div className='artworkCarousel'>
+        <div className="artworkCarousel">
           {artworks.artworks.slice(3, 8).map((artwork) => {
             return <CarouselArt art={artwork} key={artwork.id} />
           })}
         </div>
       </div>
-      <div className='successDisplay'>
-        <div className='successTitle'>
+      <div className="successDisplay">
+        <div className="successTitle">
           <hr />
           <h2>Success stories</h2>
           <hr />
         </div>
-        <div className='successBody'>
-          <div className='leftSuccess'>
-            <div className='successText'>
+        <div className="successBody">
+          <div className="leftSuccess">
+            <div className="successText">
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Voluptas facilis minima distinctio incidunt perferendis illo in
@@ -98,20 +91,20 @@ export default function Home(props) {
                 magnam, unde, illum neque. Magni?
               </p>
             </div>
-            <div className='successProfile'>
-              <div className='successProfileName'>
+            <div className="successProfile">
+              <div className="successProfileName">
                 <h2>-Lewis Pakoti</h2>
               </div>
-              <div className='successProfileImage'>
+              <div className="successProfileImage">
                 <img
-                  src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Andrzej_Person_Kancelaria_Senatu.jpg/1200px-Andrzej_Person_Kancelaria_Senatu.jpg'
-                  alt=''
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Andrzej_Person_Kancelaria_Senatu.jpg/1200px-Andrzej_Person_Kancelaria_Senatu.jpg"
+                  alt=""
                 />
               </div>
             </div>
           </div>
-          <div className='rightSuccess'>
-            <div className='successText'>
+          <div className="rightSuccess">
+            <div className="successText">
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Voluptas facilis minima distinctio incidunt perferendis illo in
@@ -119,14 +112,14 @@ export default function Home(props) {
                 magnam, unde, illum neque. Magni?
               </p>
             </div>
-            <div className='successProfile'>
-              <div className='successProfileName'>
+            <div className="successProfile">
+              <div className="successProfileName">
                 <h2>-Lewis Pakoti</h2>
               </div>
-              <div className='successProfileImage'>
+              <div className="successProfileImage">
                 <img
-                  src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Andrzej_Person_Kancelaria_Senatu.jpg/1200px-Andrzej_Person_Kancelaria_Senatu.jpg'
-                  alt=''
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Andrzej_Person_Kancelaria_Senatu.jpg/1200px-Andrzej_Person_Kancelaria_Senatu.jpg"
+                  alt=""
                 />
               </div>
             </div>

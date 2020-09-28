@@ -28,8 +28,14 @@ const App = () => {
     if (isAuthenticated()) {
       const { id } = getDecodedToken()
       getUser(id)
-        .then(result => {
-          const { id, username, artistName: name, about, profilePicture: image } = result
+        .then((result) => {
+          const {
+            id,
+            username,
+            artistName: name,
+            about,
+            profilePicture: image,
+          } = result
           const userData = { id, username, name, about, image }
           // console.log('RESULT of API in APP: ', userData)
           updateUserContext(setUser, userData)
@@ -41,7 +47,6 @@ const App = () => {
   }, [])
 
   // console.log('inside app: ', user)
-
 
   return (
     <div className="App has-background-light">
