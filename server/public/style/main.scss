@@ -347,7 +347,8 @@ a {
   height: 100%;
 }
 .checkoutItem {
-  width: 90%;
+  width: 80%;
+  height: 30%;
   margin: auto;
   display: flex;
   border: 1px solid black;
@@ -449,4 +450,24 @@ a {
 }
 .checkout {
   height: 100%;
+}
+.emptyCart {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.buyNow {
+  margin-top: 1rem;
+  width: 100%;
+  height: 20%;
+  text-align: center;
+}
+.confirmation {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+.artworkDetails {
+  height: 100%;
+  width: 100%;
 }
