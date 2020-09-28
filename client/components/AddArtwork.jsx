@@ -3,7 +3,7 @@ import { Link, Redirect } from 'react-router-dom'
 
 import regeneratorRuntime from 'regenerator-runtime'
 
-import { getUsers, saveArtwork } from '../api'
+import { getCharities, getUsers, saveArtwork } from '../api'
 
 import { UserContext, updateUserContext } from './UserContext'
 
@@ -57,8 +57,10 @@ export default function AddArtwork () {
   }
 
   useEffect(() => {
-    getUsers()
+    // getUsers()
+    getCharities()
       .then(result => {
+        // console.log("get charities result: ", result)
         setCauses(result)
         return causes
       })
