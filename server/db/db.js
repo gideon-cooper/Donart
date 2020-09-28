@@ -38,7 +38,6 @@ function getArtworks (db = connection) {
     )
     .then((result) => {
       return result.map((artwork) => {
-        console.log(artwork)
         return {
           id: artwork.id,
           name: artwork.artworkName,
@@ -118,6 +117,19 @@ function artIsSold (id, db = connection) {
 function getAllUsers (db = connection) {
   return db('users')
     .select()
+    .then((result) => {
+      return result.map((user) => {
+        return {
+          id: user.id,
+          username: user.username,
+          name: capitalizeFirstLetter(user.name),
+          hash: user.hash,
+          email: user.email,
+          profile_picture: user.profile_picture,
+          about: user.about
+        }
+      })
+    })
 }
 
 function getArtistsbyID (id, db = connection) {
