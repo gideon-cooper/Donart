@@ -4,7 +4,7 @@ const rootUrl = '/api/v1/donart'
 
 export function getArt () {
   return request.get(rootUrl).then((res) => {
-    console.log(res)
+    // console.log(res)
     return res.body
   })
 }

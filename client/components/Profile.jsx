@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useContext } from "react"
+import React, { useState, useEffect, useContext } from 'react'
 
-import { UserContext, updateUserContext } from "./UserContext"
-import { Redirect, Link } from "react-router-dom"
+import { UserContext, updateUserContext } from './UserContext'
+import { Redirect, Link } from 'react-router-dom'
 
 import { getArtist, getUser } from '../api'
 
-export default function Profile() {
+export default function Profile () {
   const [user, setUser] = useContext(UserContext)
   // const userId = String(user.id)
   // const [profileData, setProfileData] = useState({})

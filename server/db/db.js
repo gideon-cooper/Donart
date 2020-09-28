@@ -15,8 +15,8 @@ module.exports = {
   viewOwnProfileById
 }
 
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
+function capitalizeFirstLetter (string) {
+  return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
 function getArtworks (db = connection) {
@@ -160,11 +160,12 @@ function viewOwnProfileById (id, db = connection) {
   return db('users')
     // .join('artworks', 'artworks.artist_id', 'users.id')
     .select('users.id as id', 'users.name as artistName',
-      'about', 'profile_picture as profilePicture', 'email')
+      'about', 'profile_picture as profilePicture', 'email', 'username')
     .where('users.id', id)
     .then(result => {
       return {
         id: result[0].id,
+        username: result[0].username,
         artistName: result[0].artistName,
         about: result[0].about,
         profilePicture: result[0].profilePicture,

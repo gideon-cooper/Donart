@@ -13,15 +13,14 @@ export default function Home(props) {
   useEffect(() => {
     getArt()
       .then((res) => {
-        console.log("res:", res)
+        // console.log("res:", res)
         setArtworks(res)
       })
       .catch((error) => {
         console.log("error: ", error.message)
       })
   }, [])
-  console.log("HEA", artworks)
-  console.log
+  // console.log("HEA", artworks)
   function shuffle(array) {
     var currentIndex = array.length
     var temporaryValue

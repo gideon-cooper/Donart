@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from 'react'
-import { isAuthenticated } from 'authenticare/client'
+import { getDecodedToken, isAuthenticated } from 'authenticare/client'
 import { Route, Link } from 'react-router-dom'
 import { UserContext, updateUserContext } from './UserContext'
 import { getUser } from '../api'
@@ -25,12 +25,22 @@ const App = () => {
 
   useEffect(() => {
     if (isAuthenticated()) {
-      console.log('USER IN APP: ', user)
-    // getUser(user.id)
-    updateUserContext(setUser)
-    console.log('USER IN APP after update: ', user)
+      const { id } = getDecodedToken()
+      getUser(id)
+        .then(result => {
+          const { id, username, artistName: name, about, profilePicture: image } = result
+          const userData = { id, username, name, about, image }
+          // console.log('RESULT of API in APP: ', userData)
+          updateUserContext(setUser, userData)
+          // console.log('inside API: ', user)
+          return null
+        })
+        .catch((err) => console.log('error:', err.message))
     }
   }, [])
+
+  // console.log('inside app: ', user)
+
 
   return (
     <div className="App has-background-light">
