@@ -15,6 +15,7 @@ export default function EditProfile (props) {
     about: user.about
   })
   const [image, setImage] = useState(user.image)
+  const [isCharity, setCharityBoolean] = useState(0)
 
   const [loading, setLoading] = useState(false)
 
@@ -27,8 +28,8 @@ export default function EditProfile (props) {
   }
 
   const handleClick = () => {
-    const updatedInfo = { name: form.name, about: form.about, image }
-    // console.log("image in handleclick: ", image)
+    const updatedInfo = { name: form.name, about: form.about, image, isCharity }
+    console.log("is charity in handleclick: ", isCharity)
     editProfile(props.match.params.id, updatedInfo)
     updateUserContext(setUser, { ...user, ...updatedInfo })
     return props.history.push('/profile')
@@ -78,6 +79,17 @@ export default function EditProfile (props) {
         type="text"
         placeholder="About"
       />
+      <br/>
+
+      <h5>Is this profile for a charity organisation?</h5>
+      {/* <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter"/>
+      <label for="subscribeNews">Check this box if you are listing as a charity</label> */}
+
+      <select name="isCharity" onChange={event => setCharityBoolean(event.target.value)}>
+        <option value={isCharity}>--Select from the list--</option>
+        <option key="is-charity" name="charity" value={1} >Yes, I&apos;m a charity</option>
+        <option key="is-not-charity" name="not-charity" value={0} >Not a charity</option>
+      </select>
 
       <h5>Profile Picture</h5>
       <input
