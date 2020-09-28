@@ -15,7 +15,15 @@ export function editProfile(id, updatedInfo) {
       return res.body
     })
 }
-
+export function removeArtwork(id) {
+  return request
+    .patch(rootUrl + '/removeArtwork')
+    .send(id)
+    .then((res) => {
+      console.log('REMOVE API')
+      return res.body
+    })
+}
 export function getOneArt(artId) {
   return request.get(rootUrl + '/Artwork/' + artId).then((res) => {
     return res.body

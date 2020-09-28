@@ -120,7 +120,8 @@ function addNewArtwork(formData, db = connection) {
 }
 
 function artIsSold(id, db = connection) {
-  return db('artworks').where('id', id).update({ is_available: false })
+  console.log('IDS BEING PASSED', id)
+  return db('artworks').whereIn('id', id).update({ is_available: false })
 }
 
 function getAllUsers(db = connection) {
@@ -147,32 +148,43 @@ function getAllCharities(db = connection) {
 //     })
 // }
 
-function getArtistsbyID (id, db = connection) {
+function getArtistsbyID(id, db = connection) {
   return db('artworks')
     .join('users as artist', 'artist.id', 'artworks.artist_id')
     .join('users as cause', 'cause.id', 'artworks.cause_id')
-    .select('artist.id as artistId', 'artist.name as artistName', 'artist.about as about',
-      'artist.profile_picture as profilePicture', 'artworks.id as artworkID',
-      'artist.email as email', 'artworks.name as artworkName', 'artworks.image as artImage',
-      'artworks.price as price', 'cause.id as causeId', 'cause.name as causeName')
+    .select(
+      'artist.id as artistId',
+      'artist.name as artistName',
+      'artist.about as about',
+      'artist.profile_picture as profilePicture',
+      'artworks.id as artworkID',
+      'artist.email as email',
+      'artworks.name as artworkName',
+      'artworks.image as artImage',
+      'artworks.price as price',
+      'cause.id as causeId',
+      'cause.name as causeName'
+    )
     .where('artistId', id)
-    .then(result => {
+    .then((result) => {
       return {
         id: result[0].id,
         artistName: capitalizeFirstLetter(result[0].artistName),
         about: result[0].about,
         profilePicture: result[0].profilePicture,
         email: result[0].email,
-        artworks: !result[0].artworkID ? [] : result.map(art => {
-          return {
-            id: art.artworkID,
-            name: art.artworkName,
-            image: art.artImage,
-            price: art.price,
-            causeName: capitalizeFirstLetter(art.causeName),
-            artistName: art.artistName
-          }
-        })
+        artworks: !result[0].artworkID
+          ? []
+          : result.map((art) => {
+              return {
+                id: art.artworkID,
+                name: art.artworkName,
+                image: art.artImage,
+                price: art.price,
+                causeName: capitalizeFirstLetter(art.causeName),
+                artistName: art.artistName,
+              }
+            }),
       }
     })
 }
