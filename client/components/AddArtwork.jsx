@@ -42,7 +42,7 @@ export default function AddArtwork () {
 
   function handleSubmit (e) {
     e.preventDefault()
-    // console.log(name, price, description, image, cause)
+    console.log(name, price, description, image, cause)
     // console.log('user: ', user)
     const newArtwork = {
       image: image,
@@ -53,6 +53,7 @@ export default function AddArtwork () {
       artistId: user.id,
       artistName: user.name
     }
+    console.log("new artwork in handle submit: ", newArtwork)
     saveArtwork(newArtwork)
   }
 
@@ -111,9 +112,9 @@ export default function AddArtwork () {
             >{cause.name}</option>
           })}
         </select>
-        <Link to={`/ArtistBio/${user.id}`} href="">
-          <button className="button my-4 is-primary">Create Listing</button>
-        </Link>
+        {/* <Link to={`/ArtistBio/${user.id}`} href=""> */}
+          <button className="button my-4 is-primary" type="submit">Create Listing</button>
+        {/* </Link> */}
       </form>
 
     </div>
