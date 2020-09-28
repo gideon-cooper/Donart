@@ -12,7 +12,7 @@ export default function Nav(props) {
   const [cart, setCart] = useContext(CartContext)
   const location = useLocation()
   const checkout = location.pathname.includes('/Checkout')
-  console.log('ASD', checkout)
+  // console.log('ASD', checkout)
   const [form, setForm] = useState({
     log: false,
     cart: false

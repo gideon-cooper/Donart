@@ -30,7 +30,7 @@ router.get('/artwork/:id', (req, res) => {
 
 // GET /api/v1/donart/user/:id
 router.get('/user/:id', (req, res) => {
-  console.log('PARAMS', req.params.id)
+  // console.log('PARAMS', req.params.id)
   const id = Number(req.params.id)
   db.getArtistsbyID(id)
     .then((artist) => {
@@ -41,11 +41,11 @@ router.get('/user/:id', (req, res) => {
     })
 })
 router.get('/CharityBio/:id', (req, res) => {
-  console.log('PARAMS', req.params.id)
+  // console.log('PARAMS', req.params.id)
   const id = Number(req.params.id)
   db.getCharityById(id)
     .then((charity) => {
-      console.log('DBB!!!!', charity)
+      // console.log('DBB!!!!', charity)
       return res.json(charity)
     })
     .catch((err) => {
@@ -60,7 +60,7 @@ router.post('/new-artwork', (req, res) => {
   console.log(newArtwork)
   db.addNewArtwork(newArtwork)
     .then((result) => {
-      // console.log('/new-artwork route result: ', result)
+      console.log('/new-artwork route result: ', result)
       res.json(result)
     })
     .catch((err) => res.status(500).send(err.message))
@@ -80,7 +80,7 @@ router.patch('/:id/buy-now', (req, res) => {
 })
 
 router.post('/editProfile/:id', (req, res) => {
-  console.log('req.body in donart route: ', req.body)
+  // console.log('req.body in donart route: ', req.body)
   // console.log('D', req.params.id)
   const id = Number(req.params.id)
   const user = req.body
@@ -108,7 +108,7 @@ router.get('/users', (req, res) => {
 router.get('/Charities', (req, res) => {
   db.getAllCharities()
     .then((charity) => {
-      console.log('DONART', charity)
+      // console.log('DONART', charity)
       res.json(charity)
     })
     .catch((err) => {
