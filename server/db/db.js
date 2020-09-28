@@ -163,10 +163,19 @@ function getArtistsbyID (id, db = connection) {
       return db('artworks')
         .join('users as artist', 'artist.id', 'artworks.artist_id')
         .join('users as cause', 'cause.id', 'artworks.cause_id')
-        .select('artist.id as artistId', 'artist.name as artistName', 'artist.about as about',
-          'artist.profile_picture as profilePicture', 'artworks.id as artworkID',
-          'artist.email as email', 'artworks.name as artworkName', 'artworks.image as artImage',
-          'artworks.price as price', 'cause.id as causeId', 'cause.name as causeName')
+        .select('artist.id as artistId',
+          'artist.name as artistName',
+          'artist.about as about',
+          'artist.profile_picture as profilePicture',
+          'artworks.id as artworkID',
+          'artist.email as email',
+          'artworks.name as artworkName',
+          'artworks.image as artImage',
+          'artworks.price as price',
+          'cause.id as causeId',
+          'cause.name as causeName',
+          'is_available as isAvailable'
+        )
         .where('artistId', id)
         .then(result => {
           return {
@@ -182,7 +191,8 @@ function getArtistsbyID (id, db = connection) {
                 image: art.artImage,
                 price: art.price,
                 causeName: capitalizeFirstLetter(art.causeName),
-                artistName: art.artistName
+                artistName: art.artistName,
+                isAvailable: art.isAvailable
               }
             })
           }
