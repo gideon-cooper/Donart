@@ -5,7 +5,11 @@ import ArtworkItem from './ArtworkItem'
 
 function CharityBio(props) {
   const [charity, setCharity] = useState([
-    { username: 'loading..', image: 'loading...', about: 'loading..' },
+    {
+      username: 'loading..',
+      profile_picture: 'loading...',
+      about: 'loading..',
+    },
   ])
 
   useEffect(() => {
@@ -21,7 +25,7 @@ function CharityBio(props) {
   console.log('CHARI', charity)
 
   const styles = {
-    backgroundImage: `url(${charity[0].image})`,
+    backgroundImage: `url(${charity[0].profile_picture})`,
     backgroundSize: 'cover',
     backgroundPosition: 'top center',
     height: '20em',
