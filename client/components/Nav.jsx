@@ -25,37 +25,55 @@ export default function Nav(props) {
     setForm({ cart: !form.cart })
   }
   return (
-    <div className="Nav">
-      <div className="logo">
-        <Link style={{ textDecoration: 'none' }} to="/">
+
+    // ---- Nav/Site Logo ----//
+
+    <div className='Nav'>
+      <div className='logo'>
+        <Link style={{ textDecoration: 'none' }} to='/'>
           <img
-            src={'images/logo/logo-black.png'}
+            src={'images/logo/logo-grey.png'}
             style={{ padding: '0 0 0 15px' }}
             alt="donart logo"
           />
         </Link>
       </div>
-      <div className="rightSide">
-        <div className="middleItems">
-          <Link style={{ textDecoration: 'none' }} to="/Artists">
-            <h2>Artists</h2>
+
+      {/* ---- Menu List ---- */}
+
+      <div className='rightSide'>
+
+        {/* ---- Menu List Items ---- */}
+
+        <div className='middleItems'>
+
+          <Link style={{ textDecoration: 'none' }} to='/Artists'>
+            <h2 className="navMenuItems">ARTIST</h2>
           </Link>
-          <Link style={{ textDecoration: 'none' }} to="/Artworks">
-            <h2>Artworks</h2>
+
+          <Link style={{ textDecoration: 'none' }} to='/Artworks'>
+            <h2 className="navMenuItems">ARTWORKS</h2>
           </Link>
-          <Link style={{ textDecoration: 'none' }} to="/Charities">
-            <h2>Charities</h2>
+
+          <Link style={{ textDecoration: 'none' }} to='/Charities'>
+            <h2 className="navMenuItems">CHARITIES</h2>
           </Link>
+
         </div>
-        <div className="rightItems">
+
+        {/* ---- Auth Menu Items ---- */}
+
+        <div className='rightItems'>
+
           <IfNotAuthenticated>
-            <Link style={{ textDecoration: 'none' }} to="/signin">
-              <h2>Sign in</h2>
+            <Link style={{ textDecoration: 'none' }} to='/signin'>
+              <h2 className="navMenuItems">SIGN IN</h2>
             </Link>
-            <Link style={{ textDecoration: 'none' }} to="/register">
-              <h2>Register</h2>
+            <Link style={{ textDecoration: 'none' }} to='/register'>
+              <h2 className="navMenuItems">REGISTER</h2>
             </Link>
           </IfNotAuthenticated>
+
           <IfAuthenticated>
             {form.cart ? <Cart /> : null}
             <h2>{cart.length}</h2>
@@ -68,6 +86,7 @@ export default function Nav(props) {
             </Link>
           </IfAuthenticated>
         </div>
+
       </div>
     </div>
   )

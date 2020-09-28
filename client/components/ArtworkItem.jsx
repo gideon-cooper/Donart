@@ -9,7 +9,7 @@ export default function ArtworkItem({ artwork, bio }) {
     backgroundImage: `url(${artwork.image})`,
     backgroundSize: 'cover',
     backgroundPosition: 'top center',
-    height: '20em',
+    height: '15em',
   }
   const artworkID = String(artwork.id)
   console.log('bio: ', bio)

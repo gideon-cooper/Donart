@@ -164,8 +164,12 @@ function getAllCharities(db = connection) {
 //     })
 // }
 
-function getArtistsbyID(id, db = connection) {
-  return db('artworks')
+function getArtistsbyID (id, db = connection) {
+  return db('users')
+   .select()
+   .where('users.id', id)
+   .then(user => {
+    return db('artworks')
     .join('users as artist', 'artist.id', 'artworks.artist_id')
     .join('users as cause', 'cause.id', 'artworks.cause_id')
     .select(
@@ -184,35 +188,39 @@ function getArtistsbyID(id, db = connection) {
     .where('artistId', id)
     .then((result) => {
       return {
-        id: result[0].id,
-        artistName: capitalizeFirstLetter(result[0].artistName),
-        about: result[0].about,
-        profilePicture: result[0].profilePicture,
-        email: result[0].email,
-        artworks: !result[0].artworkID
-          ? []
-          : result.map((art) => {
-              return {
-                id: art.artworkID,
-                name: art.artworkName,
-                image: art.artImage,
-                price: art.price,
-                causeName: capitalizeFirstLetter(art.causeName),
-                artistName: art.artistName,
-              }
-            }),
+        id: user[0].id,
+        artistName: capitalizeFirstLetter(user[0].name),
+        about: user[0].about,
+        profilePicture: user[0].profile_picture,
+        email: user[0].email,
+        artworks: !result[0]? [] : result.map(art => {
+          return {
+            id: art.artworkID,
+            name: art.artworkName,
+            image: art.artImage,
+            price: art.price,
+            causeName: capitalizeFirstLetter(art.causeName),
+            artistName: art.artistName
+          }
+        })
       }
     })
+   })
+
 }
 
 function editProfile(id, user, db = connection) {
   // console.log('USER in DB function: ', user)
   // console.log('User name in DB function: ', user.name)
-  return db('users').where('users.id', Number(id)).first().update({
-    profile_picture: user.image,
-    about: user.about,
-    name: user.name,
-  })
+  return db('users')
+    .where('users.id', Number(id))
+    .first()
+    .update({
+      profile_picture: user.image,
+      about: user.about,
+      name: user.name,
+      is_Charity: user.isCharity
+    })
 }
 
 function viewOwnProfileById(id, db = connection) {

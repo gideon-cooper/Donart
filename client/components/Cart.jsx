@@ -5,16 +5,21 @@ import CartItem from './CartItem'
 
 export default function Cart(props) {
   const [cart, setCart] = useContext(CartContext)
+
   return (
     <div className="cart">
       <div className="cartItemContainer">
+        {cart.length === 0 ? (
+          <div className="emptyText">
+            <p>Cart is empty :'(</p>
+            <p>Try adding something!</p>
+          </div>
+        ) : null}
         {cart.map((item) => {
           return <CartItem item={item} key={item.image} />
         })}
       </div>
-      {cart.length === 0 ? (
-        <p>Cart is empty :'(</p>
-      ) : (
+      {cart.length > 0 ? (
         <div className="checkoutButtonDiv">
           <Link style={{ textDecoration: 'none' }} to="/Checkout">
             <button className="button checkoutButton is-success">
@@ -22,7 +27,7 @@ export default function Cart(props) {
             </button>
           </Link>
         </div>
-      )}
+      ) : null}
     </div>
   )
 }

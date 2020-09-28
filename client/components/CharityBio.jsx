@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import { getCharity } from '../api'
 import ArtworkItem from './ArtworkItem'
+import Footer from './Footer'
 
 function CharityBio(props) {
   const [charity, setCharity] = useState([
@@ -64,6 +65,7 @@ function CharityBio(props) {
           <ArtworkItem key={charity.id} artwork={charity} />
         ))}
       </div>
+      <Footer />
     </>
   )
 }

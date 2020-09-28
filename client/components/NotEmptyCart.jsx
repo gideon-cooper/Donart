@@ -20,7 +20,9 @@ export default function NotEmptyCart() {
         return <CheckoutItem item={item} key={item.image} />
       })}
       <Link style={{ textDecoration: 'none' }} to="/Confirmation">
-        <button onClick={handleClick}>Buy now</button>
+        <button className="button is-success" onClick={handleClick}>
+          Buy now
+        </button>
       </Link>
     </div>
   )

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { getArt } from '../api'
 import CarouselArt from './CarouselArt'
 import { Slide } from 'react-slideshow-image'
+
 import Footer from './Footer'
 import Nav from './Nav'
 
@@ -66,7 +67,6 @@ export default function Home(props) {
         <div className="displayTitle">
           <hr />
           <h2>Artworks</h2>
-
           <hr />
         </div>
         <div className="artworkCarousel">
@@ -75,6 +75,7 @@ export default function Home(props) {
           })}
         </div>
       </div>
+
       <div className="successDisplay">
         <div className="successTitle">
           <hr />
@@ -126,6 +127,9 @@ export default function Home(props) {
           </div>
         </div>
       </div>
+
+      {/* Section - Footer */}
+
       <Footer />
     </div>
   )

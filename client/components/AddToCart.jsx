@@ -16,11 +16,12 @@ export default function AddToCart(props) {
   }, [newCart])
 
   const handleClick = () => {
-    const { artistName, causeName, image, id } = props.art
+    const { artistName, causeName, image, id, price, name } = props.art
+    console.log(props.art, 'HEYYYYYY')
     if (user.about === '') {
       history.push('/signin')
     } else {
-      setNewCart({ artistName, causeName, image, id })
+      setNewCart({ artistName, causeName, image, id, price, name })
     }
   }
   return (
