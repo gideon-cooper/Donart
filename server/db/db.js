@@ -152,7 +152,6 @@ function getArtistsbyID (id, db = connection) {
    .select()
    .where('users.id', id)
    .then(user => {
-     console.log('user: ', user)
     return db('artworks')
     .join('users as artist', 'artist.id', 'artworks.artist_id')
     .join('users as cause', 'cause.id', 'artworks.cause_id')
@@ -162,7 +161,6 @@ function getArtistsbyID (id, db = connection) {
       'artworks.price as price', 'cause.id as causeId', 'cause.name as causeName')
     .where('artistId', id)
     .then(result => {
-      console.log('result: ', result)
       return {
         id: user[0].id,
         artistName: capitalizeFirstLetter(user[0].name),
