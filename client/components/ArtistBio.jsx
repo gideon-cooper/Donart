@@ -8,6 +8,8 @@ function ArtistBio(props) {
     const [artist, setArtist] = useState({
         artist: {}
     })
+    console.log('props: ', props)
+    console.log('1startist: ', artist)
     useEffect(() => {
         getArtist(props.match.params.id)
         .then((res) => {
@@ -51,6 +53,9 @@ function ArtistBio(props) {
             </div>
         </div>
         <div className="column">
+            {/* {!artist.artworks
+            ? <h1 className="has-text-centered">Listings</h1>
+            : null} */}
             <h1 className="has-text-centered">Listings</h1>
         </div>
         <div className="card-flex-wrapper column is-three-quarters">

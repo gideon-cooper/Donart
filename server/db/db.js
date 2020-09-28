@@ -192,7 +192,8 @@ function editProfile (id, user, db = connection) {
     .update({
       profile_picture: user.image,
       about: user.about,
-      name: user.name
+      name: user.name,
+      is_Charity: user.isCharity
     })
 }
 
