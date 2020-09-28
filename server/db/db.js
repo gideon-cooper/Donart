@@ -148,7 +148,12 @@ function getAllCharities(db = connection) {
 // }
 
 function getArtistsbyID (id, db = connection) {
-  return db('artworks')
+  return db('users')
+   .select()
+   .where('users.id', id)
+   .then(user => {
+     console.log('user: ', user)
+    return db('artworks')
     .join('users as artist', 'artist.id', 'artworks.artist_id')
     .join('users as cause', 'cause.id', 'artworks.cause_id')
     .select('artist.id as artistId', 'artist.name as artistName', 'artist.about as about',
@@ -157,13 +162,14 @@ function getArtistsbyID (id, db = connection) {
       'artworks.price as price', 'cause.id as causeId', 'cause.name as causeName')
     .where('artistId', id)
     .then(result => {
+      console.log('result: ', result)
       return {
-        id: result[0].id,
-        artistName: capitalizeFirstLetter(result[0].artistName),
-        about: result[0].about,
-        profilePicture: result[0].profilePicture,
-        email: result[0].email,
-        artworks: !result[0].artworkID ? [] : result.map(art => {
+        id: user[0].id,
+        artistName: capitalizeFirstLetter(user[0].name),
+        about: user[0].about,
+        profilePicture: user[0].profile_picture,
+        email: user[0].email,
+        artworks: !result[0]? [] : result.map(art => {
           return {
             id: art.artworkID,
             name: art.artworkName,
@@ -175,6 +181,8 @@ function getArtistsbyID (id, db = connection) {
         })
       }
     })
+   })
+
 }
 
 function editProfile(id, user, db = connection) {

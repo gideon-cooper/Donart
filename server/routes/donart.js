@@ -30,7 +30,7 @@ router.get('/artwork/:id', (req, res) => {
 
 // GET /api/v1/donart/user/:id
 router.get('/user/:id', (req, res) => {
-  console.log('PARAMS', req.params.id)
+  console.log('PARAMS: ', req.params.id)
   const id = Number(req.params.id)
   db.getArtistsbyID(id)
     .then((artist) => {
