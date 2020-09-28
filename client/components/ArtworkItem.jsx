@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import AddToCart from "./AddToCart"
+import ArtistBio from "./ArtistBio"
 
 export default function ArtworkItem({ artwork, bio }) {
   const styles = {
@@ -18,10 +19,10 @@ console.log('bio: ', bio)
         <div className='mt-4 mb-2 mx-6' style={styles}></div>
       </Link>
       <div className='has-text-centered mb-4'>
-        {!bio 
+        <h2>Artist: {artwork.artistName}</h2>
+        {/* {!bio 
         ?<h2>Artist: {artwork.artistName}</h2>
-        : null}
-        {/* <h2>Artist: {artwork.artistName}</h2> */}
+        : null} */}
         <h2>Price: ${artwork.price}</h2>
         <h2>Cause: {artwork.causeName}</h2>
         <AddToCart art={artwork} />

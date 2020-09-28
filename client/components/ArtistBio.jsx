@@ -35,10 +35,6 @@ function ArtistBio(props) {
     //     height: '20em'
     //   }
 
-    // function capitalizeFirstLetter(string) {
-    //     return string.charAt(0).toUpperCase() + string.slice(1);
-    //   }
-
     return (
         <>
         <div className="columns">
