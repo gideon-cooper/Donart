@@ -11,7 +11,8 @@ module.exports = {
   artIsSold,
   editProfile,
   getAllUsers,
-  getArtistsbyID
+  getArtistsbyID,
+  viewOwnProfileById
 }
 
 function capitalizeFirstLetter(string) {
@@ -169,8 +170,9 @@ function editProfile (id, user, db = connection) {
 
 function viewOwnProfileById (id, db = connection) {
   return db('users')
-    .join('artworks', 'artworks.artist_id', 'users.id')
-    .select('users.id as id', 'users.name as artistName', 'about', 'profile_picture as profilePicture', 'artworks.id as artworkID', 'email', 'artworks.name as artworkName', 'artworks.image as artImage', 'artworks.price as price')
+    // .join('artworks', 'artworks.artist_id', 'users.id')
+    .select('users.id as id', 'users.name as artistName',
+      'about', 'profile_picture as profilePicture', 'email')
     .where('users.id', id)
     .then(result => {
       return {
@@ -178,15 +180,15 @@ function viewOwnProfileById (id, db = connection) {
         artistName: result[0].artistName,
         about: result[0].about,
         profilePicture: result[0].profilePicture,
-        email: result[0].email,
-        artworks: !result[0].artworkID ? [] : result.map(art => {
-          return {
-            id: art.artworkID,
-            name: art.artworkName,
-            image: art.artImage,
-            price: art.price
-          }
-        })
+        email: result[0].email
+        // artworks: !result[0].artworkID ? [] : result.map(art => {
+        //   return {
+        //     id: art.artworkID,
+        //     name: art.artworkName,
+        //     image: art.artImage,
+        //     price: art.price
       }
     })
 }
+// })
+// }

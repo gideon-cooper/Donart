@@ -49,3 +49,11 @@ export function getArtist (artistID) {
       return res.body
     })
 }
+
+export function getUser (userId) {
+  return request.get(`${rootUrl}/profile/${userId}`)
+    .then((res) => {
+      // console.log('API result get artist: ', res.body)
+      return res.body
+    })
+}
