@@ -1,7 +1,7 @@
-import React, { useState, useContext, useEffect } from "react"
-import { Link, useHistory } from "react-router-dom"
-import { UserContext } from "./UserContext"
-import { CartContext, updateCart } from "./CartContext"
+import React, { useState, useContext, useEffect } from 'react'
+import { Link, useHistory } from 'react-router-dom'
+import { UserContext } from './UserContext'
+import { CartContext, updateCart } from './CartContext'
 
 export default function AddToCart(props) {
   const [cart, setCart] = useContext(CartContext)
@@ -17,17 +17,21 @@ export default function AddToCart(props) {
 
   const handleClick = () => {
     const { artistName, causeName, image, id } = props.art
-    if (user.about === "") {
-      history.push("/signin")
+    if (user.about === '') {
+      history.push('/signin')
     } else {
       setNewCart({ artistName, causeName, image, id })
     }
   }
   return (
-    <div className='addToCart'>
-      <button className='button is-success' onClick={handleClick}>
-        Add to cart
-      </button>
+    <div className="addToCart">
+      {cart.map((item) => item.id).includes(props.art.id) ? (
+        <p>In Cart</p>
+      ) : (
+        <button className="button is-success" onClick={handleClick}>
+          Add to cart
+        </button>
+      )}
     </div>
   )
 }

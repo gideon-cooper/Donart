@@ -1,9 +1,11 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom'
+import { CartContext } from './CartContext'
 
 import AddToCart from './AddToCart'
 
 export default function CarouselArt(props) {
+  const [cart, setCart] = useContext(CartContext)
   const artworkId = String(props.art.id)
 
   return (
@@ -20,7 +22,6 @@ export default function CarouselArt(props) {
               alt=""
             />
           </Link>
-
           <AddToCart art={props.art} />
         </div>
       ) : null}
