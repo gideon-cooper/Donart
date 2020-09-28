@@ -29,12 +29,10 @@ export function getUsers() {
   })
 }
 export function getCharities() {
-  return request
-    .get(`${rootUrl}/Charities`)
-    .then((res) => {
-      console.log(':ASDASDASDASD', res)
-    })
-    .catch('error: ', err.message)
+  return request.get(`${rootUrl}/Charities`).then((res) => {
+    console.log(':ASDASDASDASD', res)
+    return res.body
+  })
 }
 
 export function saveArtwork(artwork) {
@@ -49,7 +47,7 @@ export function saveArtwork(artwork) {
 
 export function getArtist(artistID) {
   return request.get(rootUrl + '/user/' + artistID).then((res) => {
-    // console.log('API result get artist: ', res.body)
+    console.log('API result get artist: ', res.body)
     return res.body
   })
 }

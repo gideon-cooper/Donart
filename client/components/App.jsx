@@ -30,22 +30,22 @@ const App = () => {
   }, [])
 
   return (
-    <div className='App has-background-light'>
+    <div className="App has-background-light">
       <Nav />
-      <Route exact path='/' component={Home} />
-      <Route path='/signin' component={Signin} />
-      <Route path='/Checkout' component={Checkout} />
-      <Route path='/register' component={Register} />
-      <Route path='/artists' component={Artists} />
-      <Route path='/Confirmation' component={Confirmation} />
-      <Route path='/profile' component={Profile} />
-      <Route path='/editProfile/:id' component={EditProfile} />
-      <Route path='/Charities' component={Charities} />
-      <Route path='/CharitiyBio/:id' component={CharityBio} />
-      <Route path='/Artworks' component={Artworks} />
-      <Route path='/add-artwork' component={AddArtwork} />
-      <Route path='/ArtistBio/:id' component={ArtistBio} />
-      <Route path='/ArtworkDetails/:id' component={ArtworkDetails} />
+      <Route exact path="/" component={Home} />
+      <Route path="/signin" component={Signin} />
+      <Route path="/Checkout" component={Checkout} />
+      <Route path="/register" component={Register} />
+      <Route path="/artists" component={Artists} />
+      <Route path="/Confirmation" component={Confirmation} />
+      <Route path="/profile" component={Profile} />
+      <Route path="/editProfile/:id" component={EditProfile} />
+      <Route path="/Charities" component={Charities} />
+      <Route path="/CharityBio/:id" component={CharityBio} />
+      <Route path="/Artworks" component={Artworks} />
+      <Route path="/add-artwork" component={AddArtwork} />
+      <Route path="/ArtistBio/:id" component={ArtistBio} />
+      <Route path="/ArtworkDetails/:id" component={ArtworkDetails} />
     </div>
   )
 }

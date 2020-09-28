@@ -5,7 +5,7 @@ import SingleCharity from './SingleCharity'
 
 export default function Charities() {
   const [charities, setCharities] = useState([])
-  console.log(charities)
+  console.log('CHARITIES', charities)
   useEffect(() => {
     getCharities()
       .then((res) => {
@@ -18,16 +18,16 @@ export default function Charities() {
 
   return (
     <>
-      <div className='artworkDisplay'>
-        <div className='displayTitle'>
+      <div className="artworkDisplay">
+        <div className="displayTitle">
           <hr />
           <h2>Browse Charities</h2>
           <hr />
         </div>
-        <div className='card-flex-wrapper column is-three-quarters'>
-          {/* {charities.map((charity) => (
+        <div className="card-flex-wrapper column is-three-quarters">
+          {charities.map((charity) => (
             <SingleCharity key={charity.id} charity={charity} />
-          ))} */}
+          ))}
         </div>
       </div>
     </>

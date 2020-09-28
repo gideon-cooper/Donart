@@ -138,6 +138,7 @@ function getArtistsbyID(id, db = connection) {
     )
     .where('users.id', id)
     .then((result) => {
+      console.log('DBBBBBBBB', result)
       return {
         id: result[0].id,
         artistName: capitalizeFirstLetter(result[0].artistName),
@@ -147,6 +148,7 @@ function getArtistsbyID(id, db = connection) {
         artworks: !result[0].artworkID
           ? []
           : result.map((art) => {
+              console.log('DBBBBB', art)
               return {
                 id: art.artworkID,
                 name: art.artworkName,
