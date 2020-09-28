@@ -183,7 +183,8 @@ function getArtistsbyID (id, db = connection) {
       'artworks.image as artImage',
       'artworks.price as price',
       'cause.id as causeId',
-      'cause.name as causeName'
+      'cause.name as causeName',
+      'is_available as isAvailable'
     )
     .where('artistId', id)
     .then((result) => {
@@ -200,7 +201,8 @@ function getArtistsbyID (id, db = connection) {
             image: art.artImage,
             price: art.price,
             causeName: capitalizeFirstLetter(art.causeName),
-            artistName: art.artistName
+            artistName: art.artistName,
+            isAvailable: art.isAvailable
           }
         })
       }
