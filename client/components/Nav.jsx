@@ -52,7 +52,7 @@ export default function Nav(props) {
           </Link>
 
           <Link style={{ textDecoration: 'none' }} to='/Artworks'>
-            <h2 className="navMenuItems">ARTWROKS</h2>
+            <h2 className="navMenuItems">ARTWORKS</h2>
           </Link>
 
           <Link style={{ textDecoration: 'none' }} to='/Charities'>
@@ -76,13 +76,16 @@ export default function Nav(props) {
 
           <IfAuthenticated>
             {form.cart && !checkout ? <Cart /> : null}
-            <h2>{cart.length}</h2>
+
             <i onClick={handleClick} className='fas fa-2x fa-shopping-cart'></i>
+            <h2 className="navMenuCounter">{cart.length}</h2>
+
             <Link style={{ textDecoration: 'none' }} to='/profile'>
-              <h2>Profile</h2>
+              <h2 className="navMenuItems">PROFILE</h2>
             </Link>
+
             <Link style={{ textDecoration: 'none' }} onClick={logff} to='/'>
-              <h2>Log off</h2>
+              <h2 className="navMenuItems">LOG OFF</h2>
             </Link>
           </IfAuthenticated>
         </div>

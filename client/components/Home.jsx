@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { getArt } from '../api'
 import CarouselArt from './CarouselArt'
 import { Slide } from 'react-slideshow-image'
+
 import Footer from './Footer'
 
 export default function Home(props) {
