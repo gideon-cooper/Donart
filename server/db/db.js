@@ -193,7 +193,8 @@ function editProfile (id, user, db = connection) {
       profile_picture: user.image,
       about: user.about,
       name: user.name,
-      is_Charity: user.isCharity
+      is_Charity: user.isCharity,
+      is_artist: user.isArtist
     })
 }
 

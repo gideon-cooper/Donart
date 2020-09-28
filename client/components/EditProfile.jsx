@@ -16,6 +16,7 @@ export default function EditProfile (props) {
   })
   const [image, setImage] = useState(user.image)
   const [isCharity, setCharityBoolean] = useState(0)
+  const [isArtist, setArtistBoolean] = useState(0)
 
   const [loading, setLoading] = useState(false)
 
@@ -28,8 +29,8 @@ export default function EditProfile (props) {
   }
 
   const handleClick = () => {
-    const updatedInfo = { name: form.name, about: form.about, image, isCharity }
-    console.log("is charity in handleclick: ", isCharity)
+    const updatedInfo = { name: form.name, about: form.about, image, isCharity, isArtist }
+    console.log("is charity in handleclick: ", isCharity, "is artist in handleclick: ", isArtist)
     editProfile(props.match.params.id, updatedInfo)
     updateUserContext(setUser, { ...user, ...updatedInfo })
     return props.history.push('/profile')
@@ -90,7 +91,15 @@ export default function EditProfile (props) {
         <option key="is-charity" name="charity" value={1} >Yes, I&apos;m a charity</option>
         <option key="is-not-charity" name="not-charity" value={0} >Not a charity</option>
       </select>
+      <br/><br/>
+      <h5>Will you be donating art on our site as an artist?</h5>
 
+      <select name="isArtist" onChange={event => setArtistBoolean(event.target.value)}>
+        <option value={isArtist}>--Select from the list--</option>
+        <option key="is-artist" name="artist" value={1} >Yes, I&apos;m an artist</option>
+        <option key="is-not-artist" name="not-artist" value={0} >Not an artist</option>
+      </select>
+      <br/><br/>
       <h5>Profile Picture</h5>
       <input
         name="file"
