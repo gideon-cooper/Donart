@@ -28,18 +28,22 @@ const App = () => {
     if (isAuthenticated()) {
       const { id } = getDecodedToken()
       getUser(id)
-        .then((result) => {
+        .then(result => {
+          // console.log('first result inside APP: ', result)
           const {
             id,
             username,
             artistName: name,
             about,
+            email,
             profilePicture: image,
+            isCharity,
+            isArtist
           } = result
-          const userData = { id, username, name, about, image }
-          // console.log('RESULT of API in APP: ', userData)
+          const userData = { id, username, name, about, image, isCharity, isArtist, email }
+          // console.log('second RESULT of API in APP: ', userData)
           updateUserContext(setUser, userData)
-          // console.log('inside API: ', user)
+          // console.log('inside API: ', user) // this returns null but doesn't break anything (Don not sure why either)
           return null
         })
         .catch((err) => console.log('error:', err.message))

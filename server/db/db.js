@@ -14,7 +14,8 @@ module.exports = {
   getArtistsbyID,
   viewOwnProfileById,
   getAllCharities,
-  getCharityById
+  getCharityById,
+  getAllArtists
 }
 
 function capitalizeFirstLetter (string) {
@@ -146,6 +147,13 @@ function getAllUsers (db = connection) {
 function getAllCharities (db = connection) {
   return db('users').select().where('is_Charity', true)
 }
+
+function getAllArtists (db = connection) {
+  return db('users')
+    .select()
+    .where('is_artist', true)
+}
+
 // function getAllUsers (db = connection) {
 //   return db('users')
 //     .select()
@@ -220,7 +228,8 @@ function editProfile (id, user, db = connection) {
       profile_picture: user.image,
       about: user.about,
       name: user.name,
-      is_Charity: user.isCharity
+      is_Charity: user.isCharity,
+      is_artist: user.isArtist
     })
 }
 
@@ -232,7 +241,9 @@ function viewOwnProfileById (id, db = connection) {
       'about',
       'profile_picture as profilePicture',
       'email',
-      'username'
+      'username',
+      'users.is_Charity as isCharity',
+      'users.is_artist as isArtist'
     )
     .where('users.id', id)
     .then((result) => {
@@ -242,7 +253,9 @@ function viewOwnProfileById (id, db = connection) {
         artistName: result[0].artistName,
         about: result[0].about,
         profilePicture: result[0].profilePicture,
-        email: result[0].email
+        email: result[0].email,
+        isCharity: result[0].isCharity,
+        isArtist: result[0].isArtist
       }
     })
 }
