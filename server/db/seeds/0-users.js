@@ -10,6 +10,12 @@ exports.seed = function (knex) {
         generateHash('lewis1'),
         generateHash('marika1'),
         generateHash('evelyn1'),
+        generateHash('hayley'),
+        generateHash('ben'),
+        generateHash('redCross'),
+        generateHash('kidsCan'),
+        generateHash('breastCancerFoundation'),
+        generateHash('unicef'),
       ])
     )
     .then(function ([
@@ -19,6 +25,10 @@ exports.seed = function (knex) {
       evelynHash,
       hayleyHash,
       benHash,
+      redCrossHash,
+      kidsCanHash,
+      breastCancerFoundationHash,
+      unicefHash,
     ]) {
       // Inserts seed entries
       return knex('users').insert([
@@ -109,34 +119,34 @@ exports.seed = function (knex) {
           email: 'kidsCan@gmail.com',
           name: 'kidsCan',
           profile_picture:
-            'https://www.badaboom.co.nz/images/profile-photos/ben.jpg/@@images/ef47f76b-4091-471a-a51a-e8044620ecb1.jpeg',
+            'https://thedailyblog.co.nz/wp-content/uploads/2017/12/kidscan-logo.png',
           about:
-            'Ben Sarten Imagery is a video and photography production company operating out of THE BONE ZONE/Te iwi Koiwi Creative Space, in St Johns, Auckland. Prioritising the documentation and visibility of environmental and social/human rights activism and the New Zealand arts scene, with collaboration and community as its kaupapa.',
-          is_Charity: false,
+            'Education is a child’s ticket out of poverty. It is how we will break the cycle of hardship, and it is at the core of everything KidsCan does. Food, a warm jacket, solid shoes, feminine hygiene products - these are things we want every child to take for granted. We are levelling the playing field, giving children whose families are struggling the same opportunity to learn as anyone else.',
+          is_Charity: true,
         },
         {
           id: 9,
-          username: 'ben',
-          hash: benHash,
-          email: 'ben@gmail.com',
-          name: 'ben',
+          username: 'breastCancerFoundation',
+          hash: breastCancerFoundationHash,
+          email: 'breastCancerFoundation@gmail.com',
+          name: 'breastCancerFoundation',
           profile_picture:
-            'https://www.badaboom.co.nz/images/profile-photos/ben.jpg/@@images/ef47f76b-4091-471a-a51a-e8044620ecb1.jpeg',
+            'https://media-exp1.licdn.com/dms/image/C510BAQET6OVcFZVOPQ/company-logo_200_200/0?e=2159024400&v=beta&t=OET5tkxUmAAs0nbB0U6u7XnKHwNc9lMo5M0OAHsGy80',
           about:
-            'Ben Sarten Imagery is a video and photography production company operating out of THE BONE ZONE/Te iwi Koiwi Creative Space, in St Johns, Auckland. Prioritising the documentation and visibility of environmental and social/human rights activism and the New Zealand arts scene, with collaboration and community as its kaupapa.',
-          is_Charity: false,
+            'Our vision: Zero deaths from breast cancer, Our mission (how well achieve that vision) Pushing for new frontiers in early detection, treatment and support.',
+          is_Charity: true,
         },
         {
           id: 10,
-          username: 'ben',
-          hash: benHash,
-          email: 'ben@gmail.com',
-          name: 'ben',
+          username: 'unicef',
+          hash: unicefHash,
+          email: 'unicef@gmail.com',
+          name: 'unicef',
           profile_picture:
-            'https://www.badaboom.co.nz/images/profile-photos/ben.jpg/@@images/ef47f76b-4091-471a-a51a-e8044620ecb1.jpeg',
+            'https://www.cid.org.nz/assets/Uploads/b771c952d4/UNICEF-v2.jpg',
           about:
-            'Ben Sarten Imagery is a video and photography production company operating out of THE BONE ZONE/Te iwi Koiwi Creative Space, in St Johns, Auckland. Prioritising the documentation and visibility of environmental and social/human rights activism and the New Zealand arts scene, with collaboration and community as its kaupapa.',
-          is_Charity: false,
+            'UNICEF is the United Nations Childrens Fund For over 70 years, weve been working to protect the rights of children in over 190 countries and territories around the world.',
+          is_Charity: true,
         },
       ])
     })

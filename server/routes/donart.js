@@ -45,22 +45,22 @@ router.post('/new-artwork', (req, res) => {
   const newArtwork = req.body
   console.log(newArtwork)
   db.addNewArtwork(newArtwork)
-    .then(result => {
+    .then((result) => {
       // console.log('/new-artwork route result: ', result)
       res.json(result)
     })
-    .catch(err => res.status(500).send(err.message))
+    .catch((err) => res.status(500).send(err.message))
 })
 
 // PATCH /api/v1/donart/:id/buy-now
 router.patch('/:id/buy-now', (req, res) => {
   const id = req.params.id
   db.artIsSold(id)
-    .then(result => {
+    .then((result) => {
       console.log(result)
       res.status(200).send(`Artwork ${id} has sold`)
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(500).send(err.message)
     })
 })
@@ -90,13 +90,24 @@ router.get('/users', (req, res) => {
       res.status(500).json({ error: err.message })
     })
 })
+// GET /api/v1/donart/Charities
+router.get('/Charities', (req, res) => {
+  db.getAllCharities()
+    .then((charity) => {
+      console.log('DONART', charity)
+      res.json(charity)
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message })
+    })
+})
 
 // GET /api/v1/donart/profile/:id
 router.get('/profile/:id', (req, res) => {
   const id = Number(req.params.id)
   db.viewOwnProfileById(id)
     .then((user) => {
-      console.log("Route: user: ", user)
+      console.log('Route: user: ', user)
       return res.json(user)
     })
     .catch((err) => {
