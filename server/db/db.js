@@ -103,6 +103,7 @@ function getCharityById(id, db = connection) {
       'users.about',
       'users.is_Charity',
       'artworks.id',
+      'artworks.name',
       'artworks.cause_id',
       'artworks.artist_id',
       'artworks.description',

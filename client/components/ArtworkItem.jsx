@@ -25,7 +25,7 @@ export default function ArtworkItem({ artwork, bio }) {
             {/* <h2>Artist: {artwork.artistName}</h2> */}
             {!bio ? <h2>Artist: {artwork.artistName}</h2> : null}
             <h2>Price: ${artwork.price}</h2>
-            <h2>Cause: {artwork.causeName}</h2>
+            <h2>Cause: {artwork.causeName || artwork.username}</h2>
             <AddToCart art={artwork} />
           </div>
         </div>
