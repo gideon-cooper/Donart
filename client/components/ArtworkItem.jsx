@@ -7,7 +7,8 @@ export default function ArtworkItem({ artwork, bio }) {
   console.log(artwork)
   const styles = {
     backgroundImage: `url(${artwork.image})`,
-    backgroundSize: 'cover',
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
     backgroundPosition: 'top center',
     height: '15em',
   }

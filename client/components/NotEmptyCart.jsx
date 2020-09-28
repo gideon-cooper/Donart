@@ -15,7 +15,7 @@ export default function NotEmptyCart() {
   }
 
   return (
-    <div>
+    <div className="notEmptyCart">
       {cart.map((item) => {
         return <CheckoutItem item={item} key={item.image} />
       })}
