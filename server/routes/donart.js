@@ -57,10 +57,10 @@ router.get('/CharityBio/:id', (req, res) => {
 // POST /api/v1/donart/new-artwork
 router.post('/new-artwork', (req, res) => {
   const newArtwork = req.body
-  console.log(newArtwork)
+  // console.log(newArtwork)
   db.addNewArtwork(newArtwork)
     .then((result) => {
-      console.log('/new-artwork route result: ', result)
+      // console.log('/new-artwork route result: ', result)
       res.json(result)
     })
     .catch((err) => res.status(500).send(err.message))
@@ -72,7 +72,7 @@ router.patch('/removeArtwork', (req, res) => {
   console.log('ROUTE', req.body)
   db.artIsSold(id)
     .then((result) => {
-      console.log('DONART ROUTE', result)
+      // console.log('DONART ROUTE', result)
       res.status(200).send(`Artwork ${id} has been sold`)
     })
     .catch((err) => {
@@ -105,6 +105,7 @@ router.get('/users', (req, res) => {
       res.status(500).json({ error: err.message })
     })
 })
+
 // GET /api/v1/donart/Charities
 router.get('/Charities', (req, res) => {
   db.getAllCharities()
@@ -117,12 +118,24 @@ router.get('/Charities', (req, res) => {
     })
 })
 
+// GET /api/v1/donart/artists
+router.get('/artists', (req, res) => {
+  db.getAllArtists()
+    .then((artists) => {
+      // console.log('artists inside DB function: ', artists)
+      return res.json(artists)
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message })
+    })
+})
+
 // GET /api/v1/donart/profile/:id
 router.get('/profile/:id', (req, res) => {
   const id = Number(req.params.id)
   db.viewOwnProfileById(id)
     .then((user) => {
-      console.log('Route: user: ', user)
+      // console.log('Route: user: ', user)
       return res.json(user)
     })
     .catch((err) => {

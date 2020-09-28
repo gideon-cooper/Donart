@@ -8,7 +8,7 @@ import Footer from './Footer'
 import Nav from './Nav'
 
 export default function Home(props) {
-  console.log('TEST')
+  // console.log('TEST')
   const [artworks, setArtworks] = useState({
     artworks: [],
   })
@@ -16,14 +16,14 @@ export default function Home(props) {
   useEffect(() => {
     getArt()
       .then((res) => {
-        console.log('res:', res)
+        // console.log('res:', res)
         setArtworks(res)
       })
       .catch((error) => {
         console.log('error: ', error.message)
       })
   }, [])
-  console.log('HEA', artworks)
+  // console.log('HEA', artworks)
   console.log
   function shuffle(array) {
     var currentIndex = array.length

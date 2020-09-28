@@ -3,9 +3,9 @@ import { getCharities } from '../api'
 import Footer from './Footer'
 import SingleCharity from './SingleCharity'
 
-export default function Charities() {
+export default function Charities () {
   const [charities, setCharities] = useState([])
-  console.log('CHARITIES', charities)
+  // console.log('CHARITIES', charities)
   useEffect(() => {
     getCharities()
       .then((res) => {

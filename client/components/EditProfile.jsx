@@ -4,19 +4,20 @@ import { editProfile } from '../api'
 import { UserContext, updateUserContext } from './UserContext'
 import Footer from './Footer'
 
-function capitalizeFirstLetter(string) {
+function capitalizeFirstLetter (string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
-export default function EditProfile(props) {
+export default function EditProfile (props) {
   const [user, setUser] = useContext(UserContext)
   // console.log(props)
   const [form, setForm] = useState({
     name: user.name,
-    about: user.about,
+    about: user.about
   })
   const [image, setImage] = useState(user.image)
   const [isCharity, setCharityBoolean] = useState(0)
+  const [isArtist, setArtistBoolean] = useState(0)
 
   const [loading, setLoading] = useState(false)
 
@@ -24,13 +25,13 @@ export default function EditProfile(props) {
     const { name, value } = e.target
     setForm({
       ...form,
-      [name]: value,
+      [name]: value
     })
   }
 
   const handleClick = () => {
-    const updatedInfo = { name: form.name, about: form.about, image, isCharity }
-    console.log('is charity in handleclick: ', isCharity)
+    const updatedInfo = { name: form.name, about: form.about, image, isCharity, isArtist }
+    // console.log("is charity in handleclick: ", isCharity, "is artist in handleclick: ", isArtist)
     editProfile(props.match.params.id, updatedInfo)
     updateUserContext(setUser, { ...user, ...updatedInfo })
     return props.history.push('/profile')
@@ -48,7 +49,7 @@ export default function EditProfile(props) {
       'https://api.cloudinary.com/v1_1/marikajf/image/upload', // why /image/upload?
       {
         method: 'POST',
-        body: data,
+        body: data
       }
     )
     const file = await res.json()
@@ -67,7 +68,7 @@ export default function EditProfile(props) {
         <h5>Name</h5>
         <input
           name="name"
-          value={capitalizeFirstLetter(form.name)}
+          value={form.name ? capitalizeFirstLetter(form.name) : 'enter your name'}
           onChange={handleChange}
           type="text"
           placeholder="Name"
@@ -89,16 +90,22 @@ export default function EditProfile(props) {
 
         <select
           name="isCharity"
-          onChange={(event) => setCharityBoolean(event.target.value)}
+          onChange={event => setCharityBoolean(event.target.value)}
         >
           <option value={isCharity}>--Select from the list--</option>
-          <option key="is-charity" name="charity" value={1}>
-            Yes, I&apos;m a charity
-          </option>
-          <option key="is-not-charity" name="not-charity" value={0}>
-            Not a charity
-          </option>
+          <option key="is-charity" name="charity" value={1} >Yes, I&apos;m a charity</option>
+          <option key="is-not-charity" name="not-charity" value={0} >Not a charity</option>
         </select>
+        <br/><br/>
+        <h5>Will you be donating art on our site as an artist?</h5>
+
+        <select name="isArtist" onChange={event => setArtistBoolean(event.target.value)}>
+          <option value={isArtist}>--Select from the list--</option>
+          <option key="is-artist" name="artist" value={1} >Yes, I&apos;m an artist</option>
+          <option key="is-not-artist" name="not-artist" value={0} >Not an artist</option>
+        </select>
+
+        <br/><br/>
 
         <h5>Profile Picture</h5>
         <input
@@ -111,10 +118,9 @@ export default function EditProfile(props) {
         {loading ? (
           <h3>Loading...</h3>
         ) : (
-          <img src={image} alt="" style={{ width: '300px' }} />
+          <img src={image} alt="" style={{ width: '300px' }}/>
         )}
-        <br />
-        <br />
+        <br/><br/>
         <button onClick={handleClick}>Update Profile</button>
       </div>
       <Footer />
