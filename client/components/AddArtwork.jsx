@@ -7,7 +7,7 @@ import { getCharities, getUsers, saveArtwork } from '../api'
 
 import { UserContext, updateUserContext } from './UserContext'
 
-export default function AddArtwork () {
+export default function AddArtwork (props) {
   const [user, setUser] = useContext(UserContext)
 
   const [name, setName] = useState('')
@@ -42,7 +42,7 @@ export default function AddArtwork () {
 
   function handleSubmit (e) {
     e.preventDefault()
-    console.log(name, price, description, image, cause)
+    // console.log(name, price, description, image, cause)
     // console.log('user: ', user)
     const newArtwork = {
       image: image,
@@ -53,15 +53,13 @@ export default function AddArtwork () {
       artistId: user.id,
       artistName: user.name
     }
-    console.log("new artwork in handle submit: ", newArtwork)
     saveArtwork(newArtwork)
+    return props.history.push('/profile')
   }
 
   useEffect(() => {
-    // getUsers()
     getCharities()
       .then(result => {
-        // console.log("get charities result: ", result)
         setCauses(result)
         return causes
       })
@@ -112,9 +110,7 @@ export default function AddArtwork () {
             >{cause.name}</option>
           })}
         </select>
-        {/* <Link to={`/ArtistBio/${user.id}`} href=""> */}
           <button className="button my-4 is-primary" type="submit">Create Listing</button>
-        {/* </Link> */}
       </form>
 
     </div>
