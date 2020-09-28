@@ -94,7 +94,21 @@ function getArtworkById(id, db = connection) {
 function getCharityById(id, db = connection) {
   return db('users')
     .join('artworks', 'users.id', 'artworks.cause_id')
-    .select()
+    .select(
+      'users.id',
+      'users.username',
+      'users.name',
+      'users.email',
+      'users.profile_picture',
+      'users.about',
+      'users.is_Charity',
+      'artworks.cause_id',
+      'artworks.artist_id',
+      'artworks.description',
+      'artworks.image',
+      'artworks.price',
+      'artworks.is_available as isAvailable'
+    )
     .where('users.id', id)
   // .andWhere(id, 'artworks.cause_id')
   // .then((res) => console.log('DATABASE', res))
