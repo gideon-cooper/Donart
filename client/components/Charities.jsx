@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { getCharities } from '../api'
-
+import Footer from './Footer'
 import SingleCharity from './SingleCharity'
 
 export default function Charities () {
@@ -30,6 +30,7 @@ export default function Charities () {
           ))}
         </div>
       </div>
+      <Footer />
     </>
   )
 }

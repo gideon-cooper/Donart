@@ -67,12 +67,13 @@ router.post('/new-artwork', (req, res) => {
 })
 
 // PATCH /api/v1/donart/:id/buy-now
-router.patch('/:id/buy-now', (req, res) => {
-  const id = req.params.id
+router.patch('/removeArtwork', (req, res) => {
+  const id = req.body
+  console.log('ROUTE', req.body)
   db.artIsSold(id)
     .then((result) => {
-      // console.log(result)
-      res.status(200).send(`Artwork ${id} has sold`)
+      // console.log('DONART ROUTE', result)
+      res.status(200).send(`Artwork ${id} has been sold`)
     })
     .catch((err) => {
       res.status(500).send(err.message)

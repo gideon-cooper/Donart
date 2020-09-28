@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from 'react'
 
 import { editProfile } from '../api'
 import { UserContext, updateUserContext } from './UserContext'
+import Footer from './Footer'
 
 function capitalizeFirstLetter (string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
@@ -30,7 +31,7 @@ export default function EditProfile (props) {
 
   const handleClick = () => {
     const updatedInfo = { name: form.name, about: form.about, image, isCharity, isArtist }
-    console.log("is charity in handleclick: ", isCharity, "is artist in handleclick: ", isArtist)
+    // console.log("is charity in handleclick: ", isCharity, "is artist in handleclick: ", isArtist)
     editProfile(props.match.params.id, updatedInfo)
     updateUserContext(setUser, { ...user, ...updatedInfo })
     return props.history.push('/profile')
@@ -38,7 +39,7 @@ export default function EditProfile (props) {
 
   // console.log('image: ', image)
 
-  const uploadImage = async e => {
+  const uploadImage = async (e) => {
     const files = e.target.files
     const data = new FormData()
     data.append('file', files[0])
@@ -60,61 +61,69 @@ export default function EditProfile (props) {
   }
 
   return (
-    <div>
-      <h1>Update your profile details</h1>
+    <>
+      <div className="editProfile">
+        <h1>Update your profile details</h1>
 
-      <h5>Name</h5>
-      <input
-        name="name"
-        value={form.name ? capitalizeFirstLetter(form.name) : 'enter your name'}
-        onChange={handleChange}
-        type="text"
-        placeholder="Name"
-      />
+        <h5>Name</h5>
+        <input
+          name="name"
+          value={form.name ? capitalizeFirstLetter(form.name) : 'enter your name'}
+          onChange={handleChange}
+          type="text"
+          placeholder="Name"
+        />
 
-      <h5>Your Bio</h5>
-      <textarea
-        name="about"
-        value={form.about}
-        onChange={handleChange}
-        type="text"
-        placeholder="About"
-      />
-      <br/>
+        <h5>Your Bio</h5>
+        <textarea
+          name="about"
+          value={form.about}
+          onChange={handleChange}
+          type="text"
+          placeholder="About"
+        />
+        <br />
 
-      <h5>Is this profile for a charity organisation?</h5>
-      {/* <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter"/>
+        <h5>Is this profile for a charity organisation?</h5>
+        {/* <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter"/>
       <label for="subscribeNews">Check this box if you are listing as a charity</label> */}
 
-      <select name="isCharity" onChange={event => setCharityBoolean(event.target.value)}>
-        <option value={isCharity}>--Select from the list--</option>
-        <option key="is-charity" name="charity" value={1} >Yes, I&apos;m a charity</option>
-        <option key="is-not-charity" name="not-charity" value={0} >Not a charity</option>
-      </select>
-      <br/><br/>
-      <h5>Will you be donating art on our site as an artist?</h5>
+        <select
+          name="isCharity"
+          onChange={event => setCharityBoolean(event.target.value)}
+        >
+          <option value={isCharity}>--Select from the list--</option>
+          <option key="is-charity" name="charity" value={1} >Yes, I&apos;m a charity</option>
+          <option key="is-not-charity" name="not-charity" value={0} >Not a charity</option>
+        </select>
+        <br/><br/>
+        <h5>Will you be donating art on our site as an artist?</h5>
 
-      <select name="isArtist" onChange={event => setArtistBoolean(event.target.value)}>
-        <option value={isArtist}>--Select from the list--</option>
-        <option key="is-artist" name="artist" value={1} >Yes, I&apos;m an artist</option>
-        <option key="is-not-artist" name="not-artist" value={0} >Not an artist</option>
-      </select>
-      <br/><br/>
-      <h5>Profile Picture</h5>
-      <input
-        name="file"
-        // value={image}
-        onChange={uploadImage}
-        type="file"
-        placeholder="Choose profile picture"
-      />
-      {loading ? (
-        <h3>Loading...</h3>
-      ) : (
-        <img src={image} alt="" style={{ width: '300px' }}/>
-      )}
-      <br/><br/>
-      <button onClick={handleClick}>Update Profile</button>
-    </div>
+        <select name="isArtist" onChange={event => setArtistBoolean(event.target.value)}>
+          <option value={isArtist}>--Select from the list--</option>
+          <option key="is-artist" name="artist" value={1} >Yes, I&apos;m an artist</option>
+          <option key="is-not-artist" name="not-artist" value={0} >Not an artist</option>
+        </select>
+
+        <br/><br/>
+
+        <h5>Profile Picture</h5>
+        <input
+          name="file"
+          // value={image}
+          onChange={uploadImage}
+          type="file"
+          placeholder="Choose profile picture"
+        />
+        {loading ? (
+          <h3>Loading...</h3>
+        ) : (
+          <img src={image} alt="" style={{ width: '300px' }}/>
+        )}
+        <br/><br/>
+        <button onClick={handleClick}>Update Profile</button>
+      </div>
+      <Footer />
+    </>
   )
 }

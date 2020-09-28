@@ -29,10 +29,19 @@ const App = () => {
       const { id } = getDecodedToken()
       getUser(id)
         .then(result => {
-          // console.log('result inside APP: ', result)
-          const { id, username, artistName: name, about, email, profilePicture: image, isCharity, isArtist } = result
+          // console.log('first result inside APP: ', result)
+          const {
+            id,
+            username,
+            artistName: name,
+            about,
+            email,
+            profilePicture: image,
+            isCharity,
+            isArtist
+          } = result
           const userData = { id, username, name, about, image, isCharity, isArtist, email }
-          // console.log('RESULT of API in APP: ', userData)
+          // console.log('second RESULT of API in APP: ', userData)
           updateUserContext(setUser, userData)
           // console.log('inside API: ', user) // this returns null but doesn't break anything (Don not sure why either)
           return null
@@ -42,7 +51,6 @@ const App = () => {
   }, [])
 
   // console.log('inside app: ', user)
-
 
   return (
     <div className="App has-background-light">

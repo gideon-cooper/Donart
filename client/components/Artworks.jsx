@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { getArt } from '../api'
-
+import Footer from './Footer'
 import ArtworkItem from './ArtworkItem'
 
 export default function Artworks() {
@@ -31,6 +31,7 @@ export default function Artworks() {
           ))}
         </div>
       </div>
+      <Footer />
     </>
   )
 }

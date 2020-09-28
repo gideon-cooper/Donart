@@ -2,10 +2,10 @@ import React, { useState, useEffect, useContext } from 'react'
 
 import { UserContext, updateUserContext } from './UserContext'
 import { Redirect, Link } from 'react-router-dom'
-
+import Footer from './Footer'
 import { getArtist, getUser } from '../api'
 
-export default function Profile () {
+export default function Profile() {
   const [user, setUser] = useContext(UserContext)
   // Kept these comments Just In Case something breaks... delete later
   // const userId = String(user.id)
@@ -47,9 +47,9 @@ export default function Profile () {
             </Link>
           </div>
         </div>
-        <div className="rightProfile">
-        </div>
+        <div className="rightProfile"></div>
       </div>
+      <Footer />
     </div>
   )
 }

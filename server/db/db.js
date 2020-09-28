@@ -95,7 +95,23 @@ function getArtworkById (id, db = connection) {
 function getCharityById (id, db = connection) {
   return db('users')
     .join('artworks', 'users.id', 'artworks.cause_id')
-    .select()
+    .select(
+      'users.id',
+      'users.username',
+      'users.name',
+      'users.email',
+      'users.profile_picture',
+      'users.about',
+      'users.is_Charity',
+      'artworks.id',
+      'artworks.name',
+      'artworks.cause_id',
+      'artworks.artist_id',
+      'artworks.description',
+      'artworks.image',
+      'artworks.price',
+      'artworks.is_available as isAvailable'
+    )
     .where('users.id', id)
   // .andWhere(id, 'artworks.cause_id')
   // .then((res) => console.log('DATABASE', res))
@@ -121,7 +137,8 @@ function addNewArtwork (formData, db = connection) {
 }
 
 function artIsSold (id, db = connection) {
-  return db('artworks').where('id', id).update({ is_available: false })
+  console.log('IDS BEING PASSED', id)
+  return db('artworks').whereIn('id', id).update({ is_available: false })
 }
 
 function getAllUsers (db = connection) {
@@ -163,7 +180,8 @@ function getArtistsbyID (id, db = connection) {
       return db('artworks')
         .join('users as artist', 'artist.id', 'artworks.artist_id')
         .join('users as cause', 'cause.id', 'artworks.cause_id')
-        .select('artist.id as artistId',
+        .select(
+          'artist.id as artistId',
           'artist.name as artistName',
           'artist.about as about',
           'artist.profile_picture as profilePicture',
@@ -177,7 +195,7 @@ function getArtistsbyID (id, db = connection) {
           'is_available as isAvailable'
         )
         .where('artistId', id)
-        .then(result => {
+        .then((result) => {
           return {
             id: user[0].id,
             artistName: capitalizeFirstLetter(user[0].name),

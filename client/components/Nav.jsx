@@ -15,7 +15,7 @@ export default function Nav(props) {
   // console.log('ASD', checkout)
   const [form, setForm] = useState({
     log: false,
-    cart: false
+    cart: false,
   })
   const logff = () => {
     logOff()
@@ -34,7 +34,7 @@ export default function Nav(props) {
           <img
             src={'images/logo/logo-grey.png'}
             style={{ padding: '0 0 0 15px' }}
-            alt='donart logo'
+            alt="donart logo"
           />
         </Link>
       </div>
@@ -52,7 +52,7 @@ export default function Nav(props) {
           </Link>
 
           <Link style={{ textDecoration: 'none' }} to='/Artworks'>
-            <h2 className="navMenuItems">ARTWROKS</h2>
+            <h2 className="navMenuItems">ARTWORKS</h2>
           </Link>
 
           <Link style={{ textDecoration: 'none' }} to='/Charities'>
@@ -75,13 +75,13 @@ export default function Nav(props) {
           </IfNotAuthenticated>
 
           <IfAuthenticated>
-            {form.cart && !checkout ? <Cart /> : null}
+            {form.cart ? <Cart /> : null}
             <h2>{cart.length}</h2>
-            <i onClick={handleClick} className='fas fa-2x fa-shopping-cart'></i>
-            <Link style={{ textDecoration: 'none' }} to='/profile'>
+            <i onClick={handleClick} className="fas fa-2x fa-shopping-cart"></i>
+            <Link style={{ textDecoration: 'none' }} to="/profile">
               <h2>Profile</h2>
             </Link>
-            <Link style={{ textDecoration: 'none' }} onClick={logff} to='/'>
+            <Link style={{ textDecoration: 'none' }} onClick={logff} to="/">
               <h2>Log off</h2>
             </Link>
           </IfAuthenticated>
