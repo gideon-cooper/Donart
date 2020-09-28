@@ -7,6 +7,7 @@ import { getArtist, getUser } from '../api'
 
 export default function Profile () {
   const [user, setUser] = useContext(UserContext)
+  // Kept these comments Just In Case something breaks... delete later
   // const userId = String(user.id)
   // const [profileData, setProfileData] = useState({})
 
@@ -30,9 +31,13 @@ export default function Profile () {
     <div className="profile">
       <div className="topProfile">
         <div className="leftProfile">
-          <h1>{user.name}</h1>
+          {user.name ? <h1>{user.name}</h1> : <h1>Please update your profile details</h1>}
+          
           <img src={user.image} alt="" />
-          <p>{user.about}</p>
+          <p>Your bio: {user.about}</p>
+          <p>Current email address: {user.email}</p>
+          {user.isCharity ? <p>You are listed as a charity</p> : <p>You are not listed as a charity</p>}
+          {user.isArtist ? <p>You are listed as an artist</p> : <p>You are not listed as an artist</p>}
           <div className="profileButtons">
             <Link to={`/editProfile/${user.id}`}>
               <button>Edit Profile</button>
