@@ -19,7 +19,7 @@ export default function Charities() {
   return (
     <>
       <div className="artworkDisplay">
-        <div className="displayTitle">
+        <div className="categoryTitle">
           <hr />
           <h2>Browse Charities</h2>
           <hr />

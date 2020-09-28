@@ -20,7 +20,7 @@ export default function Artworks() {
   return (
     <>
       <div className="artworkDisplay">
-        <div className="displayTitle">
+        <div className="categoryTitle">
           <hr />
           <h2>Browse Artworks</h2>
           <hr />
