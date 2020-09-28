@@ -25,6 +25,9 @@ export default function Nav(props) {
     setForm({ cart: !form.cart })
   }
   return (
+
+    // ---- Nav/Site Logo ----//
+
     <div className='Nav'>
       <div className='logo'>
         <Link style={{ textDecoration: 'none' }} to='/'>
@@ -35,27 +38,42 @@ export default function Nav(props) {
           />
         </Link>
       </div>
+
+      {/* ---- Menu List ---- */}
+
       <div className='rightSide'>
+
+        {/* ---- Menu List Items ---- */}
+
         <div className='middleItems'>
+
           <Link style={{ textDecoration: 'none' }} to='/Artists'>
-            <h2>Artists</h2>
+            <h2 className="navMenuItems">ARTIST</h2>
           </Link>
+
           <Link style={{ textDecoration: 'none' }} to='/Artworks'>
-            <h2>Artworks</h2>
+            <h2 className="navMenuItems">ARTWROKS</h2>
           </Link>
+
           <Link style={{ textDecoration: 'none' }} to='/Charities'>
-            <h2>Charities</h2>
+            <h2 className="navMenuItems">CHARITIES</h2>
           </Link>
+
         </div>
+
+        {/* ---- Auth Menu Items ---- */}
+
         <div className='rightItems'>
+
           <IfNotAuthenticated>
             <Link style={{ textDecoration: 'none' }} to='/signin'>
-              <h2>Sign in</h2>
+              <h2 className="navMenuItems">SIGN IN</h2>
             </Link>
             <Link style={{ textDecoration: 'none' }} to='/register'>
-              <h2>Register</h2>
+              <h2 className="navMenuItems">REGISTER</h2>
             </Link>
           </IfNotAuthenticated>
+
           <IfAuthenticated>
             {form.cart && !checkout ? <Cart /> : null}
             <h2>{cart.length}</h2>
@@ -68,6 +86,7 @@ export default function Nav(props) {
             </Link>
           </IfAuthenticated>
         </div>
+
       </div>
     </div>
   )
