@@ -65,7 +65,7 @@ export default function EditProfile (props) {
       <h5>Name</h5>
       <input
         name="name"
-        value={capitalizeFirstLetter(form.name)}
+        value={form.name ? capitalizeFirstLetter(form.name) : 'enter your name'}
         onChange={handleChange}
         type="text"
         placeholder="Name"
