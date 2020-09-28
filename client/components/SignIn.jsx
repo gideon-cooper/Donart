@@ -14,7 +14,7 @@ export default function SignIn(props) {
     const { name, value } = e.target
     setForm({
       ...form,
-      [name]: value,
+      [name]: value
     })
   }
 

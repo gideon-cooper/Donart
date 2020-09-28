@@ -1,17 +1,16 @@
 import React, { useEffect, useState, useContext } from 'react'
-import regeneratorRuntime from 'regenerator-runtime'
 
 import { editProfile } from '../api'
-import { UserContext, updateUserProfile } from './UserContext'
+import { UserContext, updateUserContext } from './UserContext'
 
 export default function EditProfile (props) {
   const [user, setUser] = useContext(UserContext)
   // console.log(props)
   const [form, setForm] = useState({
-    name: '',
-    about: ''
+    name: user.name,
+    about: user.about
   })
-  const [image, setImage] = useState('')
+  const [image, setImage] = useState(user.image)
 
   const [loading, setLoading] = useState(false)
 
@@ -27,7 +26,7 @@ export default function EditProfile (props) {
     const updatedInfo = { name: form.name, about: form.about, image }
     // console.log("image in handleclick: ", image)
     editProfile(props.match.params.id, updatedInfo)
-    updateUserProfile(setUser, user, updatedInfo)
+    updateUserContext(setUser, { ...user, ...updatedInfo })
     return props.history.push('/profile')
   }
 

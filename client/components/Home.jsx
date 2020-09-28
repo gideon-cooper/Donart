@@ -8,7 +8,7 @@ import Footer from './Footer'
 export default function Home(props) {
   console.log('TEST')
   const [artworks, setArtworks] = useState({
-    artworks: [],
+    artworks: []
   })
   const [shuffledArtworks, setShuffledArtworks] = useState([])
   useEffect(() => {
@@ -50,14 +50,20 @@ export default function Home(props) {
           <Slide duration={5000}>
             <div className='firstImage'>
               <img
-                src='https://cdn.britannica.com/78/43678-050-F4DC8D93/Starry-Night-canvas-Vincent-van-Gogh-New-1889.jpg'
-                alt=''
+                src={'images/slider_images/slider_1.jpg'}
+                alt='slider_1'
               />
             </div>
             <div className='secondImage'>
               <img
-                src='https://www.artfindnz.co.nz/wp-content/uploads/2017/03/SEABED-FINAL-SIG.jpg'
-                alt=''
+                src={'images/slider_images/slider_2.jpg'}
+                alt='slider_2'
+              />
+            </div>
+            <div className='thirdImage'>
+              <img
+                src={'images/slider_images/slider_3.jpg'}
+                alt='slider_3'
               />
             </div>
           </Slide>

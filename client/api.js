@@ -34,13 +34,17 @@ export function getCharities() {
     return res.body
   })
 }
-
+export function getCharity(charityId) {
+  return request.get(rootUrl + '/CharityBio/' + charityId).then((res) => {
+    console.log('API result get artist: ', res.body)
+    return res.body
+  })
+}
 export function saveArtwork(artwork) {
   return request
     .post(`${rootUrl}/new-artwork`)
     .send(artwork)
     .then((response) => {
-      // console.log('API result: ', response.body)
       return response.body
     })
 }

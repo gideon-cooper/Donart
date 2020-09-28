@@ -1,6 +1,6 @@
 const express = require('express')
 
-const { cloudinary } = require('../cloudinaryConfig')
+// const { cloudinary } = require('../cloudinaryConfig')
 const db = require('../db/db')
 
 const router = express.Router()
@@ -30,12 +30,26 @@ router.get('/artwork/:id', (req, res) => {
 
 // GET /api/v1/donart/user/:id
 router.get('/user/:id', (req, res) => {
+  console.log('PARAMS', req.params.id)
   const id = Number(req.params.id)
   db.getArtistsbyID(id)
     .then((artist) => {
       return res.json(artist)
     })
     .catch((err) => {
+      res.status(500).json({ error: err.message })
+    })
+})
+router.get('/CharityBio/:id', (req, res) => {
+  console.log('PARAMS', req.params.id)
+  const id = Number(req.params.id)
+  db.getCharityById(id)
+    .then((charity) => {
+      console.log('DBB!!!!', charity)
+      return res.json(charity)
+    })
+    .catch((err) => {
+      console.log(err)
       res.status(500).json({ error: err.message })
     })
 })
@@ -126,4 +140,3 @@ router.get('/profile/:id', (req, res) => {
 // })
 
 module.exports = router
-//
