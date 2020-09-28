@@ -7,7 +7,7 @@ exports.up = (knex) => {
     table.string('email')
     table.string('profile_picture', 1024)
     table.string('about', 1024)
-    table.boolean('is_Charity')
+    table.boolean('is_Charity').defaultTo(false)
   })
 }
 
