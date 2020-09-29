@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { IfAuthenticated, IfNotAuthenticated } from './Authenticated'
 import { logOff, isAuthenticated } from 'authenticare/client'
 import { UserContext, updateUserContext } from './UserContext'
+import { GlobalCartContext } from './GlobalCartContext'
 import { CartContext } from './CartContext'
 
 import Cart from './Cart'
@@ -10,27 +11,27 @@ import Cart from './Cart'
 export default function Nav(props) {
   const [, setUser] = useContext(UserContext)
   const [cart, setCart] = useContext(CartContext)
+  const [globalcart, setGlobalCart] = useContext(GlobalCartContext)
   const location = useLocation()
   const checkout = location.pathname.includes('/Checkout')
   // console.log('ASD', checkout)
   const [form, setForm] = useState({
     log: false,
-    cart: false,
+    cart: globalcart.on,
   })
   const logff = () => {
     logOff()
     setForm({ log: !form.log })
   }
   const handleClick = () => {
-    setForm({ cart: !form.cart })
+    setGlobalCart({ on: !globalcart.on })
   }
   return (
-
     // ---- Nav/Site Logo ----//
 
-    <div className='Nav'>
-      <div className='logo'>
-        <Link style={{ textDecoration: 'none' }} to='/'>
+    <div className="Nav">
+      <div className="logo">
+        <Link style={{ textDecoration: 'none' }} to="/">
           <img
             src={'images/logo/logo-grey.png'}
             style={{ padding: '0 0 0 15px' }}
@@ -41,41 +42,37 @@ export default function Nav(props) {
 
       {/* ---- Menu List ---- */}
 
-      <div className='rightSide'>
-
+      <div className="rightSide">
         {/* ---- Menu List Items ---- */}
 
-        <div className='middleItems'>
-
-          <Link style={{ textDecoration: 'none' }} to='/Artists'>
+        <div className="middleItems">
+          <Link style={{ textDecoration: 'none' }} to="/Artists">
             <h2 className="navMenuItems">ARTIST</h2>
           </Link>
 
-          <Link style={{ textDecoration: 'none' }} to='/Artworks'>
+          <Link style={{ textDecoration: 'none' }} to="/Artworks">
             <h2 className="navMenuItems">ARTWORKS</h2>
           </Link>
 
-          <Link style={{ textDecoration: 'none' }} to='/Charities'>
+          <Link style={{ textDecoration: 'none' }} to="/Charities">
             <h2 className="navMenuItems">CHARITIES</h2>
           </Link>
-
         </div>
 
         {/* ---- Auth Menu Items ---- */}
 
-        <div className='rightItems'>
-
+        <div className="rightItems">
           <IfNotAuthenticated>
-            <Link style={{ textDecoration: 'none' }} to='/signin'>
+            <Link style={{ textDecoration: 'none' }} to="/signin">
               <h2 className="navMenuItems">SIGN IN</h2>
             </Link>
-            <Link style={{ textDecoration: 'none' }} to='/register'>
+            <Link style={{ textDecoration: 'none' }} to="/register">
               <h2 className="navMenuItems">REGISTER</h2>
             </Link>
           </IfNotAuthenticated>
 
           <IfAuthenticated>
-            {form.cart ? <Cart /> : null}
+            {globalcart.on ? <Cart /> : null}
             <h2>{cart.length}</h2>
             <i onClick={handleClick} className="fas fa-2x fa-shopping-cart"></i>
             <Link style={{ textDecoration: 'none' }} to="/profile">
@@ -86,7 +83,6 @@ export default function Nav(props) {
             </Link>
           </IfAuthenticated>
         </div>
-
       </div>
     </div>
   )
