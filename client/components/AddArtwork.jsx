@@ -1,13 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 
-import regeneratorRuntime from 'regenerator-runtime'
 import Footer from './Footer'
 import { getCharities, getUsers, saveArtwork } from '../api'
 
 import { UserContext, updateUserContext } from './UserContext'
 
-export default function AddArtwork(props) {
+export default function AddArtwork (props) {
   const [user, setUser] = useContext(UserContext)
 
   const [name, setName] = useState('')
