@@ -10,7 +10,7 @@ import Nav from './Nav'
 export default function Home(props) {
   console.log('TEST')
   const [artworks, setArtworks] = useState({
-    artworks: [],
+    artworks: []
   })
   const [shuffledArtworks, setShuffledArtworks] = useState([])
   useEffect(() => {
@@ -79,7 +79,7 @@ export default function Home(props) {
       <div className="successDisplay">
         <div className="successTitle">
           <hr />
-          <h2>Success stories</h2>
+          <h2>Charities</h2>
           <hr />
         </div>
         <div className="successBody">

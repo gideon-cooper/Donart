@@ -15,7 +15,7 @@ export default function CarouselArt(props) {
     backgroundSize: 'contain',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'top center',
-    height: '10em',
+    height: '12em',
   }
 
   return (
@@ -29,8 +29,8 @@ export default function CarouselArt(props) {
 
           <div className="has-text-centered mt-3">
             <p>{props.art.name}</p>
-            <p>Artist: {props.art.artistName}</p>
-            <p>Cause: {props.art.causeName}</p>
+            <p>By {props.art.artistName}</p>
+            <p>For {props.art.causeName}</p>
             <AddToCart art={props.art} />
           </div>
         </div>
