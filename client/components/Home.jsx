@@ -28,7 +28,8 @@ export default function Home (props) {
   useEffect(() => {
     getArt()
       .then((res) => {
-        setArtworks(res)
+        const availableWorks = { artworks: res.artworks.filter(work => work.isAvailable) }
+        setArtworks(availableWorks)
       })
       .catch((error) => {
         console.log('error: ', error.message)
@@ -108,11 +109,15 @@ export default function Home (props) {
 
         {/* ---- Artworks Section Carousel ---- */}
 
-        <div className="artworkCarousel">
-          {artworks.artworks.slice(3, 8).map((artwork) => {
-            return <CarouselArt art={artwork} key={artwork.id} />
-          })}
-        </div>
+        { (artworks.artworks === undefined || artworks.artworks.length === 0)
+          ? <div className="no-art-available ml-6"><p>There are currently no artworks available</p></div>
+          : <div className="artworkCarousel">
+            {(artworks.artworks.length <= 4)
+              ? artworks.artworks.map((artwork) => <CarouselArt art={artwork} key={artwork.id} />
+              )
+              : artworks.artworks.slice(3, 8).map((artwork) => <CarouselArt art={artwork} key={artwork.id} />
+              )}
+          </div> }
       </div>
 
       {/* ---- Charities Section Title ---- */}
