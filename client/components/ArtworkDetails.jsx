@@ -18,13 +18,13 @@ export default function Artworks(props) {
       })
   }, [])
 
-  const styles = {
-    backgroundImage: `url(${artworks.image})`,
-    backgroundSize: 'contain',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'top center',
-    height: '15em',
-  }
+  // const styles = {
+  //   backgroundImage: `url(${artworks.image})`,
+  //   backgroundSize: 'contain',
+  //   backgroundRepeat: 'no-repeat',
+  //   backgroundPosition: 'top center',
+  //   height: '15em',
+  // }
 
   return (
     <>
@@ -35,24 +35,24 @@ export default function Artworks(props) {
           <img src={artworks.image} style={{ maxHeight: '35rem'}}/>
           </div>
           <div className="column">
-            <div className="card-flex-item pb-1 pt-6"style={{ margin: '20px' }}>
+            <div className="card-flex-item pb-1 pt-4"style={{ margin: '20px' }}>
               
               <div className="artworkDescription pb-1">
-                <p>
-                  <strong>Artist</strong>:
-                </p>
-                <p>{artworks.artistName}</p>
-                <p>
-                  <strong>Description</strong>:
-                </p>
-                <p>{artworks.description}</p>
-                <p>
-                  <strong>Your Money Will Be Going To...</strong>
-                </p>
-                <p>{artworks.causeName}</p>
-                <p>
-                  <strong>Price:</strong> ${artworks.price} NZD
-                </p>
+                <h2>
+                  <strong>ARTIST</strong>:
+                </h2>
+                <p className="pb-4">{artworks.artistName}</p>
+                <h2>
+                  <strong>DESCRIPTION</strong>:
+                </h2>
+                <p className="pb-4">{artworks.description}</p>
+                <h2>
+                  <strong>YOUR MONEY WILL BE GOING TO...</strong>
+                </h2>
+                <p className="pb-4">{artworks.causeName}</p>
+                <h2 className="pb-5">
+                  <strong>PRICE:</strong> ${artworks.price} NZD
+                </h2>
                 <AddToCart art={artworks} />
               </div>
             </div>
