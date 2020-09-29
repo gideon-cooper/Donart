@@ -11,7 +11,7 @@ export default function SingleCharity({ charity }) {
   }
 
   const charityID = String(charity.id)
-  console.log(charity)
+  // console.log(charity)
 
   return (
     <div className="card-flex-item card" style={{ margin: '20px' }}>

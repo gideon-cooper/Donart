@@ -7,7 +7,11 @@ export default function CartItem(props) {
   return (
     <div className="cartItem">
       <div className="leftCart">
-        <p>{props.item.name}</p>
+        <p>
+          {props.item.name.length > 16
+            ? props.item.name.slice(0, 14) + '...'
+            : props.item.name}
+        </p>
         <p>${props.item.price}</p>
         <button
           className="button is-danger"

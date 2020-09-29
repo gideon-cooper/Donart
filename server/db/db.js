@@ -15,7 +15,8 @@ module.exports = {
   viewOwnProfileById,
   getAllCharities,
   getCharityById,
-  getAllArtists,
+  getAllArtists
+  // getArtistNameByArtistId
 }
 
 function capitalizeFirstLetter(string) {
@@ -94,27 +95,50 @@ function getArtworkById(id, db = connection) {
 
 function getCharityById(id, db = connection) {
   return db('users')
-    .join('artworks', 'users.id', 'artworks.cause_id')
+    .leftJoin('artworks', 'users.id', 'artworks.cause_id')
+    .leftJoin('users as artists', 'artists.id', 'artworks.artist_id')
     .select(
-      'users.id',
+      'users.id as charityId',
       'users.username',
-      'users.name',
+      'users.name as charityName',
       'users.email',
-      'users.profile_picture',
+      'users.profile_picture as profilePicture',
       'users.about',
       'users.is_Charity',
-      'artworks.id',
-      'artworks.name',
-      'artworks.cause_id',
-      'artworks.artist_id',
+      'artworks.id as artworkId',
+      'artworks.name as artworkName',
+      'artworks.cause_id as causeId',
+      'artworks.artist_id as artistId',
       'artworks.description',
-      'artworks.image',
+      'artworks.image as artImage',
       'artworks.price',
-      'artworks.is_available as isAvailable'
+      'artworks.is_available as isAvailable',
+      'artists.name as artistName'
     )
     .where('users.id', id)
-  // .andWhere(id, 'artworks.cause_id')
-  // .then((res) => console.log('DATABASE', res))
+    .then((result) => {
+      return {
+        id: result[0].charityId,
+        charityName: result[0].charityName,
+        username: result[0].username,
+        email: result[0].email,
+        profilePicture: result[0].profilePicture,
+        about: result[0].about,
+        isCharity: result[0].is_Charity,
+        artworks: !result[0] ? [] : result.map(art => {
+          return {
+            id: art.artworkId,
+            name: art.artworkName,
+            image: art.artImage,
+            price: art.price,
+            artistId: art.artistId,
+            causeId: art.causeId,
+            artistName: art.artistName,
+            isAvailable: art.isAvailable
+          }
+        })
+      }
+    })
 }
 
 function addNewArtwork(formData, db = connection) {
@@ -255,3 +279,14 @@ function viewOwnProfileById(id, db = connection) {
       }
     })
 }
+
+// function getArtistNameByArtistId (id, db = connection) {
+//   return db('artworks')
+//     .join('users as artists', 'artworks.artist_id', 'artists.id')
+//     .select('artists.name as artistName')
+//     .where('artworks.artist_id', id)
+//     .first()
+//     .then(name => {
+//       return name.artistName
+//     })
+// }

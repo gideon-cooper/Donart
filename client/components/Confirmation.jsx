@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useContext } from 'react'
 import Footer from './Footer'
 
 export default function Confirmation() {
