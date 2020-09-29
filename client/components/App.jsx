@@ -3,7 +3,6 @@ import { getDecodedToken, isAuthenticated } from 'authenticare/client'
 import { Route, Link } from 'react-router-dom'
 import { UserContext, updateUserContext } from './UserContext'
 import { getUser } from '../api'
-import regeneratorRuntime from 'regenerator-runtime'
 
 import regeneratorRuntime from 'regenerator-runtime'
 
