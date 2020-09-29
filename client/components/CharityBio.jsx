@@ -69,7 +69,7 @@ function CharityBio(props) {
       </div>
 
       <div className="column">
-        {charity[0].description === undefined ? null : (
+        {charity.description === undefined ? null : (
           <h1 className="has-text-centered">
             Listings supporting this charity
           </h1>
