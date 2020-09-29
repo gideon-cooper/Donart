@@ -6,7 +6,8 @@ export default function ProfileArtListings({ artwork, bio }) {
   // console.log(artwork)
   const styles = {
     backgroundImage: `url(${artwork.image})`,
-    backgroundSize: 'cover',
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
     backgroundPosition: 'top center',
     height: '15em',
   }
@@ -15,7 +16,7 @@ export default function ProfileArtListings({ artwork, bio }) {
   return (
     <>
       {artwork.isAvailable ? (
-        <div className="card-flex-item card" style={{ margin: '20px' }}>
+        <div className=" card-flex-item card" style={{ margin: '20px' }}>
           <Link to={`/ArtworkDetails/${artworkID}`}>
             <h4 className="has-text-centered mt-3">{artwork.name}</h4>
             <div className="mt-4 mb-2 mx-6" style={styles}></div>
@@ -25,7 +26,6 @@ export default function ProfileArtListings({ artwork, bio }) {
             {!bio ? <h2>Artist: {artwork.artistName}</h2> : null}
             <h2>Price: ${artwork.price}</h2>
             <h2>Cause: {artwork.causeName || artwork.username}</h2>
-            <AddToCart art={artwork} />
           </div>
         </div>
       ) : null}

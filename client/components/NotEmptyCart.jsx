@@ -6,7 +6,7 @@ import CheckoutItem from './CheckoutItem'
 
 export default function NotEmptyCart() {
   const [cart, setCart] = useContext(CartContext)
-  console.log(cart)
+
   const handleClick = () => {
     const ids = cart.map((item) => item.id)
     console.log('IDS', ids)

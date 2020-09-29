@@ -20,7 +20,7 @@ export default function CarouselArt(props) {
 
   return (
     <>
-      {props.art.isAvailable ? (
+      {/* {props.art.isAvailable ? ( */}
         <div className="card-flex-item-carousel card">
 
           {/* --- Card Image --- */}
@@ -38,8 +38,8 @@ export default function CarouselArt(props) {
             <p className="cardText">For {props.art.causeName}</p>
             <AddToCart art={props.art} />
           </div>
-        </div>
-      ) : null}
+        </div> 
+      {/* ) : null} */}
     </>
   )
 }

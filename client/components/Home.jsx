@@ -1,49 +1,60 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { getArt } from '../api'
+import { getArt, getCharities } from '../api'
 import CarouselArt from './CarouselArt'
 import { Slide } from 'react-slideshow-image'
 
 import Footer from './Footer'
 import Nav from './Nav'
+import CarouselCharities from './CarouselCharities'
 
-export default function Home(props) {
-  // console.log('TEST')
+export default function Home (props) {
   const [artworks, setArtworks] = useState({
     artworks: []
   })
-  const [shuffledArtworks, setShuffledArtworks] = useState([])
+  const [charities, setCharities] = useState([])
+  // const [shuffledArtworks, setShuffledArtworks] = useState([])
+
+  useEffect(() => {
+    getCharities()
+      .then((res) => {
+        setCharities(res)
+      })
+      .catch((error) => {
+        console.log('error: HERE', error.message)
+      })
+  }, [])
+
   useEffect(() => {
     getArt()
       .then((res) => {
-        // console.log('res:', res)
-        setArtworks(res)
+        const availableWorks = { artworks: res.artworks.filter(work => work.isAvailable) }
+        setArtworks(availableWorks)
       })
       .catch((error) => {
         console.log('error: ', error.message)
       })
   }, [])
-  // console.log('HEA', artworks)
-  console.log
-  function shuffle(array) {
-    var currentIndex = array.length
-    var temporaryValue
-    var randomIndex
 
-    // While there remain elements to shuffle...
-    while (currentIndex !== 0) {
-      // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex)
-      currentIndex -= 1
+  // function shuffle (array) {
+  //   var currentIndex = array.length
+  //   var temporaryValue
+  //   var randomIndex
 
-      // And swap it with the current element.
-      temporaryValue = array[currentIndex]
-      array[currentIndex] = array[randomIndex]
-      array[randomIndex] = temporaryValue
-    }
+  //   // While there remain elements to shuffle...
+  //   while (currentIndex !== 0) {
+  //     // Pick a remaining element...
+  //     randomIndex = Math.floor(Math.random() * currentIndex)
+  //     currentIndex -= 1
 
-    return array
-  }
+  //     // And swap it with the current element.
+  //     temporaryValue = array[currentIndex]
+  //     array[currentIndex] = array[randomIndex]
+  //     array[randomIndex] = temporaryValue
+  //   }
+
+  //   return array
+  // }
 
   return (
     <div className="home">
@@ -98,11 +109,15 @@ export default function Home(props) {
 
         {/* ---- Artworks Section Carousel ---- */}
 
-        <div className="artworkCarousel">
-          {artworks.artworks.slice(3, 8).map((artwork) => {
-            return <CarouselArt art={artwork} key={artwork.id} />
-          })}
-        </div>
+        { (artworks.artworks === undefined || artworks.artworks.length === 0)
+          ? <div className="no-art-available ml-6"><p>There are currently no artworks available</p></div>
+          : <div className="artworkCarousel">
+            {(artworks.artworks.length <= 4)
+              ? artworks.artworks.map((artwork) => <CarouselArt art={artwork} key={artwork.id} />
+              )
+              : artworks.artworks.slice(3, 8).map((artwork) => <CarouselArt art={artwork} key={artwork.id} />
+              )}
+          </div> }
       </div>
 
       {/* ---- Charities Section Title ---- */}
@@ -119,8 +134,8 @@ export default function Home(props) {
         {/* ---- Chairities Section Carousel ---- */}
 
         <div className="artworkCarousel">
-          {artworks.artworks.slice(3, 8).map((artwork) => {
-            return <CarouselArt art={artwork} key={artwork.id} />
+          {charities.slice(0, 4).map((charity) => {
+            return <CarouselCharities charity={charity} key={charity.id} />
           })}
         </div>
       </div>
