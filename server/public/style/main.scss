@@ -126,6 +126,9 @@ a {
 
       .leftCart {
         padding-left: 0.3rem;
+        p {
+          font-size: 0.9em;
+        }
         button {
           height: 2em;
         }
@@ -355,7 +358,7 @@ a {
 }
 .checkoutItem {
   width: 70%;
-  height: 30%;
+  max-height: 30%;
   margin: auto;
   display: flex;
   border: 1px solid black;
@@ -364,9 +367,11 @@ a {
   margin-top: 1rem;
   .leftCheckout {
     width: 30%;
+    height: 100%;
   }
   .rightCheckout {
     width: 70%;
+    height: 100%;
     p {
       margin-bottom: 0.5rem;
     }

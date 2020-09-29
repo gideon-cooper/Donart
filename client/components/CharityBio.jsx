@@ -7,9 +7,9 @@ import Footer from './Footer'
 function CharityBio(props) {
   const [charity, setCharity] = useState([
     {
-      username: props.location.state.charity.username,
-      profile_picture: props.location.state.charity.profile_picture,
-      about: props.location.state.charity.about,
+      username: 'loading...',
+      profile_picture: 'loading...',
+      about: 'loading..',
     },
   ])
 
