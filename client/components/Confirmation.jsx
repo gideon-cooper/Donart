@@ -1,7 +1,9 @@
 import React, { useEffect, useContext } from 'react'
 import Footer from './Footer'
 
-export default function Confirmation() {
+export default function Confirmation () {
+  
+
   return (
     <>
       <div className="confirmation">
@@ -10,7 +12,7 @@ export default function Confirmation() {
           style={{ width: '2.5rem', height: '2.5rem' }}
           alt="delivery icon"
         />
-        <h1 className="confirmationMessage">Thank you for purchasing, your items will soon be with you.</h1>
+        <h1 className="confirmationMessage">Thank you for buying art to support charity, your items will soon be with you.</h1>
         <img
           src={'./images/icons/delivery-icon-grey.png'}
           style={{ width: '10rem', height: '10rem' }}
