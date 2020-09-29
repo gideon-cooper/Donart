@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 
-import regeneratorRuntime from 'regenerator-runtime'
 import Footer from './Footer'
 import { getCharities, getUsers, saveArtwork } from '../api'
 
