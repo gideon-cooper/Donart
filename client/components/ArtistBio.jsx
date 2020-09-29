@@ -19,9 +19,7 @@ function ArtistBio(props) {
         console.log('error: ', error.message)
       })
   }, [])
-  console.log('artist: ', artist)
-  console.log('artist.artworks: ', artist.artworks)
-
+  
   const styles = {
     backgroundImage: `url(${artist.profilePicture})`,
     backgroundSize: 'cover',
