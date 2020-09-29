@@ -66,13 +66,13 @@ export default function Home(props) {
 
               <div className="secondImage">
                 <img
-                  src={'images/slider_images/slider_2.jpg'} alt="slider_2"
+                  src={'images/slider_images/slider_2.png'} alt="slider_2"
                 />
               </div>
 
               <div className="thirdImage">
                 <img
-                  src={'images/slider_images/slider_3.jpg'} alt="slider_3"
+                  src={'images/slider_images/slider_3.png'} alt="slider_3"
                 />
               </div>
 
@@ -92,7 +92,7 @@ export default function Home(props) {
 
         <div className="displayTitle">
           <hr />
-          <h2>Artworks</h2>
+          <h2>ARTWORKS</h2>
           <hr />
         </div>
 
@@ -112,7 +112,7 @@ export default function Home(props) {
         {/* ---- Charities Section Title ---- */}
         <div className="displayTitle">
           <hr />
-          <h2>Charities</h2>
+          <h2>CHARITIES</h2>
           <hr />
         </div>
 
