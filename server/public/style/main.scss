@@ -27,6 +27,11 @@ html {
 a {
   color: #363636;
 }
+.fas {
+  &:hover {
+    color: red;
+  }
+}
 
 //----- Nav Styling -----//
 
