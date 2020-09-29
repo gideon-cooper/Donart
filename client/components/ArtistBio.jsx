@@ -61,7 +61,7 @@ function ArtistBio(props) {
         <h1 className="has-text-centered bigHeading">{title}</h1>
       </div>
 
-      <div className="card-flex-wrapper column is-three-quarters">
+      <div className="card-flex-wrapper column is-three-quarters" style={{ paddingBottom: '120px'}}>
         {artist.artworks
           ? artist.artworks.map((art) => (
               <ArtworkItem key={art.id} artwork={art} bio={true} />
