@@ -92,7 +92,7 @@ export default function Home(props) {
 
         <div className="displayTitle">
           <hr />
-          <h2>Artworks</h2>
+          <h2>ARTWORKS</h2>
           <hr />
         </div>
 
@@ -112,7 +112,7 @@ export default function Home(props) {
         {/* ---- Charities Section Title ---- */}
         <div className="displayTitle">
           <hr />
-          <h2>Charities</h2>
+          <h2>CHARITIES</h2>
           <hr />
         </div>
 

@@ -32,6 +32,9 @@ export default function Nav(props) {
     // ---- Nav/Site Logo ----//
 
     <div className="Nav">
+
+      {/* ---- Logo and Tagline ---- */}
+
       <div className="logo">
         <Link style={{ textDecoration: 'none' }} to="/">
           <img
