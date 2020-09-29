@@ -26,7 +26,7 @@ function ArtistBio(props) {
     backgroundImage: `url(${artist.profilePicture})`,
     backgroundSize: 'cover',
     backgroundPosition: 'top center',
-    height: '20em',
+    height: '35em',
   }
 
   const title = titleName(artist.artworks)
@@ -44,13 +44,13 @@ function ArtistBio(props) {
   return (
     <>
       <div className="columns">
-        <div className="column" style={{ paddingLeft: '10rem'}} >
+        <div className="column" style={{ paddingLeft: '13rem'}} >
           <div className="card-flex-item card pb-1 pt-1" style={{ margin: '20px' }}>
             {/* <h4 className="has-text-centered mt-3">{artist.artistName}</h4> */}
             <div className="mt-6 mb-6 mx-6" style={styles}></div>
           </div>
         </div>
-        <div className="column" style={{ paddingRight: '10rem'}}>
+        <div className="column" style={{ paddingRight: '13rem'}}>
           <h1 className="pt-4 pb-4 personName">{artist.artistName}</h1>
           <h1 className="personBio pb-2">Bio</h1>
           <p>{artist.about}</p>
