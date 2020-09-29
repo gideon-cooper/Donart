@@ -7,27 +7,29 @@ import Footer from './Footer'
 function CharityBio(props) {
   const [charity, setCharity] = useState([
     {
-      username: 'loading..',
-      profile_picture: 'loading...',
-      about: 'loading..',
+      username: props.location.state.charity.username,
+      profile_picture: props.location.state.charity.profile_picture,
+      about: props.location.state.charity.about,
     },
   ])
 
   useEffect(() => {
     getCharity(props.match.params.id)
       .then((res) => {
-        console.log('USE EFFECT', res)
-        setCharity(res)
+        console.log('USERRRRRR', res)
+        res.length === 0 ? null : setCharity(res)
       })
       .catch((error) => {
         console.log('error: ', error.message)
       })
   }, [])
   console.log('CHARI', charity)
+  console.log('PROPS', props)
 
   const styles = {
     backgroundImage: `url(${charity[0].profile_picture})`,
-    backgroundSize: 'cover',
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
     backgroundPosition: 'top center',
     height: '20em',
   }
@@ -46,19 +48,24 @@ function CharityBio(props) {
   return (
     <>
       <div className="columns">
-        <div className="column">
-          <div className="card-flex-item card pb-1" style={{ margin: '20px' }}>
-            <h4 className="has-text-centered mt-3">{charity[0].username}</h4>
-            <div className="mt-6 mb-6 mx-6" style={styles}></div>
+        <div className="column"></div>
+        <div className="column ">
+          <div className="card-flex-item card pb-1 " style={{ margin: '10px' }}>
+            <div style={styles}></div>
           </div>
         </div>
         <div className="column">
-          <h1>HEYYY</h1>
           <p>{charity[0].about}</p>
         </div>
+        <div className="column"></div>
       </div>
+
       <div className="column">
-        <h1 className="has-text-centered">Listings</h1>
+        {charity[0].description === undefined ? null : (
+          <h1 className="has-text-centered">
+            Listings supporting this charity
+          </h1>
+        )}
       </div>
       <div className="card-flex-wrapper column is-three-quarters">
         {charity.map((charity) => (

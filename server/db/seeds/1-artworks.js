@@ -14,7 +14,7 @@ exports.seed = function (knex) {
           description: 'This artwork is about something',
           image:
             'https://artforce.org/wp-content/uploads/2016/03/The-Birth-of-Venus.jpg',
-          is_available: true,
+          is_available: true
         },
         {
           id: 901,
@@ -25,7 +25,7 @@ exports.seed = function (knex) {
           description:
             "This is an artwork inspired by the artist's passion for coding",
           image: 'https://media.timeout.com/images/103166743/image.jpg',
-          is_available: true,
+          is_available: true
         },
         {
           id: 902,
@@ -36,7 +36,7 @@ exports.seed = function (knex) {
           description: "This is an artwork inspired by the artist's mum",
           image:
             'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRtdZYKldcbOa8ryIDvt-hTQCPM8FklZYfZaw&usqp=CAU',
-          is_available: true,
+          is_available: true
         },
         {
           id: 903,
@@ -46,7 +46,7 @@ exports.seed = function (knex) {
           price: 15,
           description: 'This is an artwork inspired by Evelyn',
           image: '/images/Hayley_1.jpg',
-          is_available: true,
+          is_available: true
         },
         {
           id: 904,
@@ -56,7 +56,7 @@ exports.seed = function (knex) {
           price: 15,
           description: 'This is an artwork inspired by stuff',
           image: '/images/Hayley_2.jpg',
-          is_available: true,
+          is_available: true
         },
         {
           id: 905,
@@ -66,7 +66,7 @@ exports.seed = function (knex) {
           price: 15,
           description: 'This is an artwork inspired by stuff',
           image: '/images/Hayley_3.jpg',
-          is_available: true,
+          is_available: true
         },
         {
           id: 906,
@@ -76,7 +76,7 @@ exports.seed = function (knex) {
           price: 15,
           description: 'This is an artwork inspired by pumpkin',
           image: '/images/Hayley_4.jpg',
-          is_available: true,
+          is_available: true
         },
         {
           id: 907,
@@ -86,7 +86,7 @@ exports.seed = function (knex) {
           price: 15,
           description: 'This is an artwork inspired by shit going down',
           image: '/images/Hayley_5.jpg',
-          is_available: true,
+          is_available: true
         },
         {
           id: 908,
@@ -96,7 +96,7 @@ exports.seed = function (knex) {
           price: 15,
           description: 'This is an artwork inspired by weed',
           image: '/images/Ben_1.jpg',
-          is_available: true,
+          is_available: true
         },
         {
           id: 909,
@@ -107,7 +107,7 @@ exports.seed = function (knex) {
           description:
             'This is an artwork inspired by the gangster-ness of pumpkin',
           image: '/images/Ben_2.jpg',
-          is_available: true,
+          is_available: true
         },
         {
           id: 910,
@@ -117,7 +117,7 @@ exports.seed = function (knex) {
           price: 15,
           description: 'This is an artwork inspired by pizza toppings',
           image: '/images/Ben_5.jpg',
-          is_available: true,
+          is_available: true
         },
         {
           id: 911,
@@ -127,8 +127,8 @@ exports.seed = function (knex) {
           price: 15,
           description: 'This is an artwork inspired by the present',
           image: '/images/Ben_4.jpg',
-          is_available: true,
-        },
+          is_available: true
+        }
       ])
     })
 }

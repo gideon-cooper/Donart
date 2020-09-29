@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import ArtistItem from './ArtistItem'
 import Footer from './Footer'
-import { getUsers } from '../api'
+
+import { getAllArtists } from '../api'
 
 export default function Artists() {
   const [artists, setArtistProfiles] = useState([])
+
   useEffect(() => {
-    getUsers()
+    getAllArtists()
       .then((res) => {
         setArtistProfiles(res)
       })
@@ -18,7 +20,7 @@ export default function Artists() {
   return (
     <>
       <div className="artworkDisplay">
-        <div className="displayTitle">
+        <div className="categoryTitle">
           <hr />
           <h2>Browse Artists</h2>
           <hr />
