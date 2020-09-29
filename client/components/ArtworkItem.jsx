@@ -24,7 +24,7 @@ export default function ArtworkItem({ artwork, bio }) {
         <div className="card-flex-item card" style={{ margin: '20px' }}>
 
           <Link to={`/ArtworkDetails/${artworkID}`}>
-            <h4 className="has-text-centered mt-3">{artwork.name || 'not'}</h4>
+            <h4 className="has-text-centered mt-3 smallHeading">{artwork.name || 'not'}</h4>
             <div className="mt-4 mb-2 mx-6" style={styles}></div>
           </Link>
 

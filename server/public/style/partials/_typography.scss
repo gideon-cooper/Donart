@@ -38,11 +38,17 @@
 
 /* ---- Theme Font-Family ---- */
 
-.personName{
+.bigHeading{
     font-size: xx-large;
 }
 
-.personBio{
+.smallHeading{
     font-size: large;
+    font-weight: 500;
+    color: #363636;
+}
+
+.personBio{
+    font-size: x-large;
     color: gray;
 }

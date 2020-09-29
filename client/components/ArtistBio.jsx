@@ -51,14 +51,14 @@ function ArtistBio(props) {
           </div>
         </div>
         <div className="column" style={{ paddingRight: '13rem'}}>
-          <h1 className="pt-4 pb-4 personName">{artist.artistName}</h1>
+          <h1 className="pt-4 pb-4 bigHeading">{artist.artistName}</h1>
           <h1 className="personBio pb-2">Bio</h1>
           <p>{artist.about}</p>
         </div>
       </div>
 
       <div className="column">
-        <h1 className="has-text-centered">{title}</h1>
+        <h1 className="has-text-centered bigHeading">{title}</h1>
       </div>
 
       <div className="card-flex-wrapper column is-three-quarters">
