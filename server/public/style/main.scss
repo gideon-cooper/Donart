@@ -308,10 +308,6 @@ a {
     align-items: center;
     text-align: center;
     height: 100%;
-    .gideonsLineBreaks {
-      margin-top: 3.5rem;
-      margin-bottom: .9rem;
-    }
   }
 }
 .profile {
@@ -470,11 +466,19 @@ a {
   text-align: center;
 }
 .confirmation {
-  height: 100%;
+  padding-top: 7rem;
+  height: 75%;
   width: 100%;
   text-align: center;
 }
 .artworkDetails {
   height: 100%;
   width: 100%;
+}
+
+//----- Confirmation Styling -----//
+
+.confirmationMessage {
+  font-size: 1.2rem;
+  font-weight: 500;
 }
