@@ -4,16 +4,16 @@ import { editProfile } from '../api'
 import { UserContext, updateUserContext } from './UserContext'
 import Footer from './Footer'
 
-function capitalizeFirstLetter (string) {
+function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
-export default function EditProfile (props) {
+export default function EditProfile(props) {
   const [user, setUser] = useContext(UserContext)
   // console.log(props)
   const [form, setForm] = useState({
     name: user.name,
-    about: user.about
+    about: user.about,
   })
   const [image, setImage] = useState(user.image)
   const [isCharity, setCharityBoolean] = useState(0)
@@ -25,12 +25,18 @@ export default function EditProfile (props) {
     const { name, value } = e.target
     setForm({
       ...form,
-      [name]: value
+      [name]: value,
     })
   }
 
   const handleClick = () => {
-    const updatedInfo = { name: form.name, about: form.about, image, isCharity, isArtist }
+    const updatedInfo = {
+      name: form.name,
+      about: form.about,
+      image,
+      isCharity,
+      isArtist,
+    }
     // console.log("is charity in handleclick: ", isCharity, "is artist in handleclick: ", isArtist)
     editProfile(props.match.params.id, updatedInfo)
     updateUserContext(setUser, { ...user, ...updatedInfo })
@@ -49,7 +55,7 @@ export default function EditProfile (props) {
       'https://api.cloudinary.com/v1_1/marikajf/image/upload', // why /image/upload?
       {
         method: 'POST',
-        body: data
+        body: data,
       }
     )
     const file = await res.json()
@@ -63,65 +69,101 @@ export default function EditProfile (props) {
   return (
     <>
       <div className="editProfile">
-        <h1>Update your profile details</h1>
+        <div className="columns">
+          <div className="column">
+            <div className="card-flex-item card " style={{ margin: '20px' }}>
+              <h1>Update Profile</h1>
+              <h5>Profile Picture</h5>
+              {loading ? (
+                <h3>Loading...</h3>
+              ) : (
+                <img src={image} alt="" style={{ width: '200px' }} />
+              )}
+              <div class="field">
+                <div class="file is-info is-small">
+                  <label class="file-label">
+                    <input
+                      name="file"
+                      className="file-input"
+                      // value={image}
+                      onChange={uploadImage}
+                      type="file"
+                      placeholder="Choose profile picture"
+                    />
+                    <span class="file-cta">
+                      <span class="file-icon">
+                        <i class="fas fa-upload"></i>
+                      </span>
+                      <span class="file-label">Change profile image…</span>
+                    </span>
+                  </label>
+                </div>
+              </div>
 
-        <h5>Name</h5>
-        <input
-          name="name"
-          value={form.name ? capitalizeFirstLetter(form.name) : 'enter your name'}
-          onChange={handleChange}
-          type="text"
-          placeholder="Name"
-        />
+              <h5>Name</h5>
+              <input
+                className="input"
+                name="name"
+                value={form.name ? capitalizeFirstLetter(form.name) : null}
+                onChange={handleChange}
+                type="text"
+                placeholder="Enter your name"
+              />
 
-        <h5>Your Bio</h5>
-        <textarea
-          name="about"
-          value={form.about}
-          onChange={handleChange}
-          type="text"
-          placeholder="About"
-        />
-        <br />
+              <h5>Your Bio</h5>
+              <textarea
+                rows="3"
+                className="textarea"
+                name="about"
+                value={form.about}
+                onChange={handleChange}
+                type="text"
+                placeholder="About"
+              />
 
-        <h5>Is this profile for a charity organisation?</h5>
-        {/* <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter"/>
-      <label for="subscribeNews">Check this box if you are listing as a charity</label> */}
+              <h5>Is this profile for a charity organisation?</h5>
+              {/* <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter"/>
+<label for="subscribeNews">Check this box if you are listing as a charity</label> */}
+              <div className="select">
+                <select
+                  name="isCharity"
+                  onChange={(event) => setCharityBoolean(event.target.value)}
+                >
+                  <option value={isCharity}>Choose option...</option>
+                  <option key="is-charity" name="charity" value={1}>
+                    Yes, I&apos;m a charity
+                  </option>
+                  <option key="is-not-charity" name="not-charity" value={0}>
+                    Not a charity
+                  </option>
+                </select>
+              </div>
 
-        <select
-          name="isCharity"
-          onChange={event => setCharityBoolean(event.target.value)}
-        >
-          <option value={isCharity}>--Select from the list--</option>
-          <option key="is-charity" name="charity" value={1} >Yes, I&apos;m a charity</option>
-          <option key="is-not-charity" name="not-charity" value={0} >Not a charity</option>
-        </select>
-        <br/><br/>
-        <h5>Will you be donating art on our site as an artist?</h5>
+              <h5>Will you be donating art on our site as an artist?</h5>
+              <div className="select">
+                <select
+                  className="select"
+                  name="isArtist"
+                  onChange={(event) => setArtistBoolean(event.target.value)}
+                >
+                  <option value={isArtist}>Choose option...</option>
+                  <option key="is-artist" name="artist" value={1}>
+                    Yes, I&apos;m an artist
+                  </option>
+                  <option key="is-not-artist" name="not-artist" value={0}>
+                    Not an artist
+                  </option>
+                </select>
+              </div>
 
-        <select name="isArtist" onChange={event => setArtistBoolean(event.target.value)}>
-          <option value={isArtist}>--Select from the list--</option>
-          <option key="is-artist" name="artist" value={1} >Yes, I&apos;m an artist</option>
-          <option key="is-not-artist" name="not-artist" value={0} >Not an artist</option>
-        </select>
-
-        <br/><br/>
-
-        <h5>Profile Picture</h5>
-        <input
-          name="file"
-          // value={image}
-          onChange={uploadImage}
-          type="file"
-          placeholder="Choose profile picture"
-        />
-        {loading ? (
-          <h3>Loading...</h3>
-        ) : (
-          <img src={image} alt="" style={{ width: '300px' }}/>
-        )}
-        <br/><br/>
-        <button onClick={handleClick}>Update Profile</button>
+              <div className="updateProfileButton">
+                <button className="button is-primary" onClick={handleClick}>
+                  Update Profile
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <Footer />
     </>
