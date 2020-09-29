@@ -4,7 +4,6 @@ import AddToCart from './AddToCart'
 import ArtistBio from './ArtistBio'
 
 export default function ArtworkItem({ artwork, bio }) {
-  console.log(artwork)
   const styles = {
     backgroundImage: `url(${artwork.image})`,
     backgroundSize: 'cover',
@@ -12,7 +11,7 @@ export default function ArtworkItem({ artwork, bio }) {
     height: '15em',
   }
   const artworkID = String(artwork.id)
-  console.log('bio: ', bio)
+
   return (
     <>
       {artwork.isAvailable ? (

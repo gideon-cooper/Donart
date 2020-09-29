@@ -9,13 +9,8 @@ import Footer from './Footer'
 
 export default function Profile () {
   const [user, setUser] = useContext(UserContext)
-  // Kept these comments Just In Case something breaks... delete later
-  // const userId = String(user.id)
-  // const [profileData, setProfileData] = useState({})
-  const [artist, setArtist] = useState({})
 
-  // console.log('User from context:', user.id)
-  // console.log('User ID from context:', userId)
+  const [artist, setArtist] = useState({})
 
   useEffect(() => {
     console.log('User ID (in component): ', user.id)

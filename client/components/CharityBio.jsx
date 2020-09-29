@@ -5,15 +5,21 @@ import ArtworkItem from './ArtworkItem'
 import Footer from './Footer'
 
 function CharityBio(props) {
-  const [charity, setCharity] = useState([
+  // const [user, setUser] = useContext(UserContext)
+
+  const [charity, setCharity] = useState(
     {
       username: 'loading..',
-      profile_picture: 'loading...',
+      name: '',
+      isCharity: 0,
+      profilePicture: 'loading...',
       about: 'loading..',
+      artworks: []
     },
-  ])
+)
 
   useEffect(() => {
+    console.log('params: ', props.match.params.id)
     getCharity(props.match.params.id)
       .then((res) => {
         console.log('USE EFFECT', res)
@@ -23,10 +29,10 @@ function CharityBio(props) {
         console.log('error: ', error.message)
       })
   }, [])
-  console.log('CHARI', charity)
+  // console.log('CHARI', charity)
 
   const styles = {
-    backgroundImage: `url(${charity[0].profile_picture})`,
+    backgroundImage: `url(${charity.profilePicture})`,
     backgroundSize: 'cover',
     backgroundPosition: 'top center',
     height: '20em',
@@ -48,21 +54,23 @@ function CharityBio(props) {
       <div className="columns">
         <div className="column">
           <div className="card-flex-item card pb-1" style={{ margin: '20px' }}>
-            <h4 className="has-text-centered mt-3">{charity[0].username}</h4>
+            <h4 className="has-text-centered mt-3">{charity.charityName}</h4>
             <div className="mt-6 mb-6 mx-6" style={styles}></div>
           </div>
         </div>
         <div className="column">
           <h1>HEYYY</h1>
-          <p>{charity[0].about}</p>
+          <p>{charity.about}</p>
         </div>
       </div>
       <div className="column">
         <h1 className="has-text-centered">Listings</h1>
       </div>
       <div className="card-flex-wrapper column is-three-quarters">
-        {charity.map((charity) => (
-          <ArtworkItem key={charity.id} artwork={charity} />
+      {(charity.artworks === undefined || charity.artworks.length === 0)
+      ? <p>There are no artworks associate with this charity yet</p>
+      : charity.artworks.map((artwork) => (
+          <ArtworkItem key={artwork.id} artwork={artwork} />
         ))}
       </div>
       <Footer />
