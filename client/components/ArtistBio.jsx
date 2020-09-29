@@ -44,22 +44,23 @@ function ArtistBio(props) {
   return (
     <>
       <div className="columns">
-        <div className="column">
-          <div className="card-flex-item card pb-1" style={{ margin: '20px' }}>
-            <h4 className="has-text-centered mt-3">{artist.artistName}</h4>
+        <div className="column" style={{ paddingLeft: '10rem'}} >
+          <div className="card-flex-item card pb-1 pt-1" style={{ margin: '20px' }}>
+            {/* <h4 className="has-text-centered mt-3">{artist.artistName}</h4> */}
             <div className="mt-6 mb-6 mx-6" style={styles}></div>
           </div>
         </div>
-        <div className="column">
+        <div className="column" style={{ paddingRight: '10rem'}}>
+          <h1 className="pt-4 pb-4 personName">{artist.artistName}</h1>
+          <h1 className="personBio pb-2">Bio</h1>
           <p>{artist.about}</p>
         </div>
       </div>
 
       <div className="column">
-
-      <h1 className="has-text-centered">{title}</h1>
-
+        <h1 className="has-text-centered">{title}</h1>
       </div>
+
       <div className="card-flex-wrapper column is-three-quarters">
         {artist.artworks
           ? artist.artworks.map((art) => (
