@@ -16,6 +16,7 @@ module.exports = {
   getAllCharities,
   getCharityById,
   getAllArtists
+  // getArtistNameByArtistId
 }
 
 function capitalizeFirstLetter (string) {
@@ -95,6 +96,7 @@ function getArtworkById (id, db = connection) {
 function getCharityById (id, db = connection) {
   return db('users')
     .leftJoin('artworks', 'users.id', 'artworks.cause_id')
+    .leftJoin('users as artists', 'artists.id', 'artworks.artist_id')
     .select(
       'users.id as charityId',
       'users.username',
@@ -110,17 +112,11 @@ function getCharityById (id, db = connection) {
       'artworks.description',
       'artworks.image as artImage',
       'artworks.price',
-      'artworks.is_available as isAvailable'
+      'artworks.is_available as isAvailable',
+      'artists.name as artistName'
     )
     .where('users.id', id)
-  // .andWhere(id, 'artworks.cause_id')
     .then((result) => {
-      // return db('users as artists')
-      // .join('artworks', 'artists.id', 'artworks.artist_id')
-      // .select()
-      // .where('artists.id', 'artworks.artist_id')
-      // .then(artist => {
-      //   console.log('DB result: ', result, 'DB artist: ', artist)
       return {
         id: result[0].charityId,
         charityName: result[0].charityName,
@@ -137,12 +133,11 @@ function getCharityById (id, db = connection) {
             price: art.price,
             artistId: art.artistId,
             causeId: art.causeId,
-            // artistName: art.artistName,
+            artistName: art.artistName,
             isAvailable: art.isAvailable
           }
         })
       }
-      // })
     })
 }
 
@@ -288,3 +283,14 @@ function viewOwnProfileById (id, db = connection) {
       }
     })
 }
+
+// function getArtistNameByArtistId (id, db = connection) {
+//   return db('artworks')
+//     .join('users as artists', 'artworks.artist_id', 'artists.id')
+//     .select('artists.name as artistName')
+//     .where('artworks.artist_id', id)
+//     .first()
+//     .then(name => {
+//       return name.artistName
+//     })
+// }
