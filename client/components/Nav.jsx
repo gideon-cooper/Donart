@@ -76,10 +76,10 @@ export default function Nav(props) {
             <h2>{cart.length}</h2>
             <i onClick={handleClick} className="fas fa-2x fa-shopping-cart"></i>
             <Link style={{ textDecoration: 'none' }} to="/profile">
-              <h2>Profile</h2>
+              <h2 className="navMenuItems">PROFILE</h2>
             </Link>
             <Link style={{ textDecoration: 'none' }} onClick={logff} to="/">
-              <h2>Log off</h2>
+              <h2 className="navMenuItems">LOG OFF</h2>
             </Link>
           </IfAuthenticated>
         </div>
