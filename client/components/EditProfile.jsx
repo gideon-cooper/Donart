@@ -69,8 +69,8 @@ export default function EditProfile (props) {
 
   return (
     <>
-      <div className="editProfile">
-        <h1>Update your profile details</h1>
+      <div className="editProfile ml-6 pl-3">
+        <h1 className="profile-title">Update your profile details</h1>
 
         <h5>Name</h5>
         <input
@@ -79,6 +79,7 @@ export default function EditProfile (props) {
           onChange={handleChange}
           type="text"
           placeholder="Name"
+          size="40"
         />
 
         <h5>Your Bio</h5>
@@ -88,6 +89,9 @@ export default function EditProfile (props) {
           onChange={handleChange}
           type="text"
           placeholder="About"
+          cols="40"
+          rows="8"
+          className=""
         />
         <br />
 
@@ -96,6 +100,7 @@ export default function EditProfile (props) {
       <label for="subscribeNews">Check this box if you are listing as a charity</label> */}
 
         <select
+          className="select is-primary"
           name="isCharity"
           onChange={event => setCharityBoolean(event.target.value)}
         >
@@ -106,7 +111,10 @@ export default function EditProfile (props) {
         <br/><br/>
         <h5>Will you be donating art on our site as an artist?</h5>
 
-        <select name="isArtist" onChange={event => setArtistBoolean(event.target.value)}>
+        <select
+          className="select is-primary"
+          name="isArtist"
+          onChange={event => setArtistBoolean(event.target.value)}>
           <option value={isArtist}>--Select from the list--</option>
           <option key="is-artist" name="artist" value={1} >Yes, I&apos;m an artist</option>
           <option key="is-not-artist" name="not-artist" value={0} >Not an artist</option>

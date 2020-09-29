@@ -21,7 +21,15 @@
   box-sizing: border-box;
 }
 
-html {
+// *, *:before, *:after {
+//   -moz-box-sizing: border-box;
+//   -webkit-box-sizing: border-box;
+//   box-sizing: border-box;
+//   // margin: 0;
+//   // padding: 0;
+// }
+
+html, body {
 }
 
 a {
@@ -289,6 +297,25 @@ a {
   // }
 }
 
+//---- Edit Profile Styling ---//
+
+textarea {
+  border: 2px solid;
+}
+
+.editProfile {
+  width: 100%;
+  height: 100%;
+
+  h5 {
+    padding: 15px 2px;
+  }
+
+  .profile-title {
+    font-size: 1.5em
+  }
+}
+
 //----- Footer Styling -----//
 
 .footer {
@@ -321,6 +348,7 @@ a {
     width: 100%;
     height: 70%;
     display: flex;
+
     .leftProfile {
       height: 100%;
       margin: auto;
@@ -348,10 +376,7 @@ a {
     }
   }
 }
-.editProfile {
-  width: 100%;
-  height: 100%;
-}
+
 .checkoutItem {
   width: 70%;
   max-height: 30%;
