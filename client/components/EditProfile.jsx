@@ -86,9 +86,9 @@ export default function EditProfile(props) {
               ) : (
                 <img src={image} alt="" style={{ width: '200px' }} />
               )}
-              <div class="field">
-                <div class="file is-info is-small">
-                  <label class="file-label">
+              <div className="field">
+                <div className="file is-info is-small">
+                  <label className="file-label">
                     <input
                       name="file"
                       className="file-input"
@@ -97,11 +97,11 @@ export default function EditProfile(props) {
                       type="file"
                       placeholder="Choose profile picture"
                     />
-                    <span class="file-cta">
-                      <span class="file-icon">
-                        <i class="fas fa-upload"></i>
+                    <span className="file-cta">
+                      <span className="file-icon">
+                        <i className="fas fa-upload"></i>
                       </span>
-                      <span class="file-label">Change profile image…</span>
+                      <span className="file-label">Change profile image…</span>
                     </span>
                   </label>
                 </div>
