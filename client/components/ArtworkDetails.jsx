@@ -31,14 +31,14 @@ export default function Artworks(props) {
     <>
       <div className="artworkDetails">
         <div className="columns">
-          <div className="column"></div>
           <div className="column">
-            <div
-              className="card-flex-item card pb-1"
-              style={{ margin: '20px' }}
-            >
+          <img src={artworks.image} style={{ maxHeight: '35rem'}}/>
+          </div>
+          <div className="column">
+            <div className="card-flex-item pb-1"style={{ margin: '20px' }}>
               <h4 className="has-text-centered mt-3">{artworks.name}</h4>
-              <div style={styles}></div>
+              {/* <div style={styles}></div> */}
+              
               <div className="artworkDescription has-text-centered pb-1">
                 <p>
                   <strong>Artist</strong>:
@@ -59,7 +59,6 @@ export default function Artworks(props) {
               </div>
             </div>
           </div>
-          <div className="column"></div>
         </div>
       </div>
       <Footer />
