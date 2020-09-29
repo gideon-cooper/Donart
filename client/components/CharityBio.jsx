@@ -22,7 +22,7 @@ function CharityBio(props) {
     console.log('params: ', props.match.params.id)
     getCharity(props.match.params.id)
       .then((res) => {
-        console.log('USE EFFECT', res)
+        // console.log('USE EFFECT', res)
         setCharity(res)
       })
       .catch((error) => {
