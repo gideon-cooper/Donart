@@ -7,23 +7,24 @@ import Footer from './Footer'
 function CharityBio(props) {
   const [charity, setCharity] = useState([
     {
-      username: 'loading..',
-      profile_picture: 'loading...',
-      about: 'loading..',
+      username: props.location.state.charity.username,
+      profile_picture: props.location.state.charity.profile_picture,
+      about: props.location.state.charity.about,
     },
   ])
 
   useEffect(() => {
     getCharity(props.match.params.id)
       .then((res) => {
-        console.log('USE EFFECT', res)
-        setCharity(res)
+        console.log('USERRRRRR', res)
+        res.length === 0 ? null : setCharity(res)
       })
       .catch((error) => {
         console.log('error: ', error.message)
       })
   }, [])
   console.log('CHARI', charity)
+  console.log('PROPS', props)
 
   const styles = {
     backgroundImage: `url(${charity[0].profile_picture})`,
@@ -60,7 +61,11 @@ function CharityBio(props) {
       </div>
 
       <div className="column">
-        <h1 className="has-text-centered">Listings supporting this charity</h1>
+        {charity[0].description === undefined ? null : (
+          <h1 className="has-text-centered">
+            Listings supporting this charity
+          </h1>
+        )}
       </div>
       <div className="card-flex-wrapper column is-three-quarters">
         {charity.map((charity) => (
