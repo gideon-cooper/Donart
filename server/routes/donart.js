@@ -45,7 +45,7 @@ router.get('/CharityBio/:id', (req, res) => {
   const id = Number(req.params.id)
   db.getCharityById(id)
     .then((charity) => {
-      // console.log('DBB!!!!', charity)
+      console.log('DBB!!!!', charity)
       return res.json(charity)
     })
     .catch((err) => {

@@ -2,12 +2,12 @@ import request from 'superagent'
 
 const rootUrl = '/api/v1/donart'
 
-export function getArt () {
+export function getArt() {
   return request.get(rootUrl).then((res) => {
     return res.body
   })
 }
-export function editProfile (id, updatedInfo) {
+export function editProfile(id, updatedInfo) {
   return request
     .post(rootUrl + '/editProfile/' + id)
     .send(updatedInfo)
@@ -30,24 +30,25 @@ export function getOneArt(artId) {
   })
 }
 
-export function getUsers () {
+export function getUsers() {
   return request.get(`${rootUrl}/users`).then((res) => {
     // console.log('USERS', res)
     return res.body.users
   })
 }
-export function getCharities () {
+export function getCharities() {
   return request.get(`${rootUrl}/Charities`).then((res) => {
     // console.log(':ASDASDASDASD', res)
     return res.body
   })
 }
-export function getCharity (charityId) {
+export function getCharity(charityId) {
   return request.get(rootUrl + '/CharityBio/' + charityId).then((res) => {
+    console.log('COSOLIN', res.body)
     return res.body
   })
 }
-export function saveArtwork (artwork) {
+export function saveArtwork(artwork) {
   return request
     .post(`${rootUrl}/new-artwork`)
     .send(artwork)
@@ -56,21 +57,20 @@ export function saveArtwork (artwork) {
     })
 }
 
-export function getAllArtists () {
-  return request.get(`${rootUrl}/artists`)
-    .then((res) => {
-      return res.body
-    })
+export function getAllArtists() {
+  return request.get(`${rootUrl}/artists`).then((res) => {
+    return res.body
+  })
 }
 
-export function getArtist (artistID) {
+export function getArtist(artistID) {
   return request.get(rootUrl + '/user/' + artistID).then((res) => {
     // console.log('API result get artist: ', res.body)
     return res.body
   })
 }
 
-export function getUser (userId) {
+export function getUser(userId) {
   return request.get(`${rootUrl}/profile/${userId}`).then((res) => {
     return res.body
   })

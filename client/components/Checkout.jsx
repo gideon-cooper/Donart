@@ -11,9 +11,11 @@ export default function Checkout() {
 
   console.log(cart)
   return (
-    <div className="checkout">
-      {cart.length === 0 ? <EmptyCart /> : <NotEmptyCart />}
+    <>
+      <div className="checkout">
+        {cart.length === 0 ? <EmptyCart /> : <NotEmptyCart />}
+      </div>
       <Footer />
-    </div>
+    </>
   )
 }

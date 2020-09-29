@@ -3,9 +3,11 @@ import Footer from './Footer'
 
 export default function Confirmation() {
   return (
-    <div>
-      <h1>Your items are now on the way</h1>
+    <>
+      <div className="confirmation">
+        <h1>Thank you for purchasing, your items will soon be with you.</h1>
+      </div>
       <Footer />
-    </div>
+    </>
   )
 }

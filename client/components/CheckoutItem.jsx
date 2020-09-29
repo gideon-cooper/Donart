@@ -8,7 +8,7 @@ export default function CheckoutItem(props) {
       <div className="leftCheckout">
         <img
           src={props.item.image}
-          style={{ width: '200px', height: '200px' }}
+          style={{ width: '60%', height: '100%' }}
           alt=""
         />
       </div>
