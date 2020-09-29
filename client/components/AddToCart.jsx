@@ -17,7 +17,6 @@ export default function AddToCart(props) {
 
   const handleClick = () => {
     const { artistName, causeName, image, id, price, name } = props.art
-    console.log(props.art, 'HEYYYYYY')
     if (user.about === '') {
       history.push('/signin')
     } else {
