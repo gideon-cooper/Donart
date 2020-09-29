@@ -77,7 +77,7 @@ export default function Nav(props) {
           <IfAuthenticated>
             {form.cart ? <Cart /> : null}
             <h2 className="navMenuCounter">{cart.length}</h2>
-            <i onClick={handleClick} className="fas fa-2x fa-shopping-cart"></i>
+            <i onClick={handleClick} className="fas fa-1x fa-shopping-cart"></i>
             <Link style={{ textDecoration: 'none' }} to="/profile">
               <h2 className="navMenuItems">PROFILE</h2>
             </Link>
