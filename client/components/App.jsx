@@ -4,6 +4,8 @@ import { Route, Link } from 'react-router-dom'
 import { UserContext, updateUserContext } from './UserContext'
 import { getUser } from '../api'
 
+import regeneratorRuntime from 'regenerator-runtime'
+
 import Home from './Home'
 import Signin from './SignIn'
 import Register from './Register'
