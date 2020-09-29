@@ -15,7 +15,8 @@ export default function CarouselArt(props) {
     backgroundSize: 'contain',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'top center',
-    height: '12em',
+    height: '15rem',
+    width: '15rem',
   }
 
   return (
@@ -23,14 +24,19 @@ export default function CarouselArt(props) {
       {props.art.isAvailable ? (
         <div className="card-flex-item-carousel card">
 
+          {/* --- Card Image --- */}
+
           <Link to={`/ArtworkDetails/${artworkId}`}>
-            <div className="mt-5" style={styles}></div>
+            <div className="is-four-fifths" style={styles}></div>
           </Link>
 
-          <div className="has-text-centered mt-3">
-            <p>{props.art.name}</p>
-            <p>By {props.art.artistName}</p>
-            <p>For {props.art.causeName}</p>
+          {/* --- Card Text --- */}
+          <div className="homeAddToCartButton has-text-centered mt-3">
+            <p className="cardText"><strong>{props.art.name}</strong></p>
+            <div>
+              <p className="cardText">By {props.art.artistName}</p>
+            </div>
+            <p className="cardText">For {props.art.causeName}</p>
             <AddToCart art={props.art} />
           </div>
         </div>
