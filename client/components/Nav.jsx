@@ -21,7 +21,9 @@ export default function Nav(props) {
   })
   const logff = () => {
     logOff()
+    setUser({ username: '', id: null, about: '', image: '', name: '' })
     setForm({ log: !form.log })
+    setCart([])
   }
   const handleClick = () => {
     setGlobalCart({ on: !globalcart.on })
