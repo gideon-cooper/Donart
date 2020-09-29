@@ -17,7 +17,7 @@ export default function Nav(props) {
   // console.log('ASD', checkout)
   const [form, setForm] = useState({
     log: false,
-    cart: globalcart.on,
+    cart: globalcart.on
   })
   const logff = () => {
     logOff()
@@ -74,9 +74,10 @@ export default function Nav(props) {
           </IfNotAuthenticated>
 
           <IfAuthenticated>
+            {form.cart ? <Cart /> : null}
+            <h2 className="navMenuCounter">{cart.length}</h2>
+            <i onClick={handleClick} className="fas fa-1x fa-shopping-cart"></i>
             {globalcart.on ? <Cart /> : null}
-            <h2>{cart.length}</h2>
-            <i onClick={handleClick} className="fas fa-2x fa-shopping-cart"></i>
             <Link style={{ textDecoration: 'none' }} to="/profile">
               <h2 className="navMenuItems">PROFILE</h2>
             </Link>
