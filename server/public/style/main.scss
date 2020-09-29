@@ -29,7 +29,8 @@
 //   // padding: 0;
 // }
 
-html, body {
+html,
+body {
 }
 
 a {
@@ -178,7 +179,14 @@ a {
   }
 }
 //----- Home Styling -----//
-
+.artworkItem {
+  .artistName {
+    margin-top: 0.5rem;
+  }
+  button {
+    margin-top: 1rem;
+  }
+}
 .home {
   .aboutUsHome {
     .aboutUsImage {
@@ -327,7 +335,7 @@ textarea {
   }
 
   .profile-title {
-    font-size: 1.5em
+    font-size: 1.5em;
   }
 }
 
@@ -552,7 +560,6 @@ textarea {
   height: 100%;
   width: 100%;
 }
-
 //----- Confirmation Styling -----//
 
 .confirmationMessage {
