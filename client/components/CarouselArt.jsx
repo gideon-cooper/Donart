@@ -5,7 +5,6 @@ import { CartContext } from './CartContext'
 import AddToCart from './AddToCart'
 
 export default function CarouselArt(props) {
-  console.log(props)
 
   const [cart, setCart] = useContext(CartContext)
   const artworkId = String(props.art.id)

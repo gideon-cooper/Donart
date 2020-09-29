@@ -16,10 +16,17 @@ export default function EditProfile (props) {
     about: user.about
   })
   const [image, setImage] = useState(user.image)
-  const [isCharity, setCharityBoolean] = useState(0)
-  const [isArtist, setArtistBoolean] = useState(0)
+  const [isCharity, setCharityBoolean] = useState(user.isCharity)
+  const [isArtist, setArtistBoolean] = useState(user.isArtist)
 
   const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    setForm(user ? { name: user.name, about: user.about } : null)
+    setImage(user ? user.image : null)
+    setCharityBoolean(user ? user.isCharity : 0)
+    setArtistBoolean(user ? user.isArtist : 0)
+  }, [user])
 
   const handleChange = (e) => {
     const { name, value } = e.target
