@@ -41,7 +41,11 @@ export default function Artworks(props) {
               <div style={styles}></div>
               <div className="artworkDescription has-text-centered pb-1">
                 <p>
-                  <strong>Description:</strong>
+                  <strong>Artist</strong>:
+                </p>
+                <p>{artworks.artistName}</p>
+                <p>
+                  <strong>Description</strong>:
                 </p>
                 <p>{artworks.description}</p>
                 <p>

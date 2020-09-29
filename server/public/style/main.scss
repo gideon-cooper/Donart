@@ -25,7 +25,7 @@ html {
 }
 
 a {
-  color: black;
+  color: #363636;
 }
 
 //----- Nav Styling -----//
@@ -91,7 +91,7 @@ a {
     justify-content: space-around;
     align-items: center;
     top: 70%;
-    right: 10%;
+    right: 8%;
     width: 20rem;
     height: 30rem;
     background-color: whitesmoke;
@@ -126,6 +126,9 @@ a {
 
       .leftCart {
         padding-left: 0.3rem;
+        p {
+          font-size: 0.9em;
+        }
         button {
           height: 2em;
         }
@@ -157,61 +160,43 @@ a {
 //----- Home Styling -----//
 
 .home {
-  width: 100%;
-  height: 100%;
   .aboutUsHome {
-    width: 100%;
-    height: 40%;
     .aboutUsImage {
-      width: 100%;
-      // height: 100%;
-      overflow: hidden;
-      position: relative;
-      z-index: 1;
-      .firstImage,
-      .secondImage,
-      .thirdImage {
-        width: 100%;
-        height: 100%;
-      }
-      // .firstImage {
-      //   position: relative;
-      //   h1 {
-      //     position: absolute;
-      //     color: white;
-      //     top: 50%;
-      //     left: 50%;
-      //     z-index: 1;
-      //   }
+      // .firstImage,
+      // .secondImage,
+      // .thirdImage {
+      //   // width: 100%;
+      //   // height: 100%;
       // }
       img {
-        width: 100%;
+        // width: 100%;
         position: relative;
         z-index: 1;
-        height: 100%;
+        // height: 100%;
       }
     }
   }
 
   //----- CarsoulelArt/Home Styling -----//
   .artworkDisplay {
-    width: 100%;
-    height: 60%;
     .displayTitle {
-      padding-top: 1rem;
+      padding: 2rem 0.5rem;
       width: 100%;
-      height: 20%;
+      height: 150%;
       display: flex;
       justify-content: space-around;
       text-align: center;
+
       h2 {
         font-size: 2rem;
+        font-family: 'Segoe UI';
+        font-weight: 700;
+        color: #363636;
       }
       hr {
-        height: 1px;
-        border: solid 1px black;
-        color: black;
-        width: 30%;
+        height: 0.5px;
+        border: solid 1px rgb(161, 161, 161);
+        width: 40%;
       }
     }
     .carouselArt {
@@ -223,97 +208,115 @@ a {
 
     .artworkCarousel {
       width: 100%;
-      height: 60%;
+      height: 80%;
       display: flex;
       justify-content: center;
     }
+
+    .homeAddToCartButton {
+      button {
+        margin-top: 0.7rem;
+      }
+    }
   }
-  .successDisplay {
+
+  // .successDisplay {
+  // width: 100%;
+  // height: 60%;
+  .successTitle {
+    padding-top: 1rem;
     width: 100%;
-    height: 60%;
-    .successTitle {
-      padding-top: 1rem;
-      width: 100%;
-      height: 20%;
-      display: flex;
-      justify-content: space-around;
-      text-align: center;
-      h2 {
-        font-size: 2rem;
-      }
-      hr {
-        height: 1px;
-        border: solid 1px black;
-        color: black;
-        width: 30%;
-      }
+    height: 20%;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    h2 {
+      font-size: 2rem;
+      font-family: 'Segoe UI';
+      font-weight: 700;
+      color: #363636;
     }
-    .successBody {
-      width: 100%;
-      height: 80%;
-
-      display: flex;
-      p {
-        font-size: 1.5rem;
-      }
-      .successText {
-        width: 90%;
-        height: 60%;
-        margin: auto;
-      }
-      .successProfile {
-        width: 90%;
-        margin: auto;
-        height: 30%;
-
-        display: flex;
-        .successProfileName {
-          width: 70%;
-          height: 100%;
-        }
-        .successProfileImage {
-          width: 30%;
-          height: 100%;
-          background-color: golden;
-          img {
-            width: 100%;
-            height: 100%;
-          }
-        }
-      }
-      .leftSuccess {
-        width: 40%;
-        height: 90%;
-        margin: auto;
-      }
-      .rightSuccess {
-        width: 40%;
-        height: 90%;
-        margin: auto;
-      }
+    hr {
+      height: 0.5px;
+      border: solid 1px rgb(161, 161, 161);
+      width: 30%;
     }
   }
+  .successBody {
+    width: 100%;
+    height: 80%;
+
+    display: flex;
+    p {
+      font-size: 1.5rem;
+    }
+    .successText {
+      width: 90%;
+      height: 60%;
+      margin: auto;
+    }
+    .successProfile {
+      width: 90%;
+      margin: auto;
+      height: 30%;
+
+      display: flex;
+      .successProfileName {
+        width: 70%;
+        height: 100%;
+      }
+      .successProfileImage {
+        width: 30%;
+        height: 100%;
+        background-color: golden;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+    .leftSuccess {
+      width: 40%;
+      height: 90%;
+      margin: auto;
+    }
+    .rightSuccess {
+      width: 40%;
+      height: 90%;
+      margin: auto;
+    }
+  }
+  // }
 }
 
 //----- Footer Styling -----//
 
 .footer {
-  background-color: black;
+  background-color: #333333;
   width: 100%;
-  height: 20%;
+  height: 10%;
   display: flex;
   justify-content: space-around;
+
   h1 {
     color: white;
+    font-family: 'Segoe UI';
+    font-size: 0.9em;
+    font-weight: 500;
+  }
+
+  .secondColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%;
   }
 }
 .profile {
   width: 100%;
   height: 100%;
 
-  h1 {
-    font-size: 2rem;
-  }
   .topProfile {
     width: 100%;
     height: 70%;
@@ -322,6 +325,9 @@ a {
       height: 100%;
       margin: auto;
       width: 30%;
+      h1 {
+        font-size: 2rem;
+      }
       text-align: center;
       .profileTitle {
         width: 100%;
@@ -330,10 +336,10 @@ a {
       button {
         margin-top: 2rem;
       }
-      .profileButtons {
-        // display: flex;
-        // flex-direction: column;
-      }
+      // .profileButtons {
+      //   // display: flex;
+      //   // flex-direction: column;
+      // }
     }
     .rightProfile {
       height: 100%;
@@ -347,18 +353,24 @@ a {
   height: 100%;
 }
 .checkoutItem {
-  width: 80%;
-  height: 30%;
+  width: 70%;
+  max-height: 30%;
   margin: auto;
   display: flex;
   border: 1px solid black;
-  border-radius: 5px;
+  border-radius: 8px;
+  padding: 1rem;
   margin-top: 1rem;
   .leftCheckout {
     width: 30%;
+    height: 100%;
   }
   .rightCheckout {
     width: 70%;
+    height: 100%;
+    p {
+      margin-bottom: 0.5rem;
+    }
   }
 }
 
@@ -463,11 +475,19 @@ a {
   text-align: center;
 }
 .confirmation {
-  height: 100%;
+  padding-top: 7rem;
+  height: 75%;
   width: 100%;
   text-align: center;
 }
 .artworkDetails {
   height: 100%;
   width: 100%;
+}
+
+//----- Confirmation Styling -----//
+
+.confirmationMessage {
+  font-size: 1.2rem;
+  font-weight: 500;
 }

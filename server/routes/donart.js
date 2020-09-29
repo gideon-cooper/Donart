@@ -45,7 +45,7 @@ router.get('/CharityBio/:id', (req, res) => {
   const id = Number(req.params.id)
   db.getCharityById(id)
     .then((charity) => {
-      console.log('DBB!!!!', charity)
+      // console.log('DBB for charity return', charity)
       return res.json(charity)
     })
     .catch((err) => {
@@ -151,6 +151,18 @@ router.get('/profile/:id', (req, res) => {
 //   } catch (error) {
 //     console.error(error)
 //   }
+// })
+
+// TESTTTT GET /api/v1/donart/test
+// router.get('/test', (req, res) => {
+//   db.getArtistNameByArtistId(5)
+//     .then((artworks) => {
+//       console.log(artworks)
+//       return res.json(artworks)
+//     })
+//     .catch((err) => {
+//       res.status(500).json({ error: err.message })
+//     })
 // })
 
 module.exports = router

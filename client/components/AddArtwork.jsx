@@ -6,7 +6,7 @@ import { getCharities, getUsers, saveArtwork } from '../api'
 
 import { UserContext, updateUserContext } from './UserContext'
 
-export default function AddArtwork(props) {
+export default function AddArtwork (props) {
   const [user, setUser] = useContext(UserContext)
 
   const [name, setName] = useState('')
