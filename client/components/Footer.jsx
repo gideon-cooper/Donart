@@ -9,6 +9,7 @@ export default function Footer() {
       <div className='secondColumn'>
         <div>
           <h1>Contact us</h1>
+          <br></br>
         </div>
         <div>
           <h1 className="gideonsLineBreaks">
