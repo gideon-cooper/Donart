@@ -45,8 +45,12 @@ a {
 //----- Nav Styling -----//
 
 .App {
-  height: 100vh;
+  min-height: 100vh;
   margin: auto;
+  position: relative;
+  padding-bottom: 175px; // height of the footer
+  display: block;
+  overflow: hidden;
 }
 
 //----- Nav Styling -----//
@@ -329,6 +333,8 @@ a {
   height: 10%;
   display: flex;
   justify-content: space-around;
+  position: absolute;
+  bottom: 0;
 
   h1 {
     color: white;

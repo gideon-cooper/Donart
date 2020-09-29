@@ -30,16 +30,15 @@ export default function Artworks(props) {
   return (
     <>
       <div className="artworkDetails">
-        <div className="columns">
-          <div className="column"></div>
+        <div className="card-flex-wrapper column is-three-quarters">
+          <div className="column card-flex-item">
+          <h4 className="bigHeading pb-4">{artworks.name}</h4>
+          <img src={artworks.image} style={{ maxHeight: '35rem'}}/>
+          </div>
           <div className="column">
-            <div
-              className="card-flex-item card pb-1"
-              style={{ margin: '20px' }}
-            >
-              <h4 className="has-text-centered mt-3">{artworks.name}</h4>
-              <div style={styles}></div>
-              <div className="artworkDescription has-text-centered pb-1">
+            <div className="card-flex-item pb-1 pt-6"style={{ margin: '20px' }}>
+              
+              <div className="artworkDescription pb-1">
                 <p>
                   <strong>Artist</strong>:
                 </p>
@@ -59,7 +58,6 @@ export default function Artworks(props) {
               </div>
             </div>
           </div>
-          <div className="column"></div>
         </div>
       </div>
       <Footer />
