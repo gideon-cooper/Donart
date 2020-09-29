@@ -15,15 +15,18 @@ export default function NotEmptyCart() {
   }
 
   return (
-    <div>
+    <div className="notEmptyCart">
       {cart.map((item) => {
         return <CheckoutItem item={item} key={item.image} />
       })}
-      <Link style={{ textDecoration: 'none' }} to="/Confirmation">
-        <button className="button is-success" onClick={handleClick}>
-          Buy now
-        </button>
-      </Link>
+
+      <div className="buyNow">
+        <Link style={{ textDecoration: 'none' }} to="/Confirmation">
+          <button className="button is-success" onClick={handleClick}>
+            Buy now
+          </button>
+        </Link>
+      </div>
     </div>
   )
 }

@@ -8,14 +8,20 @@ export default function CheckoutItem(props) {
       <div className="leftCheckout">
         <img
           src={props.item.image}
-          style={{ width: '200px', height: '200px' }}
+          style={{ width: '60%', maxHeight: '70%' }}
           alt=""
         />
       </div>
       <div className="rightCheckout">
-        <p>Artwork name: {props.item.name}</p>
-        <p>Artist: {props.item.artistName}</p>
-        <p>Cause: {props.item.causeName}</p>
+        <p>
+          <strong>Artwork name</strong>: {props.item.name}
+        </p>
+        <p>
+          <strong>Artist</strong>: {props.item.artistName}
+        </p>
+        <p>
+          <strong>Cause</strong>: {props.item.causeName}
+        </p>
         <p>${props.item.price}</p>
         <button
           className="button is-danger"

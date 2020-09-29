@@ -9,12 +9,10 @@ function ArtistBio(props) {
   const [artist, setArtist] = useState({
     artist: {},
   })
-  console.log('props: ', props)
-  console.log('1startist: ', artist)
   useEffect(() => {
     getArtist(props.match.params.id)
       .then((res) => {
-        console.log('USE EFFECT', res)
+        // console.log('USE EFFECT', res)
         setArtist(res)
       })
       .catch((error) => {
@@ -31,12 +29,17 @@ function ArtistBio(props) {
     height: '20em',
   }
 
-  //   const artStyles = {
-  //     backgroundImage: `url(${artist.artworks[0].image})`,
-  //     backgroundSize: 'cover',
-  //     backgroundPosition: 'top center',
-  //     height: '20em'
-  //   }
+  const title = titleName(artist.artworks)
+
+  function titleName (array){
+    if (array) {
+      let title = (array.length > 0) 
+      ? 'Listings'
+      :'No Listings'
+      return title
+  } 
+}
+  
 
   return (
     <>
@@ -51,11 +54,11 @@ function ArtistBio(props) {
           <p>{artist.about}</p>
         </div>
       </div>
+
       <div className="column">
-        {/* {!artist.artworks
-            ? <h1 className="has-text-centered">Listings</h1>
-            : null} */}
-        <h1 className="has-text-centered">Listings</h1>
+
+      <h1 className="has-text-centered">{title}</h1>
+
       </div>
       <div className="card-flex-wrapper column is-three-quarters">
         {artist.artworks

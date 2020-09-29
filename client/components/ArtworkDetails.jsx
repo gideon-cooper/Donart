@@ -18,43 +18,50 @@ export default function Artworks(props) {
       })
   }, [])
   console.log(artworks)
+
+  const styles = {
+    backgroundImage: `url(${artworks.image})`,
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'top center',
+    height: '15em',
+  }
+
   return (
     <>
-      <div className="artName">
-        <h2>
-          <strong>Art Details</strong>
-        </h2>
-        <br></br>
-        <h2>
-          <strong>{artworks.name}</strong>
-        </h2>
-        <h2>By {artworks.artistName}</h2>
-        <div className="artDisplay">
-          <br></br>
-          <img
-            src={artworks.image}
-            style={{ width: '200px', height: '200px' }}
-            alt=""
-          />
-          <br></br>
-
-          <p>
-            <strong>Description:</strong>
-          </p>
-          <p>{artworks.description}</p>
-          <br></br>
-          <p>
-            <strong>Your Money Will Be Going To...</strong>
-          </p>
-          <p>{artworks.causeName}</p>
-          <br></br>
-          <p>
-            <strong>Price:</strong> ${artworks.price} NZD
-          </p>
-          <AddToCart art={artworks} />
+      <div className="artworkDetails">
+        <div className="columns">
+          <div className="column"></div>
+          <div className="column">
+            <div
+              className="card-flex-item card pb-1"
+              style={{ margin: '20px' }}
+            >
+              <h4 className="has-text-centered mt-3">{artworks.name}</h4>
+              <div style={styles}></div>
+              <div className="artworkDescription has-text-centered pb-1">
+                <p>
+                  <strong>Artist</strong>:
+                </p>
+                <p>{artworks.artistName}</p>
+                <p>
+                  <strong>Description</strong>:
+                </p>
+                <p>{artworks.description}</p>
+                <p>
+                  <strong>Your Money Will Be Going To...</strong>
+                </p>
+                <p>{artworks.causeName}</p>
+                <p>
+                  <strong>Price:</strong> ${artworks.price} NZD
+                </p>
+                <AddToCart art={artworks} />
+              </div>
+            </div>
+          </div>
+          <div className="column"></div>
         </div>
       </div>
-
       <Footer />
     </>
   )
