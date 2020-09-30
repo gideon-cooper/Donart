@@ -43,7 +43,8 @@
     "regenerator": "^0.14.7",
     "regenerator-runtime": "^0.13.7",
     "sqlite3": "^5.0.0",
-    "superagent": "^5.2.2"
+    "superagent": "^5.2.2",
+    "react": "^16.13.1"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
@@ -68,7 +69,6 @@
     "jest": "^25.3.0",
     "node-sass": "^4.14.1",
     "nodemon": "^2.0.4",
-    "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "react-test-renderer": "^16.13.1",
