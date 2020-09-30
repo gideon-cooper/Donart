@@ -7,7 +7,7 @@ import { getCharities, getUsers, saveArtwork } from '../api'
 
 import { UserContext, updateUserContext } from './UserContext'
 
-export default function AddArtwork (props) {
+export default function AddArtwork(props) {
   const [user, setUser] = useContext(UserContext)
 
   const [name, setName] = useState('')
@@ -69,71 +69,101 @@ export default function AddArtwork (props) {
   return (
     <>
       <div className="addArtworkForm">
-        <h1>List Your Artwork</h1>
-        <form onSubmit={handleSubmit}>
-          <h5>Artwork Name</h5>
-          <input
-            className=""
-            type="text"
-            placeholder="Artwork Name"
-            name="name"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-          />
+        <div className="columns">
+          <div className="column">
+            <div className="card-flex-item card  " style={{ margin: '20px' }}>
+              <h1>List Your Artwork</h1>
+              <form onSubmit={handleSubmit}>
+                <h5>Artwork Name</h5>
+                <input
+                  className="input"
+                  type="text"
+                  placeholder="Artwork Name"
+                  name="name"
+                  value={name}
+                  onChange={(event) => setName(event.target.value)}
+                />
 
-          <h5>Price</h5>
-          <input
-            className=""
-            type="number"
-            placeholder="Artwork Price"
-            name="price"
-            value={price}
-            onChange={(event) => setPrice(event.target.value)}
-          />
+                <h5>Price</h5>
+                <input
+                  className="input"
+                  type="number"
+                  placeholder="Artwork Price"
+                  name="price"
+                  value={price}
+                  onChange={(event) => setPrice(event.target.value)}
+                />
 
-          <h5>Description</h5>
-          <textarea
-            className=""
-            type="text"
-            placeholder="Artwork description"
-            name="description"
-            value={description}
-            onChange={(event) => setDescription(event.target.value)}
-          />
+                <h5>Description</h5>
+                <textarea
+                  className="textarea"
+                  type="text"
+                  placeholder="Artwork description"
+                  name="description"
+                  value={description}
+                  onChange={(event) => setDescription(event.target.value)}
+                />
 
-          <h5>Upload Image</h5>
-          <input
-            className=""
-            type="file"
-            placeholder="Browse"
-            name="file"
-            onChange={uploadImage}
-          />
-          {loading ? (
-            <h3>Loading...</h3>
-          ) : (
-            <img src={image} alt="" style={{ width: '300px' }} />
-          )}
+                <h5>Upload Image</h5>
 
-          <h5>Select your Cause</h5>
-          <select
-            name="cause"
-            onChange={(event) => setCause(event.target.value)}
-          >
-            <option value="">--Select your cause from the list--</option>
-            {causes.map((cause) => {
-              return (
-                <option key={cause.id} name="singleCause" value={cause.id}>
-                  {cause.name}
-                </option>
-              )
-            })}
-          </select>
-          <button className="button my-4 is-primary" type="submit">
-            Create Listing
-          </button>
-          {/* Wrapping button in a link breaks the submit function */}
-        </form>
+                <div class="field">
+                  <div class="file is-info is-small">
+                    <label style={{ display: 'block' }} class="file-label">
+                      <input
+                        className="file-input"
+                        type="file"
+                        placeholder="Browse"
+                        name="file"
+                        onChange={uploadImage}
+                      />
+                      {loading ? (
+                        <h3>Loading...</h3>
+                      ) : (
+                        <div className="c">
+                          <img src={image} alt="" style={{ width: '100%' }} />
+                        </div>
+                      )}
+                      <div className="c">
+                        <span class="file-cta">
+                          <span class="file-icon">
+                            <i class="fas fa-upload"></i>
+                          </span>
+                          <span class="file-label">Upload image…</span>
+                        </span>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+                <h5>Select Your Charity</h5>
+                <select
+                  className="select"
+                  name="cause"
+                  onChange={(event) => setCause(event.target.value)}
+                >
+                  <option hidden>Options...</option>
+                  {causes.map((cause) => {
+                    return (
+                      <option
+                        key={cause.id}
+                        name="singleCause"
+                        value={cause.id}
+                      >
+                        {cause.name}
+                      </option>
+                    )
+                  })}
+                </select>
+                <div className="addButton">
+                  <button className="button my-4 is-warning" type="submit">
+                    Create Listing
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        {/* Wrapping button in a link breaks the submit function */}
       </div>
       <Footer />
     </>

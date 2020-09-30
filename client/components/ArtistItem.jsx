@@ -17,7 +17,7 @@ export default function ArtistItem({ artist }) {
         <h4 className="has-text-centered has-text-weight-semibold is-size-5 mt-3">
           {artist.name}
         </h4>
-        <div className="mt-4 mb-6 mx-6" style={styles}></div>
+        <div className="mt-3 mb-5 mx-5" style={styles}></div>
         <p>{artist.cause_id}</p>
       </Link>
     </div>

@@ -164,7 +164,7 @@ export default function EditProfile(props) {
               </div>
 
               <div className="updateProfileButton">
-                <button className="button is-primary" onClick={handleClick}>
+                <button className="button is-warning" onClick={handleClick}>
                   Update Profile
                 </button>
               </div>
