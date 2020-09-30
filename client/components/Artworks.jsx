@@ -19,7 +19,7 @@ export default function Artworks() {
   }, [])
   return (
     <>
-      <div className="artworkDisplay" style={{paddingBottom: "120px"}}>
+      <div className="artworkDisplay" style={{paddingBottom: "150px"}}>
         <div className="categoryTitle">
           <hr />
           <h2>Browse Artworks</h2>

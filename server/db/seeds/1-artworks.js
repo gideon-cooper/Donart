@@ -9,7 +9,7 @@ exports.seed = function (knex) {
           id: 900,
           cause_id: 7,
           artist_id: 4,
-          name: 'First Artwork',
+          name: 'The Birth of Venus',
           price: 15,
           description: 'This artwork is about something',
           image:
@@ -20,18 +20,18 @@ exports.seed = function (knex) {
           id: 901,
           cause_id: 8,
           artist_id: 3,
-          name: 'Second Artwork',
+          name: 'The Persistance of Memory',
           price: 30,
           description:
-            "This is an artwork inspired by the artist's passion for coding",
-          image: 'https://media.timeout.com/images/103166743/image.jpg',
+            "What is time? What is not time? Time is everywhere and nowhere. Up and down. Back to front. Sideways and wide-ways",
+          image: 'https://cdn.britannica.com/10/182610-050-77811599/The-Persistence-of-Memory-canvas-collection-Salvador-1931.jpg',
           is_available: true
         },
         {
           id: 902,
           cause_id: 7,
           artist_id: 1,
-          name: 'Third Artwork',
+          name: 'Mona Lisa',
           price: 20,
           description: "This is an artwork inspired by the artist's mum",
           image:
@@ -127,6 +127,16 @@ exports.seed = function (knex) {
           price: 15,
           description: 'This is an artwork inspired by the present',
           image: '/images/Ben_4.jpg',
+          is_available: true
+        },
+        {
+          id: 912,
+          cause_id: 12,
+          artist_id: 11,
+          name: 'Self-Portrait',
+          price: 15,
+          description: 'Look! It me!',
+          image: 'https://uploads4.wikiart.org/images/magdalena-carmen-frieda-kahlo-y-calder%C3%B3n-de-rivera/self-portrait-with-necklace-of-thorns-1940.jpg!Portrait.jpg',
           is_available: true
         }
       ])
