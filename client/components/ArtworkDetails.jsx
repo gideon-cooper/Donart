@@ -17,7 +17,6 @@ export default function Artworks(props) {
         console.log('error: ', error.message)
       })
   }, [])
-  console.log(artworks)
 
   const styles = {
     backgroundImage: `url(${artworks.image})`,

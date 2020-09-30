@@ -34,7 +34,7 @@ export default function Register(props) {
       { baseUrl }
     )
       .then((token) => {
-        console.log(token)
+        // console.log(token)
         if (isAuthenticated()) {
           updateUserContext(setUser)
           return props.history.push('/')

@@ -9,7 +9,6 @@ export default function NotEmptyCart() {
 
   const handleClick = () => {
     const ids = cart.map((item) => item.id)
-    console.log('IDS', ids)
     removeArtwork(ids)
     cart.length = 0
   }
