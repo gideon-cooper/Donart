@@ -3,7 +3,6 @@ import { CartContext, updateCart, deleteCartItem } from './CartContext'
 
 export default function CartItem(props) {
   const [cart, setCart] = useContext(CartContext)
-  console.log(props.item, 'ASD')
   return (
     <div className="cartItem">
       <div className="leftCart">

@@ -19,7 +19,6 @@ function CharityBio(props) {
 )
 
   useEffect(() => {
-    console.log('params: ', props.match.params.id)
     getCharity(props.match.params.id)
       .then((res) => {
         // console.log('USE EFFECT', res)

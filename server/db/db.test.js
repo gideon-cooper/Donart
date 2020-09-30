@@ -40,7 +40,6 @@ test('artIsSold returns a boolean', () => {
   const id = 2
   return db.artIsSold(id, testDb)
     .then(update => {
-      console.log(update)
       expect(update).toBeFalsy()
     })
 })
