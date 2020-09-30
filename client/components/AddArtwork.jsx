@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 
 import Footer from './Footer'
+
 import { getCharities, getUsers, saveArtwork } from '../api'
 
 import { UserContext, updateUserContext } from './UserContext'
