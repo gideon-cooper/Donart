@@ -13,7 +13,7 @@ export default function Profile () {
   const [artist, setArtist] = useState({})
 
   useEffect(() => {
-    // console.log('User ID (in component): ', user.id)
+    console.log('User (in component): ', user)
     if (user.id !== null) {
       getArtist(String(user.id))
         .then(result => {
@@ -49,9 +49,9 @@ export default function Profile () {
           <div className="rightProfile">
             {(artist.artworks === undefined || artist.artworks.length === 0)
               ? <p>You have not listed any artworks</p>
-              : artist.artworks.map(art => (<>
+              : artist.artworks.map((art, index) => (<>
                 <p>Your Artwork Listings</p>
-                <ProfileArtListings key={art.id} artwork={art} bio={false} />
+                <ProfileArtListings key={index} artwork={art} bio={false} />
               </>))
             }
           </div>
