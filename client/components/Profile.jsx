@@ -13,7 +13,7 @@ export default function Profile () {
   const [artist, setArtist] = useState({})
 
   useEffect(() => {
-    console.log('User (in component): ', user)
+    // console.log('User (in component): ', user)
     if (user.id !== null) {
       getArtist(String(user.id))
         .then((result) => {

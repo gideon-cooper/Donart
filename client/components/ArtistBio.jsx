@@ -12,7 +12,6 @@ function ArtistBio(props) {
   useEffect(() => {
     getArtist(props.match.params.id)
       .then((res) => {
-        // console.log('USE EFFECT', res)
         setArtist(res)
       })
       .catch((error) => {

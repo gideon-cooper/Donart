@@ -2,8 +2,6 @@ import React, { useEffect, useContext } from 'react'
 import Footer from './Footer'
 
 export default function Confirmation () {
-  
-
   return (
     <>
       <div className="confirmation">

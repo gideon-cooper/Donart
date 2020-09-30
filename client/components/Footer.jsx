@@ -5,9 +5,9 @@ export default function Footer () {
   return (
     <div className='footer'>
       <Link to={'/About'}>
-      <div className='firstColumn'>
-        <h1>About us</h1>
-      </div>
+        <div className='firstColumn'>
+          <h1>About us</h1>
+        </div>
       </Link>
       <div className='secondColumn'>
         <div>

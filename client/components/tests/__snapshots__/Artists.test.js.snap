@@ -21,13 +21,18 @@ Array [
   <div
     className="footer"
   >
-    <div
-      className="firstColumn"
+    <a
+      href="#/About"
+      onClick={[Function]}
     >
-      <h1>
-        About us
-      </h1>
-    </div>
+      <div
+        className="firstColumn"
+      >
+        <h1>
+          About us
+        </h1>
+      </div>
+    </a>
     <div
       className="secondColumn"
     >

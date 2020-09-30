@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="emptyCart"
+>
+  <h1>
+    Cart is empty :'( Try adding something!
+  </h1>
+  <br />
+  <a
+    href="#/"
+    onClick={[Function]}
+  >
+    Home
+  </a>
+</div>
+`;
