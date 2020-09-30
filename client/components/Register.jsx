@@ -24,26 +24,31 @@ export default function Register(props) {
 
   const handleClick = () => {
     const { username, password, email, name } = form
-    register(
-      {
-        username,
-        password,
-        email,
-        name,
-      },
-      { baseUrl }
-    )
-      .then((token) => {
-        // console.log(token)
-        if (isAuthenticated()) {
-          updateUserContext(setUser)
-          return props.history.push('/')
-        }
-        return null
-      })
-      .catch((error) => {
-        console.log('error: ', error.message)
-      })
+    console.log('HEY', Object.values(form))
+    if (Object.values(form).filter((item) => item !== '').length === 4) {
+      register(
+        {
+          username,
+          password,
+          email,
+          name,
+        },
+        { baseUrl }
+      )
+        .then((token) => {
+          // console.log(token)
+          if (isAuthenticated()) {
+            updateUserContext(setUser)
+            return props.history.push('/')
+          }
+          return null
+        })
+        .catch((error) => {
+          console.log('error: ', error.message)
+        })
+    } else {
+      alert('ERROR')
+    }
   }
   return (
     <div className="register">
