@@ -1,5 +1,4 @@
 const request = require('supertest')
-const { artIsSold } = require('../db/db')
 
 const server = require('../server')
 
@@ -26,30 +25,35 @@ jest.mock('../db/db', () => ({
       isAvailable: true
     }
   ]),
-  artIsSold: (id) => Promise.resolve([
+  getArtworkById: (id) => Promise.resolve([
     {
-      id: 900,
-      image: 'https://artforce.org/wp-content/uploads/2016/03/The-Birth-of-Venus.jpg',
-      price: 15,
-      artistId: 4,
-      artistName: 'evelyn',
-      causeId: 1,
-      causeName: 'women\'s refuge',
-      isAvailable: true
-    },
-    {
-      id: 901,
-      image: 'https://media.timeout.com/images/103166743/image.jpg',
+      id: id,
+      name: 'test artwork',
+      image: 'https://test.jpg',
       price: 30,
-      artistId: 3,
-      artistName: 'marika',
-      causeId: 1,
-      causeName: 'women\'s refuge',
+      description: 'test description',
+      artistId: 1,
+      artistName: 'Gideon',
+      causeId: 8,
+      causeName: 'Red Cross',
       isAvailable: true
     }
   ])
+  // artIsSold: (id) => Promise.resolve([
+  //   {
+  //     id: id,
+  //     image: 'https://artforce.org/wp-content/uploads/2016/03/The-Birth-of-Venus.jpg',
+  //     price: 15,
+  //     artistId: 4,
+  //     artistName: 'evelyn',
+  //     causeId: 1,
+  //     causeName: 'women\'s refuge',
+  //     isAvailable: true
+  //   }
+  // ])
 }))
 
+// passes
 test('GET /api/v1/donart returns all artworks', () => {
   const expected = 2
   return request(server)
@@ -57,7 +61,35 @@ test('GET /api/v1/donart returns all artworks', () => {
     .expect('Content-type', /json/)
     .expect(200)
     .then(res => {
-      expect(res.body.length).toBe(expected)
+      return expect(res.body.artworks).toHaveLength(expected)
+    })
+    .catch(err => {
+      expect(err).toBeFalsy()
+    })
+})
+
+// passes
+test('GET /api/v1/donart/artwork/:id returns the correct artwork', () => {
+  return request(server)
+    .get('/api/v1/donart/artwork/900')
+    .expect('Content-type', /json/)
+    .expect(200)
+    .then(res => {
+      return expect(res.body[0].id).toBe(900)
+    })
+    .catch(err => {
+      expect(err).toBeFalsy()
+    })
+})
+
+// passes
+test('GET /api/v1/donart/artwork/:id returns the correct artwork name', () => {
+  return request(server)
+    .get('/api/v1/donart/artwork/900')
+    .expect('Content-type', /json/)
+    .expect(200)
+    .then(res => {
+      return expect(res.body[0].name).toBe('test artwork')
     })
     .catch(err => {
       expect(err).toBeFalsy()
@@ -68,10 +100,10 @@ test('GET /api/v1/donart returns all artworks', () => {
 //   const id = 900
 //   return request(server)
 //     .patch(`/api/v1/donart/${id}/buy-now`)
-//     .expect(200)
+//     // .expect(200)
 //     .then(result => {
 //       console.log(result.body)
-//       expect(result.body.isAvailable).toBe(0)
+//       expect(result.body.isAvailable).toBeFalsy
 //     })
 //     // .catch(err => {
 //     //   expect(err).toBeFalsy()

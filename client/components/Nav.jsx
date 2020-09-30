@@ -52,7 +52,7 @@ export default function Nav(props) {
 
         <div className="middleItems">
           <Link style={{ textDecoration: 'none' }} to="/Artists">
-            <h2 className="navMenuItems">ARTIST</h2>
+            <h2 className="navMenuItems">ARTISTS</h2>
           </Link>
 
           <Link style={{ textDecoration: 'none' }} to="/Artworks">

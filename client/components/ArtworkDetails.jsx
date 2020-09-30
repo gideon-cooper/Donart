@@ -32,27 +32,19 @@ export default function Artworks(props) {
         <div className="card-flex-wrapper column is-three-quarters">
           <div className="column card-flex-item">
           <h4 className="bigHeading pb-4">{artworks.name}</h4>
-          <img src={artworks.image} style={{ maxHeight: '35rem'}}/>
+          <img src={artworks.image} style={{ maxHeight: '35rem', borderRadius: '10px'}}/>
           </div>
           <div className="column">
             <div className="card-flex-item pb-1 pt-4"style={{ margin: '20px' }}>
               
               <div className="artworkDescription pb-1">
-                <h2>
-                  <strong>ARTIST</strong>:
-                </h2>
-                <p className="pb-4">{artworks.artistName}</p>
-                <h2>
-                  <strong>DESCRIPTION</strong>:
-                </h2>
-                <p className="pb-4">{artworks.description}</p>
-                <h2>
-                  <strong>YOUR MONEY WILL BE GOING TO...</strong>
-                </h2>
-                <p className="pb-4">{artworks.causeName}</p>
-                <h2 className="pb-5">
-                  <strong>PRICE:</strong> ${artworks.price} NZD
-                </h2>
+                <h2 className="subHeading">Artist:</h2>
+                  <p className="pb-4">{artworks.artistName}</p>
+                <h2 className="subHeading">Description:</h2>
+                  <p className="pb-4">{artworks.description}</p>
+                <h2 className="subHeading">Your money will be going to...</h2>
+                  <p className="pb-4">{artworks.causeName}</p>
+                <h2 className="pb-5 subHeading">Price: ${artworks.price} NZD</h2>
                 <AddToCart art={artworks} />
               </div>
             </div>

@@ -15,7 +15,8 @@ exports.seed = function (knex) {
         generateHash('redCross'),
         generateHash('kidsCan'),
         generateHash('breastCancerFoundation'),
-        generateHash('unicef')
+        generateHash('unicef'),
+        generateHash('fridaHash')
       ])
     )
     .then(function ([
@@ -28,7 +29,8 @@ exports.seed = function (knex) {
       redCrossHash,
       kidsCanHash,
       breastCancerFoundationHash,
-      unicefHash
+      unicefHash,
+      fridaHash
     ]) {
       // Inserts seed entries
       return knex('users').insert([
@@ -37,9 +39,9 @@ exports.seed = function (knex) {
           username: 'gideon1',
           hash: gideonHash,
           email: 'gideon@gmail.com',
-          name: 'Gideon',
+          name: 'Leonardo da Vinci',
           profile_picture:
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTrQBEpTkKYe64nSkUerucerrIhJsTbnAZ3Cg&usqp=CAU',
+            'https://media3.s-nbcnews.com/j/newscms/2014_23/485841/140603-leonardo_db77e036a4d527d408ebf82df669b334.fit-760w.jpg',
           about: 'Gideon is cool',
           is_Charity: false,
           is_artist: true
@@ -51,7 +53,7 @@ exports.seed = function (knex) {
           email: 'lewis@gmail.com',
           name: 'Lewis',
           profile_picture:
-            'https://content.api.news/v3/images/bin/a6923adbc7bece73803221613f410782',
+            'https://ca.slack-edge.com/T02SQPVAC-U015SV1D742-80ebe5b6b3e0-512',
           about: 'Lewis is cool',
           is_Charity: false,
           is_artist: false
@@ -61,9 +63,9 @@ exports.seed = function (knex) {
           username: 'marika1',
           hash: marikaHash,
           email: 'marika@gmail.com',
-          name: 'Marika',
+          name: 'Salvador Dali',
           profile_picture:
-            'https://images.fastcompany.net/image/upload/w_1280,f_auto,q_auto,fl_lossy/wp-cms/uploads/2019/12/p-1-greta-thunberg-was-just-named-time-magazines-2019-person-of-the-year.jpg',
+            'https://blog.artsper.com/wp-content/uploads/2019/07/Salvador-Dali-644x430.png',
           about: 'Marika is cool',
           is_Charity: false,
           is_artist: true
@@ -73,9 +75,9 @@ exports.seed = function (knex) {
           username: 'evelyn1',
           hash: evelynHash,
           email: 'evelyn@gmail.com',
-          name: 'Evelyn',
+          name: 'Sandro Botticelli',
           profile_picture:
-            'https://www.guinnessworldrecords.com/Images/Greta-Thunberg-youngest-time-person-of-the-yearthumbnail_tcm25-603423.jpg',
+            'https://www.nationalgallery.org.uk/media/30073/botticelli-sandro-c-face-half.jpg?center=0.28358208955223879,0.52960526315789469&mode=crop&width=430&bgcolor=fff&rnd=132138115430000000',
           about: 'Evelyn is cool',
           is_Charity: false,
           is_artist: true
@@ -155,6 +157,32 @@ exports.seed = function (knex) {
             'https://www.cid.org.nz/assets/Uploads/b771c952d4/UNICEF-v2.jpg',
           about:
             'UNICEF is the United Nations Childrens Fund For over 70 years, weve been working to protect the rights of children in over 190 countries and territories around the world.',
+          is_Charity: true,
+          is_artist: false
+        },
+        {
+          id: 11,
+          username: 'frida',
+          hash: fridaHash,
+          email: 'frida@gmail.com',
+          name: 'Frida Kahlo',
+          profile_picture:
+            'https://uploads4.wikiart.org/images/magdalena-carmen-frieda-kahlo-y-calder%C3%B3n-de-rivera/self-portrait-with-necklace-of-thorns-1940.jpg!Portrait.jpg',
+          about:
+            'I am a Mexican painter known for my many portraits, self-portraits, and works inspired by the nature and artifacts of Mexico. Inspired by the country\'s popular culture, I use my art to explore questions of identity, postcolonialism, gender, class, and race in Mexican society',
+          is_Charity: false,
+          is_artist: true
+        },
+        {
+          id: 12,
+          username: 'womensrefuge',
+          hash: fridaHash,
+          email: 'womensrefuge@gmail.com',
+          name: 'Women\'s Refuge',
+          profile_picture:
+            'https://s3.amazonaws.com/tc-global-prod/uploaded_images/nz/images/6972/original/Untitled_design_%285%29.png',
+          about:
+            'New Zealand’s largest nation-wide organisation that supports and helps women and children experiencing family violence. Our vision is for all women and children in Aotearoa to live free from domestic and family violence.',
           is_Charity: true,
           is_artist: false
         }
