@@ -38,11 +38,11 @@ exports.seed = function (knex) {
           id: 1,
           username: 'gideon1',
           hash: gideonHash,
-          email: 'gideon@gmail.com',
+          email: 'davinci@gmail.com',
           name: 'Leonardo da Vinci',
           profile_picture:
             'https://media3.s-nbcnews.com/j/newscms/2014_23/485841/140603-leonardo_db77e036a4d527d408ebf82df669b334.fit-760w.jpg',
-          about: 'Gideon is cool',
+          about: 'Most known for the chick I painted with moving eyes.',
           is_Charity: false,
           is_artist: true
         },
@@ -54,7 +54,7 @@ exports.seed = function (knex) {
           name: 'Lewis',
           profile_picture:
             'https://ca.slack-edge.com/T02SQPVAC-U015SV1D742-80ebe5b6b3e0-512',
-          about: 'Lewis is cool',
+          about: 'I want some art!',
           is_Charity: false,
           is_artist: false
         },
@@ -62,11 +62,11 @@ exports.seed = function (knex) {
           id: 3,
           username: 'marika1',
           hash: marikaHash,
-          email: 'marika@gmail.com',
+          email: 'trippypaintings@gmail.com',
           name: 'Salvador Dali',
           profile_picture:
             'https://blog.artsper.com/wp-content/uploads/2019/07/Salvador-Dali-644x430.png',
-          about: 'Marika is cool',
+          about: 'Yes, I\'m doing Movember. I paint really trippy stuff.',
           is_Charity: false,
           is_artist: true
         },
@@ -74,11 +74,11 @@ exports.seed = function (knex) {
           id: 4,
           username: 'evelyn1',
           hash: evelynHash,
-          email: 'evelyn@gmail.com',
+          email: 'botticelli@gmail.com',
           name: 'Sandro Botticelli',
           profile_picture:
             'https://www.nationalgallery.org.uk/media/30073/botticelli-sandro-c-face-half.jpg?center=0.28358208955223879,0.52960526315789469&mode=crop&width=430&bgcolor=fff&rnd=132138115430000000',
-          about: 'Evelyn is cool',
+          about: 'I like painting people and religious stuff',
           is_Charity: false,
           is_artist: true
         },
