@@ -12,12 +12,13 @@ beforeEach(() => {
   return testDb.seed.run()
 })
 
-// This one passes if runs before the others
+// This one used to pass but now it times out
 describe('getArtworks', () => {
   it('returns the correct number of artworks', () => {
     return db.getArtworks(testDb)
       .then(artworks => {
-        expect(artworks).toHaveLength(12)
+        console.log('test ', artworks)
+        expect(artworks).toHaveLength(13)
         return null
       })
   })
