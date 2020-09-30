@@ -22,6 +22,7 @@ import Profile from './Profile'
 import EditProfile from './EditProfile'
 import ArtistBio from './ArtistBio'
 import ArtworkDetails from './ArtworkDetails'
+import About from './About'
 
 const App = () => {
   const [user, setUser] = useContext(UserContext)
@@ -71,6 +72,7 @@ const App = () => {
       <Route path="/add-artwork" component={AddArtwork} />
       <Route path="/ArtistBio/:id" component={ArtistBio} />
       <Route path="/ArtworkDetails/:id" component={ArtworkDetails} />
+      <Route path="/About" component={About} />
     </div>
   )
 }

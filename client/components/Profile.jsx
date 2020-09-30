@@ -7,13 +7,13 @@ import { getArtist, getUser } from '../api'
 import ProfileArtListings from './ProfileArtListings'
 import Footer from './Footer'
 
-export default function Profile() {
+export default function Profile () {
   const [user, setUser] = useContext(UserContext)
 
   const [artist, setArtist] = useState({})
 
   useEffect(() => {
-    // console.log('User ID (in component): ', user.id)
+    console.log('User (in component): ', user)
     if (user.id !== null) {
       getArtist(String(user.id))
         .then((result) => {
