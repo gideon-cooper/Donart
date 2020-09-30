@@ -13,7 +13,7 @@ export default function EditProfile(props) {
   // console.log(props)
   const [form, setForm] = useState({
     name: user.name,
-    about: user.about,
+    about: user.about
   })
   const [image, setImage] = useState(user.image)
   const [isCharity, setCharityBoolean] = useState(user.isCharity)
@@ -23,7 +23,7 @@ export default function EditProfile(props) {
 
   useEffect(() => {
     setForm(user ? { name: user.name, about: user.about } : null)
-    setImage(user ? user.image : null)
+    setImage(user ? user.image : '')
     setCharityBoolean(user ? user.isCharity : 0)
     setArtistBoolean(user ? user.isArtist : 0)
   }, [user])
@@ -92,7 +92,7 @@ export default function EditProfile(props) {
                     <input
                       name="file"
                       className="file-input"
-                      // value={image}
+                      // value={user ? user.image : ''}
                       onChange={uploadImage}
                       type="file"
                       placeholder="Choose profile picture"
@@ -111,7 +111,7 @@ export default function EditProfile(props) {
               <input
                 className="input"
                 name="name"
-                value={form.name ? capitalizeFirstLetter(form.name) : null}
+                value={form.name ? capitalizeFirstLetter(form.name) : ''}
                 onChange={handleChange}
                 type="text"
                 placeholder="Enter your name"
@@ -136,7 +136,7 @@ export default function EditProfile(props) {
                   name="isCharity"
                   onChange={(event) => setCharityBoolean(event.target.value)}
                 >
-                  <option value={isCharity}>Choose option...</option>
+                  <option value={user ? isCharity : ''}>Choose option...</option>
                   <option key="is-charity" name="charity" value={1}>
                     Yes, I&apos;m a charity
                   </option>
@@ -153,7 +153,7 @@ export default function EditProfile(props) {
                   name="isArtist"
                   onChange={(event) => setArtistBoolean(event.target.value)}
                 >
-                  <option value={isArtist}>Choose option...</option>
+                  <option value={user ? isArtist : ''}>Choose option...</option>
                   <option key="is-artist" name="artist" value={1}>
                     Yes, I&apos;m an artist
                   </option>
