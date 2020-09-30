@@ -73,12 +73,12 @@ export default function Profile() {
               </Link>
             </div>
             <div className=" column is-one-quarter  rightProfile">
+              <h1>Your Listings</h1>
               {artist.artworks === undefined || artist.artworks.length === 0 ? (
                 <p>You have not listed any artworks</p>
               ) : (
                 artist.artworks.map((art) => (
                   <>
-                    <h1>Your Listings</h1>
                     <ProfileArtListings
                       key={art.id}
                       artwork={art}
