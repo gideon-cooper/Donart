@@ -19,3 +19,12 @@
 # Decision Making
 - Democracy - consensus  => If not play red or black
 - If you are working on something  - You make the calls!
+
+# Roles
+- Git: Evelyn
+- Content: Evelyn
+- Styling: Lewis
+- Frontend Lead: Gideon
+- Product Owner: Lewis
+- Backend: Marika
+- Testing: Everyone
