@@ -21,36 +21,44 @@ export default function SignIn(props) {
 
   const handleClick = () => {
     const { username, password } = form
-    return signIn({ username, password }, { baseUrl }).then((token) => {
-      // console.log(token)
-      if (isAuthenticated()) {
-        updateUserContext(setUser)
-        return props.history.push('/')
-      }
-      return null
-    })
+    if (Object.values(form).filter((item) => item !== '').length === 2) {
+      return signIn({ username, password }, { baseUrl }).then((token) => {
+        // console.log(token)
+        if (isAuthenticated()) {
+          updateUserContext(setUser)
+          return props.history.push('/')
+        }
+        return null
+      })
+    } else {
+      alert('Please out all forms.')
+    }
   }
   return (
-    <div className="signIn">
-      <div className="signInForm">
-        <input
-          name="username"
-          value={form.username}
-          onChange={handleChange}
-          type="text"
-          placeholder="Username"
-        />
-        <input
-          name="password"
-          value={form.password}
-          onChange={handleChange}
-          type="password"
-          placeholder="Password"
-        />
-        <button onClick={handleClick}>Sign in</button>
-        <Link to="/register">
-          <h4>Register</h4>
-        </Link>
+    <div className="container">
+      <div className="signIn">
+        <div className="card-flex-item card ">
+          <div className="signInForm">
+            <input
+              name="username"
+              value={form.username}
+              onChange={handleChange}
+              type="text"
+              placeholder="Username"
+            />
+            <input
+              name="password"
+              value={form.password}
+              onChange={handleChange}
+              type="password"
+              placeholder="Password"
+            />
+            <button onClick={handleClick}>Sign in</button>
+            <Link to="/register">
+              <h4>Register</h4>
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   )
