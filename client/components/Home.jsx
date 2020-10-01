@@ -134,7 +134,7 @@ export default function Home (props) {
         {/* ---- Chairities Section Carousel ---- */}
 
         <div className="artworkCarousel" style={{paddingBottom: "120px"}}>
-          {charities.slice(0, 4).map((charity) => {
+          {charities.slice(0, 5).map((charity) => {
             return <CarouselCharities charity={charity} key={charity.id} />
           })}
         </div>

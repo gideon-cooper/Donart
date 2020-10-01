@@ -24,7 +24,6 @@ export default function Register(props) {
 
   const handleClick = () => {
     const { username, password, email, name } = form
-    console.log('HEY', Object.values(form))
     if (Object.values(form).filter((item) => item !== '').length === 4) {
       register(
         {
