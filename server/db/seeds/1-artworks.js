@@ -33,7 +33,7 @@ exports.seed = function (knex) {
           artist_id: 1,
           name: 'Mona Lisa',
           price: 20,
-          description: "This is an artwork inspired by the artist's mum",
+          description: "This is an artwork inspired by my mum",
           image:
             'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRtdZYKldcbOa8ryIDvt-hTQCPM8FklZYfZaw&usqp=CAU',
           is_available: true
@@ -44,7 +44,7 @@ exports.seed = function (knex) {
           artist_id: 5,
           name: 'Evelyn the acrobat',
           price: 15,
-          description: 'This is an artwork inspired by Evelyn',
+          description: 'This is an artwork inspired by Evelyn... who\'s an acrobat',
           image: '/images/Hayley_1.jpg',
           is_available: true
         },
@@ -52,9 +52,9 @@ exports.seed = function (knex) {
           id: 904,
           cause_id: 10,
           artist_id: 5,
-          name: 'Owl and me',
+          name: 'Kereru and me',
           price: 15,
-          description: 'This is an artwork inspired by stuff',
+          description: 'This is an artwork inspired by a Kereru and me',
           image: '/images/Hayley_2.jpg',
           is_available: true
         },

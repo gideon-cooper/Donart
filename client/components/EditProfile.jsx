@@ -122,7 +122,7 @@ export default function EditProfile(props) {
                 rows="3"
                 className="textarea"
                 name="about"
-                value={form.about}
+                value={form.about ? form.about : ''}
                 onChange={handleChange}
                 type="text"
                 placeholder="About"
