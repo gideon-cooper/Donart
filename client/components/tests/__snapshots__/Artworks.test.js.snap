@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+Array [
+  <div
+    className="artworkDisplay"
+    style={
+      Object {
+        "paddingBottom": "150px",
+      }
+    }
+  >
+    <div
+      className="categoryTitle"
+    >
+      <hr />
+      <h2>
+        Browse Artworks
+      </h2>
+      <hr />
+    </div>
+    <div
+      className="card-flex-wrapper column is-three-quarters"
+    />
+  </div>,
+  <div
+    className="footer"
+  >
+    <a
+      href="#/About"
+      onClick={[Function]}
+    >
+      <div
+        className="firstColumn"
+      >
+        <h1>
+          About us
+        </h1>
+      </div>
+    </a>
+    <div
+      className="secondColumn"
+    >
+      <div>
+        <h1>
+          Contact us
+        </h1>
+        <br />
+      </div>
+      <div>
+        <h1
+          className="gideonsLineBreaks"
+        >
+          Copyright © 2020 – Donart® All Rights Reserved
+          <br />
+          Terms of Use | Privacy Policy | Disclaimer
+        </h1>
+      </div>
+    </div>
+    <div
+      className="thirdColumn"
+    >
+      <h1>
+        Legal
+      </h1>
+    </div>
+  </div>,
+]
+`;

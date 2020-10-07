@@ -1,17 +1,630 @@
 @charset "utf-8";
 
-@import "../../../node_modules/bulma/bulma.sass";
+@import '../../../node_modules/bulma/bulma.sass';
 
-@import "modules/colors";
+@import '../../../node_modules/react-grid-layout/css/styles.css';
 
-@import "../style/partials/layout";
+@import '../../../node_modules/react-resizable/css/styles.css';
 
-@import "../style/partials/typography"
+@import 'modules/colors';
 
+@import '../style/partials/layout';
 
-// * {
-//   margin: 0;
-//   padding: 0;
+@import '../style/partials/typography';
+
+@import 'react-slideshow-image/dist/styles.css';
+
+//----- Global Styling -----//
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// *, *:before, *:after {
+//   -moz-box-sizing: border-box;
+//   -webkit-box-sizing: border-box;
 //   box-sizing: border-box;
-//   background-color: aqua;
+//   // margin: 0;
+//   // padding: 0;
 // }
+
+html,
+body {
+}
+
+a {
+  color: #363636;
+}
+.fas {
+  &:active {
+    color: #333333;
+  }
+}
+
+//----- Nav Styling -----//
+
+.App {
+  min-height: 100vh;
+  margin: auto;
+  position: relative;
+  padding-bottom: 175px; // height of the footer
+  display: block;
+  overflow: hidden;
+}
+
+//----- Nav Styling -----//
+
+.Nav {
+  width: 100%;
+  height: 10%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0;
+  i {
+    color: #363636;
+    padding-right: 2rem;
+    cursor: pointer;
+  }
+  .logo {
+    width: 20%;
+    margin-top: 0.5rem;
+  }
+  .rightSide {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+  }
+  .rightItems {
+    display: flex;
+    justify-content: space-around;
+
+    .navMenuItems {
+      margin-right: 2rem;
+      color: #363636;
+      font-weight: bold;
+    }
+    .navMenuCounter {
+      margin-right: 1rem;
+      color: #363636;
+      font-weight: 700;
+    }
+    .navMenuCounter {
+      color: #363636;
+    }
+    .fa-shopping-cart {
+      padding-top: 0.2rem;
+      color: #363636;
+      cursor: pointer;
+    }
+  }
+  .middleItems {
+    display: flex;
+
+    .navMenuItems {
+      margin-right: 2rem;
+      color: #363636;
+      font-weight: bold;
+    }
+  }
+
+  .cart {
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    top: 70%;
+    right: 8%;
+    width: 20rem;
+    height: 30rem;
+    background-color: white;
+    // border: 0.1rem solid #6b6b6b;
+    // border-radius: 0.5rem;
+    .checkoutButtonDiv {
+      width: 100%;
+      height: 10%;
+    }
+    .checkoutButton {
+      width: 100%;
+      height: 100%;
+    }
+    .cartItemContainer {
+      width: 100%;
+      height: 90%;
+      overflow-y: scroll;
+      .emptyText {
+        width: 90%;
+        margin: auto;
+        height: 100%;
+        text-align: center;
+      }
+    }
+    .cartItem {
+      width: 95%;
+      margin: auto;
+      margin-top: 1rem;
+      height: 20%;
+      border: 1px solid black;
+      display: flex;
+
+      .leftCart {
+        padding-left: 0.3rem;
+        p {
+          font-size: 0.9em;
+        }
+        button {
+          height: 2em;
+        }
+        width: 60%;
+      }
+      .rightCart {
+        width: 40%;
+      }
+    }
+  }
+}
+.categoryTitle {
+  padding-top: 1rem;
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  h2 {
+    font-size: 2rem;
+  }
+  hr {
+    height: 1px;
+    border: solid 1px black;
+    color: black;
+    width: 30%;
+  }
+}
+//----- Home Styling -----//
+.artworkItem {
+  .artistName {
+    margin-top: 0.5rem;
+  }
+  button {
+    margin-top: 1rem;
+  }
+}
+.home {
+  .aboutUsHome {
+    .aboutUsImage {
+      // .firstImage,
+      // .secondImage,
+      // .thirdImage {
+      //   // width: 100%;
+      //   // height: 100%;
+      // }
+      img {
+        // width: 100%;
+        position: relative;
+        z-index: 1;
+        // height: 100%;
+      }
+    }
+  }
+
+  //----- CarsoulelArt/Home Styling -----//
+
+  .artworkDisplay {
+    .displayTitle {
+      padding: 2rem 0.5rem;
+      width: 100%;
+      height: 150%;
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+
+      h2 {
+        font-size: 1.3rem;
+        font-family: Sans-Serif, Arial, Verdana;
+        font-weight: 700;
+        letter-spacing: 3px;
+        color: #363636;
+        margin-top: 0.6rem;
+        text-align: center;
+      }
+      hr {
+        height: 0.5px;
+        border: solid 1px rgb(161, 161, 161);
+        width: 40%;
+      }
+    }
+    .carouselArt {
+      border: solid 1px black;
+      border-radius: 10px;
+      margin-left: 1rem;
+      padding: 1rem;
+    }
+
+    .artworkCarousel {
+      width: 100%;
+      height: 80%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .homeAddToCartButton {
+      button {
+        margin-top: 0.7rem;
+      }
+    }
+  }
+
+  .successTitle {
+    padding-top: 1rem;
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    h2 {
+      font-size: 1.3rem;
+      font-family: Sans-Serif, Arial, Verdana;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: #363636;
+      margin-top: 0.6rem;
+      text-align: center;
+    }
+    hr {
+      height: 0.5px;
+      border: solid 1px rgb(161, 161, 161);
+      width: 30%;
+    }
+  }
+  .successBody {
+    width: 100%;
+    height: 80%;
+
+    display: flex;
+    p {
+      font-size: 1.5rem;
+    }
+    .successText {
+      width: 90%;
+      height: 60%;
+      margin: auto;
+    }
+    .successProfile {
+      width: 90%;
+      margin: auto;
+      height: 30%;
+
+      display: flex;
+      .successProfileName {
+        width: 70%;
+        height: 100%;
+      }
+      .successProfileImage {
+        width: 30%;
+        height: 100%;
+        background-color: golden;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+    .leftSuccess {
+      width: 40%;
+      height: 90%;
+      margin: auto;
+    }
+    .rightSuccess {
+      width: 40%;
+      height: 90%;
+      margin: auto;
+    }
+  }
+  // }
+}
+
+//----- Footer Styling -----//
+.singleArtwork {
+  padding: 1rem;
+}
+.footer {
+  background-color: #333333;
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 0;
+
+  h1 {
+    color: white;
+    font-family: Sans-Serif, Arial, Verdana;
+    font-size: 0.9em;
+    font-weight: 600;
+  }
+
+  .secondColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+  }
+}
+.profile {
+  width: 100%;
+  height: 100%;
+
+  .topProfile {
+    width: 100%;
+    height: 70%;
+    img {
+      border-radius: 5%;
+    }
+    .left {
+      margin-left: 10rem;
+      padding: 2.5rem 4rem;
+      .email {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+      .bio {
+        margin-top: 1rem;
+      }
+    }
+    .columns {
+      width: 100%;
+      padding-top: 2rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    .profileTitle {
+      width: 100%;
+      height: 10%;
+    }
+    button {
+      margin-top: 2rem;
+    }
+
+    .rightProfile {
+      height: 100%;
+      width: 50%;
+      margin: auto;
+    }
+  }
+}
+.editProfile {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+
+  .card {
+    width: 100%;
+    height: 95%;
+    padding: 3.5rem;
+    img {
+      margin-top: 0.5rem;
+      margin-bottom: 0.3rem;
+      border-radius: 0.5rem;
+    }
+    .updateProfileButton {
+      margin-top: 1rem;
+      button {
+        font-size: 1rem;
+      }
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: 500;
+    }
+    h5 {
+      margin-top: 0.7rem;
+    }
+  }
+  .editProfileForm {
+    width: 60%;
+  }
+}
+.checkoutItem {
+  width: 70%;
+  max-height: 30%;
+  margin: auto;
+  display: flex;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
+  .leftCheckout {
+    width: 30%;
+    height: 100%;
+  }
+  .rightCheckout {
+    width: 70%;
+    height: 100%;
+    p {
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+//----- SignIn Styling -----//
+.container {
+  height: 100%;
+  margin-top: 4rem;
+}
+.signIn {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  .card {
+    height: 20rem;
+  }
+  .signInForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+    padding-top: 4%;
+    input {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      padding: 0.5rem 1rem;
+      width: 70%;
+      border: none;
+      border-bottom: 1px solid black;
+      background-color: whitesmoke;
+      outline: none;
+    }
+    button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      width: 70%;
+    }
+    h4 {
+      margin-top: 3rem;
+    }
+  }
+}
+
+//----- Register Styling -----//
+
+.register {
+  width: 100%;
+  margin-top: 3rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .registerForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+    padding-top: 1%;
+    padding: 2rem;
+    input {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      width: 80%;
+      border: none;
+      border-bottom: 1px solid black;
+      background-color: whitesmoke;
+      outline: none;
+    }
+    button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      width: 80%;
+    }
+    h1 {
+      font-size: 12px;
+      margin-top: 1rem;
+    }
+    .toSignin {
+      font-size: 18px;
+    }
+  }
+}
+
+.artName {
+  width: 100%;
+  height: 100%;
+}
+.checkout {
+  height: 100%;
+}
+.emptyCart {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.buyNow {
+  margin-top: 1rem;
+  width: 100%;
+  height: 20%;
+  text-align: center;
+}
+.confirmation {
+  padding-top: 7rem;
+  height: 75%;
+  width: 100%;
+  text-align: center;
+}
+.artworkDetails {
+  height: 100%;
+  width: 100%;
+}
+//----- Confirmation Styling -----//
+.addArtworkForm {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  .addButton {
+    padding-top: 0.8rem;
+  }
+  .columns {
+    width: 38%;
+  }
+  h5 {
+    margin-top: 0.6rem;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  .card {
+    padding: 3.5rem;
+  }
+}
+.confirmationMessage {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+// ----- About page styling ----- //
+
+.about {
+  .aboutPage {
+    padding-top: 1rem;
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    h2 {
+      font-size: 1.3rem;
+      font-family: Sans-Serif, Arial, Verdana;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: #363636;
+      margin-top: 0.6rem;
+      text-align: center;
+    }
+    hr {
+      height: 0.5px;
+      border: solid 1px rgb(161, 161, 161);
+      width: 30%;
+    }
+  }
+  .about-flex-wrapper {
+    display: flex;
+    margin: 0 auto;
+  }
+}

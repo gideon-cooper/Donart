@@ -1,14 +1,14 @@
 exports.up = (knex) => {
   return knex.schema.createTable('users', (table) => {
-    table.increments('id')
-    table.integer('artwork_id') // for users own artwork
+    table.increments('id').primary()
     table.string('username')
+    table.string('name')
     table.binary('hash')
     table.string('email')
-    table.string('name')
-    table.string('profile_picture')
-    table.string('about_info')
-    // table.integer('user_id').references('id').inTable('users');
+    table.string('profile_picture', 1024)
+    table.string('about', 1024)
+    table.boolean('is_Charity').defaultTo(false)
+    table.boolean('is_artist').defaultTo(false)
   })
 }
 
